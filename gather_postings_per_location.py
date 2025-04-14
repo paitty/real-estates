@@ -96,25 +96,14 @@ def add_price_in_listings(link_list,max_price):
 def display_cities_on_map(list_of_cities, just_link, numbers_in_city, html_filename):
 
     #headers={'User-Agent': 'Mozilla/5.0'}
-
-    latitudes = []
-    longitudes = []
-    for i in range(len(numbers_in_city)):
-        if numbers_in_city[i] == '0':
-            numbers_in_city[i]='-'
-    for city in list_of_cities:            
-            if city == 'Monteserpo - Komunal':
-                city = 'MONTE sERPO'
-            city=city + ', istra'
-            print(city)
-            url='https://nominatim.openstreetmap.org/search.php?q='+city+'&format=jsonv2'
-            r= requests.get(url, headers=headers)
-            if r.json() == []:
-                url='https://nominatim.openstreetmap.org/search.php?q='+city.split()[0]+'&format=jsonv2'
-                r= requests.get(url, headers=headers)
-            latitudes.append(r.json()[0]['lat'])
-            longitudes.append(r.json()[0]['lon'])
-            
+    
+    with open("latitude.json", 'r') as outfile:
+        latitudes = json.load(outfile)
+    with open("longitude.json", 'r') as outfile:
+        longitudes = json.load(outfile)
+    with open("duration.json", 'r') as outfile:
+        durations = json.load(outfile)
+    
     njuskalo_link = just_link
     for i in range(len(just_link)):
         njuskalo_link[i] = '<a href="'+just_link[i]+'" target=”_blank”>'+list_of_cities[i]+'</a>'
@@ -122,13 +111,14 @@ def display_cities_on_map(list_of_cities, just_link, numbers_in_city, html_filen
     df = pd.DataFrame({'Properties':njuskalo_link,
                         'Numbers':numbers_in_city, 
                         'Latitude':latitudes,
-                        'Longitude':longitudes})
+                        'Longitude':longitudes,
+                        'Durations':durations})
 
     m = folium.Map(location=[45.1816824,13.86411], tiles="OpenStreetMap", zoom_start=10)
 
     for i in range(0,len(df)):
         point_location=[df.iloc[i]['Latitude'], df.iloc[i]['Longitude']]
-        duration = get_duration(point_location)
+        duration = df.iloc[i]['Durations']
         if duration < 20:
             icon_color ="#004506" #green
         elif duration <30:
@@ -156,7 +146,7 @@ def get_numbers_from_njuskalo(just_link):
         page = browser.new_page()
         page.goto("https://www.njuskalo.hr/prodaja-kuca/istra")
         page.click('button:has-text("Prihvati i zatvori")')
-        page.click('button:has-text("RAZUMIJEM")')
+        #page.click('button:has-text("RAZUMIJEM")')
         for link in just_link:
             number = 0
             time.sleep(random.choice(list1))
@@ -169,6 +159,32 @@ def get_numbers_from_njuskalo(just_link):
             numbers_in_city.append(number)   
         browser.close()
     return numbers_in_city
+
+def get_lat_lon(list_of_cities):
+    latitudes = []
+    longitudes = []
+    durations = []
+    for city in list_of_cities:            
+        if city == 'Monteserpo - Komunal':
+            city = 'MONTE sERPO'
+        city=city + ', istra'
+        print(city)
+        url='https://nominatim.openstreetmap.org/search.php?q='+city+'&format=jsonv2'
+        r= requests.get(url, headers=headers)
+        if r.json() == []:
+            url='https://nominatim.openstreetmap.org/search.php?q='+city.split()[0]+'&format=jsonv2'
+            r= requests.get(url, headers=headers)
+        latitudes.append(r.json()[0]['lat'])
+        longitudes.append(r.json()[0]['lon'])
+        durations.append(get_duration([r.json()[0]['lat'], r.json()[0]['lon']]))
+    
+    with open("latitude.json", 'w') as outfile:
+        json.dump(latitudes, outfile, indent=4)
+    with open("longitude.json", 'w') as outfile:
+        json.dump(longitudes, outfile, indent=4)
+    with open("duration.json", 'w') as outfile:
+        json.dump(durations, outfile, indent=4)
+
 
 def add_categorical_legend(folium_map, title, colors, labels):
     if len(colors) != len(labels):
@@ -287,14 +303,14 @@ just_link = add_price_in_listings(just_link,200000)
 numbers_in_city = [''] * len(just_link)
 start_i=0
 
-#start_i, numbers_in_city = open_from_json('start_i','numbers_in_city','numbers_save_2.json')
+start_i, numbers_in_city = open_from_json('start_i','numbers_in_city','numbers_save.json')
 
-#while len(just_link) > start_i:
-#    start = start_i
-#    end =min(len(just_link),start_i+10)
-#    numbers_in_city[start:end] = get_numbers_from_njuskalo(just_link[start:end])
-#    start_i=min(len(just_link),start_i+10)
-#    save_numbers_to_json('numbers_save_2.json')
+while len(just_link) > start_i:
+    start = start_i
+    end =min(len(just_link),start_i+10)
+    numbers_in_city[start:end] = get_numbers_from_njuskalo(just_link[start:end])
+    start_i=min(len(just_link),start_i+10)
+    save_numbers_to_json('numbers_save.json')
 
 
 
@@ -308,5 +324,6 @@ start_i, numbers_in_city = open_from_json('start_i','numbers_in_city','numbers_s
 #numbers_in_city =  ['13', '0', '0', '1', '47', '0', '0', '3', '0', '3', '1', '0', '0', '1', '2', '1', '0', '5', '0', '4', '0', '2', '2', '0', '0', '3', '24', '0', '2', '1', '0', '0', '22', '0', '0', '2', '2', '2', '1', '1', '0', '5', '0', '1', '1', '1', '46', '0', '0', '0', '8', '5', '0', '1', '1', '0', '1', '1', '2', ...]
 pass
 #numbers_in_city = [''] * len(just_link)
+get_lat_lon(list_of_cities)
 
 display_cities_on_map(list_of_cities, just_link, numbers_in_city, 'detail_footprint.html')

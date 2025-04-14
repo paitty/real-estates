@@ -27,7 +27,7 @@ def get_numbers_from_njuskalo(just_link):
         page = browser.new_page()
         page.goto("https://www.njuskalo.hr/prodaja-kuca/istra")
         page.click('button:has-text("Prihvati i zatvori")')
-        page.click('button:has-text("RAZUMIJEM")')
+        #page.click('button:has-text("RAZUMIJEM")')
         for link in just_link:
             number = 0
             time.sleep(1+random.choice(list1))
