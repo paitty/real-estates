@@ -1,0 +1,7 @@
+pandas
+BeautifulSoup4
+datetime
+folium
+requests
+webbrowser
+pytest-playwright

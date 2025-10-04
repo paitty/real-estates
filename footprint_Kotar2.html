@@ -1,0 +1,4496 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script type="text/javascript">
+        var oneTimeExecution = (function() {
+                    var executed = false;
+                    return function() {
+                        if (!executed) {
+                             var checkExist = setInterval(function() {
+                                       if ((document.getElementsByClassName('leaflet-top leaflet-right').length) || (!executed)) {
+                                          document.getElementsByClassName('leaflet-top leaflet-right')[0].style.display = "flex"
+                                          document.getElementsByClassName('leaflet-top leaflet-right')[0].style.flexDirection = "column"
+                                          document.getElementsByClassName('leaflet-top leaflet-right')[0].innerHTML += `
+    <div id='maplegend' class='maplegend'>
+      <div class='legend-title'>Distance to Rovinj:</div>
+      <div class='legend-scale'>
+        <ul class='legend-labels'>
+        <li><span style='background:#004506'></span>< 20 min</li><li><span style='background:#2efa00'></span>< 30 min</li><li><span style='background:#bcd100'></span>< 45 min</li><li><span style='background:#e62c0b'></span>>= 45min</li>
+        </ul>
+      </div>
+    </div>
+    `;
+                                          clearInterval(checkExist);
+                                          executed = true;
+                                       }
+                                    }, 100);
+                        }
+                    };
+                })();
+        oneTimeExecution()
+        </script>
+      
+
+    <style type='text/css'>
+      .maplegend {
+        z-index:9999;
+        float:right;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 5px;
+        border: 2px solid #bbb;
+        padding: 10px;
+        font-size:12px;
+        positon: relative;
+      }
+      .maplegend .legend-title {
+        text-align: left;
+        margin-bottom: 5px;
+        font-weight: bold;
+        font-size: 90%;
+        }
+      .maplegend .legend-scale ul {
+        margin: 0;
+        margin-bottom: 5px;
+        padding: 0;
+        float: left;
+        list-style: none;
+        }
+      .maplegend .legend-scale ul li {
+        font-size: 80%;
+        list-style: none;
+        margin-left: 0;
+        line-height: 18px;
+        margin-bottom: 2px;
+        }
+      .maplegend ul.legend-labels li span {
+        display: block;
+        float: left;
+        height: 16px;
+        width: 30px;
+        margin-right: 5px;
+        margin-left: 0;
+        border: 0px solid #ccc;
+        }
+      .maplegend .legend-source {
+        font-size: 80%;
+        color: #777;
+        clear: both;
+        }
+      .maplegend a {
+        color: #777;
+        }
+    </style>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_12eb4a10008ee9ed883ec7a0de458bba {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_12eb4a10008ee9ed883ec7a0de458bba" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_12eb4a10008ee9ed883ec7a0de458bba = L.map(
+                "map_12eb4a10008ee9ed883ec7a0de458bba",
+                {
+                    center: [45.31155, 14.84928],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c44f0b1c3c577ab0ce1721f244f13f1c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_c44f0b1c3c577ab0ce1721f244f13f1c.addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var marker_490f7b44714df38472945510b15118ed = L.marker(
+                [45.4636079, 14.9711378],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_8a91dd934361463241abeacabdf8beb1 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_490f7b44714df38472945510b15118ed.setIcon(beautify_icon_8a91dd934361463241abeacabdf8beb1);
+        
+    
+        var popup_1613dc54fa5923064d980b34b751e58d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8e374b0a47e955c0a6fae630a10bb1b4 = $(`<div id="html_8e374b0a47e955c0a6fae630a10bb1b4" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/brod-moravice-brod-moravice?price[max]=200000" target=”_blank”>Brod Moravice</a></div>`)[0];
+                popup_1613dc54fa5923064d980b34b751e58d.setContent(html_8e374b0a47e955c0a6fae630a10bb1b4);
+            
+        
+
+        marker_490f7b44714df38472945510b15118ed.bindPopup(popup_1613dc54fa5923064d980b34b751e58d)
+        ;
+
+        
+    
+    
+                marker_490f7b44714df38472945510b15118ed.setIcon(beautify_icon_8a91dd934361463241abeacabdf8beb1);
+            
+    
+            var marker_9711e2372ae3bb77fe2d58aa5c6671d7 = L.marker(
+                [45.5232137, 14.9319587],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_991047d5e1b8252614ba62b6953b8cab = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_9711e2372ae3bb77fe2d58aa5c6671d7.setIcon(beautify_icon_991047d5e1b8252614ba62b6953b8cab);
+        
+    
+        var popup_489f8593a4f97c6b5b72550464d6a0da = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_df26cc7764f19ef555ba085e16f5af00 = $(`<div id="html_df26cc7764f19ef555ba085e16f5af00" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/brod-moravice-colnari?price[max]=200000" target=”_blank”>Colnari</a></div>`)[0];
+                popup_489f8593a4f97c6b5b72550464d6a0da.setContent(html_df26cc7764f19ef555ba085e16f5af00);
+            
+        
+
+        marker_9711e2372ae3bb77fe2d58aa5c6671d7.bindPopup(popup_489f8593a4f97c6b5b72550464d6a0da)
+        ;
+
+        
+    
+    
+                marker_9711e2372ae3bb77fe2d58aa5c6671d7.setIcon(beautify_icon_991047d5e1b8252614ba62b6953b8cab);
+            
+    
+            var marker_2b43b08b869ed401529a63bc0388f3a4 = L.marker(
+                [45.4716325, 14.9586184],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_3957d937145c1ea2eb6188cc0d265696 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_2b43b08b869ed401529a63bc0388f3a4.setIcon(beautify_icon_3957d937145c1ea2eb6188cc0d265696);
+        
+    
+        var popup_ece8cb67cfa044e616fa3202a4a3dc7c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8d903cc8e332600a708ce8ad3bf3c2af = $(`<div id="html_8d903cc8e332600a708ce8ad3bf3c2af" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/brod-moravice-delaci?price[max]=200000" target=”_blank”>Delači</a></div>`)[0];
+                popup_ece8cb67cfa044e616fa3202a4a3dc7c.setContent(html_8d903cc8e332600a708ce8ad3bf3c2af);
+            
+        
+
+        marker_2b43b08b869ed401529a63bc0388f3a4.bindPopup(popup_ece8cb67cfa044e616fa3202a4a3dc7c)
+        ;
+
+        
+    
+    
+                marker_2b43b08b869ed401529a63bc0388f3a4.setIcon(beautify_icon_3957d937145c1ea2eb6188cc0d265696);
+            
+    
+            var marker_53380d842b3c9656efcb5114fc6cc27d = L.marker(
+                [45.4488988, 14.9673044],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_59f86a50daffd18bd65a0a5cf40f849d = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_53380d842b3c9656efcb5114fc6cc27d.setIcon(beautify_icon_59f86a50daffd18bd65a0a5cf40f849d);
+        
+    
+        var popup_7e8355b2fb051798130626354988e0ce = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1daecf05388afd3d3e190bcb27362b16 = $(`<div id="html_1daecf05388afd3d3e190bcb27362b16" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/brod-moravice-donja-dobra?price[max]=200000" target=”_blank”>Donja Dobra</a></div>`)[0];
+                popup_7e8355b2fb051798130626354988e0ce.setContent(html_1daecf05388afd3d3e190bcb27362b16);
+            
+        
+
+        marker_53380d842b3c9656efcb5114fc6cc27d.bindPopup(popup_7e8355b2fb051798130626354988e0ce)
+        ;
+
+        
+    
+    
+                marker_53380d842b3c9656efcb5114fc6cc27d.setIcon(beautify_icon_59f86a50daffd18bd65a0a5cf40f849d);
+            
+    
+            var marker_61b8b69ad35f43bc79ea9746236aab2b = L.marker(
+                [45.471798, 14.9759104],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_210f6370007e1dd10a36bdf9f62e031e = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_61b8b69ad35f43bc79ea9746236aab2b.setIcon(beautify_icon_210f6370007e1dd10a36bdf9f62e031e);
+        
+    
+        var popup_a7b0930084d0c0a71eb743c4cdeeb2d8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f8b01e866337618d073ab8e0af2c5ca7 = $(`<div id="html_f8b01e866337618d073ab8e0af2c5ca7" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/brod-moravice-gornji-kuti?price[max]=200000" target=”_blank”>Gornji Kuti</a></div>`)[0];
+                popup_a7b0930084d0c0a71eb743c4cdeeb2d8.setContent(html_f8b01e866337618d073ab8e0af2c5ca7);
+            
+        
+
+        marker_61b8b69ad35f43bc79ea9746236aab2b.bindPopup(popup_a7b0930084d0c0a71eb743c4cdeeb2d8)
+        ;
+
+        
+    
+    
+                marker_61b8b69ad35f43bc79ea9746236aab2b.setIcon(beautify_icon_210f6370007e1dd10a36bdf9f62e031e);
+            
+    
+            var marker_3fb35cdf508b6b80690e65d4adfebe41 = L.marker(
+                [45.4824849, 14.9192389],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_4ee11024e59049e8a594d45db53620fc = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_3fb35cdf508b6b80690e65d4adfebe41.setIcon(beautify_icon_4ee11024e59049e8a594d45db53620fc);
+        
+    
+        var popup_62437feb431b002a4abb7ca31d76a941 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7952103854dea690ac36ae07b76218fa = $(`<div id="html_7952103854dea690ac36ae07b76218fa" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/brod-moravice-kocijani?price[max]=200000" target=”_blank”>Kocijani</a></div>`)[0];
+                popup_62437feb431b002a4abb7ca31d76a941.setContent(html_7952103854dea690ac36ae07b76218fa);
+            
+        
+
+        marker_3fb35cdf508b6b80690e65d4adfebe41.bindPopup(popup_62437feb431b002a4abb7ca31d76a941)
+        ;
+
+        
+    
+    
+                marker_3fb35cdf508b6b80690e65d4adfebe41.setIcon(beautify_icon_4ee11024e59049e8a594d45db53620fc);
+            
+    
+            var marker_5363bd06fffd711245fa587f31cbba99 = L.marker(
+                [45.4668483, 14.9508896],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_c455d26aa29d9a441724c665f7043e34 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_5363bd06fffd711245fa587f31cbba99.setIcon(beautify_icon_c455d26aa29d9a441724c665f7043e34);
+        
+    
+        var popup_48ce4a458178ea54a01243c99b758213 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_beec36229bf5142c109f26353a1c5be6 = $(`<div id="html_beec36229bf5142c109f26353a1c5be6" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/brod-moravice-lokvica?price[max]=200000" target=”_blank”>Lokvica</a></div>`)[0];
+                popup_48ce4a458178ea54a01243c99b758213.setContent(html_beec36229bf5142c109f26353a1c5be6);
+            
+        
+
+        marker_5363bd06fffd711245fa587f31cbba99.bindPopup(popup_48ce4a458178ea54a01243c99b758213)
+        ;
+
+        
+    
+    
+                marker_5363bd06fffd711245fa587f31cbba99.setIcon(beautify_icon_c455d26aa29d9a441724c665f7043e34);
+            
+    
+            var marker_6dba8772325727b7ed84318575c198a4 = L.marker(
+                [45.4700394, 15.0136412],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_9f2ecca5c65d9c08a19c748da9d9ad76 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_6dba8772325727b7ed84318575c198a4.setIcon(beautify_icon_9f2ecca5c65d9c08a19c748da9d9ad76);
+        
+    
+        var popup_218f7209f8e54ea82e0b402217cb3bc1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1b287e09190208d15703ac385c47f607 = $(`<div id="html_1b287e09190208d15703ac385c47f607" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/brod-moravice-male-drage?price[max]=200000" target=”_blank”>Male Drage</a></div>`)[0];
+                popup_218f7209f8e54ea82e0b402217cb3bc1.setContent(html_1b287e09190208d15703ac385c47f607);
+            
+        
+
+        marker_6dba8772325727b7ed84318575c198a4.bindPopup(popup_218f7209f8e54ea82e0b402217cb3bc1)
+        ;
+
+        
+    
+    
+                marker_6dba8772325727b7ed84318575c198a4.setIcon(beautify_icon_9f2ecca5c65d9c08a19c748da9d9ad76);
+            
+    
+            var marker_22c09d5d1ce61091abe8d259c0d6895a = L.marker(
+                [45.4440578, 14.9669113],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_4b911dfb19dfc72e1b89cfe6226aeaa3 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_22c09d5d1ce61091abe8d259c0d6895a.setIcon(beautify_icon_4b911dfb19dfc72e1b89cfe6226aeaa3);
+        
+    
+        var popup_6090cc2f473ad174f562c404eeb484a7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5c911dda84249eff53e6e640caeff9c5 = $(`<div id="html_5c911dda84249eff53e6e640caeff9c5" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/brod-moravice-novi-lazi?price[max]=200000" target=”_blank”>Novi Lazi</a></div>`)[0];
+                popup_6090cc2f473ad174f562c404eeb484a7.setContent(html_5c911dda84249eff53e6e640caeff9c5);
+            
+        
+
+        marker_22c09d5d1ce61091abe8d259c0d6895a.bindPopup(popup_6090cc2f473ad174f562c404eeb484a7)
+        ;
+
+        
+    
+    
+                marker_22c09d5d1ce61091abe8d259c0d6895a.setIcon(beautify_icon_4b911dfb19dfc72e1b89cfe6226aeaa3);
+            
+    
+            var marker_7202cfdc18efc12e62ad57a2e4a7e1dc = L.marker(
+                [45.4989209, 14.9409113],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_a17cbf2245b262f627551966cf1d89ea = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_7202cfdc18efc12e62ad57a2e4a7e1dc.setIcon(beautify_icon_a17cbf2245b262f627551966cf1d89ea);
+        
+    
+        var popup_df6216823c1d322e606a19cf63da5df4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c000ee6b0f3eadb702d70bb896b9fe54 = $(`<div id="html_c000ee6b0f3eadb702d70bb896b9fe54" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/brod-moravice-podgorani?price[max]=200000" target=”_blank”>Podgorani</a></div>`)[0];
+                popup_df6216823c1d322e606a19cf63da5df4.setContent(html_c000ee6b0f3eadb702d70bb896b9fe54);
+            
+        
+
+        marker_7202cfdc18efc12e62ad57a2e4a7e1dc.bindPopup(popup_df6216823c1d322e606a19cf63da5df4)
+        ;
+
+        
+    
+    
+                marker_7202cfdc18efc12e62ad57a2e4a7e1dc.setIcon(beautify_icon_a17cbf2245b262f627551966cf1d89ea);
+            
+    
+            var marker_7b64398c47b6720ec58110c78d189e2e = L.marker(
+                [45.4357953, 14.9676639],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_2076a2ea9161e64e9ced53a1db241b3b = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_7b64398c47b6720ec58110c78d189e2e.setIcon(beautify_icon_2076a2ea9161e64e9ced53a1db241b3b);
+        
+    
+        var popup_de86ac0e200d111449563964b9b33c46 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_557009670439029039f061c0874463e4 = $(`<div id="html_557009670439029039f061c0874463e4" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/brod-moravice-stari-lazi?price[max]=200000" target=”_blank”>Stari Lazi</a></div>`)[0];
+                popup_de86ac0e200d111449563964b9b33c46.setContent(html_557009670439029039f061c0874463e4);
+            
+        
+
+        marker_7b64398c47b6720ec58110c78d189e2e.bindPopup(popup_de86ac0e200d111449563964b9b33c46)
+        ;
+
+        
+    
+    
+                marker_7b64398c47b6720ec58110c78d189e2e.setIcon(beautify_icon_2076a2ea9161e64e9ced53a1db241b3b);
+            
+    
+            var marker_22ce72e2ee9a25567653045d0c3096cc = L.marker(
+                [45.3732316, 13.7738441],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_c65f4b7da348294ddb3c0a8f88816e7c = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_22ce72e2ee9a25567653045d0c3096cc.setIcon(beautify_icon_c65f4b7da348294ddb3c0a8f88816e7c);
+        
+    
+        var popup_a685aa5c5829065b4d767200c5943c00 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bc4b3d365bc28864e69aca5da16f2c45 = $(`<div id="html_bc4b3d365bc28864e69aca5da16f2c45" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/brod-moravice-zavrsje?price[max]=200000" target=”_blank”>Završje</a></div>`)[0];
+                popup_a685aa5c5829065b4d767200c5943c00.setContent(html_bc4b3d365bc28864e69aca5da16f2c45);
+            
+        
+
+        marker_22ce72e2ee9a25567653045d0c3096cc.bindPopup(popup_a685aa5c5829065b4d767200c5943c00)
+        ;
+
+        
+    
+    
+                marker_22ce72e2ee9a25567653045d0c3096cc.setIcon(beautify_icon_c65f4b7da348294ddb3c0a8f88816e7c);
+            
+    
+            var marker_07ff30076f2eeb6bd0e6a315041aa666 = L.marker(
+                [45.4737457, 14.8942396],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_de40e0c85006178cc96ca119aac5c882 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_07ff30076f2eeb6bd0e6a315041aa666.setIcon(beautify_icon_de40e0c85006178cc96ca119aac5c882);
+        
+    
+        var popup_eb15b3b3e5fd0fb907d39ef3ea1ce8da = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a323d47531979b8e47c90ad345b004ee = $(`<div id="html_a323d47531979b8e47c90ad345b004ee" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-belo?price[max]=200000" target=”_blank”>Belo</a></div>`)[0];
+                popup_eb15b3b3e5fd0fb907d39ef3ea1ce8da.setContent(html_a323d47531979b8e47c90ad345b004ee);
+            
+        
+
+        marker_07ff30076f2eeb6bd0e6a315041aa666.bindPopup(popup_eb15b3b3e5fd0fb907d39ef3ea1ce8da)
+        ;
+
+        
+    
+    
+                marker_07ff30076f2eeb6bd0e6a315041aa666.setIcon(beautify_icon_de40e0c85006178cc96ca119aac5c882);
+            
+    
+            var marker_37d73de4104ee861bb8bbddce372c9ee = L.marker(
+                [45.4607493, 14.853801],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_551b1f6ed405071c87152ab9d8426ea8 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_37d73de4104ee861bb8bbddce372c9ee.setIcon(beautify_icon_551b1f6ed405071c87152ab9d8426ea8);
+        
+    
+        var popup_c7cd1ff730ac6b3c395790af03d8c659 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a1e0bae98e59b019037fa47176f74523 = $(`<div id="html_a1e0bae98e59b019037fa47176f74523" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-brod-kupi?price[max]=200000" target=”_blank”>Brod na Kupi</a></div>`)[0];
+                popup_c7cd1ff730ac6b3c395790af03d8c659.setContent(html_a1e0bae98e59b019037fa47176f74523);
+            
+        
+
+        marker_37d73de4104ee861bb8bbddce372c9ee.bindPopup(popup_c7cd1ff730ac6b3c395790af03d8c659)
+        ;
+
+        
+    
+    
+                marker_37d73de4104ee861bb8bbddce372c9ee.setIcon(beautify_icon_551b1f6ed405071c87152ab9d8426ea8);
+            
+    
+            var marker_28bd5ebb647893b923be863577d169f2 = L.marker(
+                [45.418524, 14.7048082],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_2eb98104ebc0d92f02f9a84cc805831a = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_28bd5ebb647893b923be863577d169f2.setIcon(beautify_icon_2eb98104ebc0d92f02f9a84cc805831a);
+        
+    
+        var popup_67174acce391edbe240e88bcc8ec0319 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7923b601fcb19f486b2ecd168a4af3cd = $(`<div id="html_7923b601fcb19f486b2ecd168a4af3cd" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-crni-lug?price[max]=200000" target=”_blank”>Crni Lug</a></div>`)[0];
+                popup_67174acce391edbe240e88bcc8ec0319.setContent(html_7923b601fcb19f486b2ecd168a4af3cd);
+            
+        
+
+        marker_28bd5ebb647893b923be863577d169f2.bindPopup(popup_67174acce391edbe240e88bcc8ec0319)
+        ;
+
+        
+    
+    
+                marker_28bd5ebb647893b923be863577d169f2.setIcon(beautify_icon_2eb98104ebc0d92f02f9a84cc805831a);
+            
+    
+            var marker_ca9cb089e8d16a8819f603e0d9353c24 = L.marker(
+                [45.4756617, 14.9068657],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_c33af44d345345b67e21d2bf7a97b754 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_ca9cb089e8d16a8819f603e0d9353c24.setIcon(beautify_icon_c33af44d345345b67e21d2bf7a97b754);
+        
+    
+        var popup_01e6ffba8693ee51e17732959550f6e5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_53d5b621478da1d5f32fb9197be2449c = $(`<div id="html_53d5b621478da1d5f32fb9197be2449c" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-cedanj?price[max]=200000" target=”_blank”>Čedanj</a></div>`)[0];
+                popup_01e6ffba8693ee51e17732959550f6e5.setContent(html_53d5b621478da1d5f32fb9197be2449c);
+            
+        
+
+        marker_ca9cb089e8d16a8819f603e0d9353c24.bindPopup(popup_01e6ffba8693ee51e17732959550f6e5)
+        ;
+
+        
+    
+    
+                marker_ca9cb089e8d16a8819f603e0d9353c24.setIcon(beautify_icon_c33af44d345345b67e21d2bf7a97b754);
+            
+    
+            var marker_4caa58c4d717d3ea3837a9a3eb078feb = L.marker(
+                [45.3854839, 14.8486917],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_4295128add2d84b39e4fca1b8e585959 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_4caa58c4d717d3ea3837a9a3eb078feb.setIcon(beautify_icon_4295128add2d84b39e4fca1b8e585959);
+        
+    
+        var popup_6481322257f47423eefe4856e8060499 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_89ef1645750f16ef44cab9f202ce4cd4 = $(`<div id="html_89ef1645750f16ef44cab9f202ce4cd4" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-dedin?price[max]=200000" target=”_blank”>Dedin</a></div>`)[0];
+                popup_6481322257f47423eefe4856e8060499.setContent(html_89ef1645750f16ef44cab9f202ce4cd4);
+            
+        
+
+        marker_4caa58c4d717d3ea3837a9a3eb078feb.bindPopup(popup_6481322257f47423eefe4856e8060499)
+        ;
+
+        
+    
+    
+                marker_4caa58c4d717d3ea3837a9a3eb078feb.setIcon(beautify_icon_4295128add2d84b39e4fca1b8e585959);
+            
+    
+            var marker_7c73d9cbc8da8d55a25615a73f3c026a = L.marker(
+                [45.3981089, 14.8009293],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_bb0a1fd0a64b85313608d056cdcc20f6 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_7c73d9cbc8da8d55a25615a73f3c026a.setIcon(beautify_icon_bb0a1fd0a64b85313608d056cdcc20f6);
+        
+    
+        var popup_4cbbd2dfe2e594bb94fc8d350a98e3de = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3492da3db15109315c3cf97bacaeeca1 = $(`<div id="html_3492da3db15109315c3cf97bacaeeca1" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-delnice?price[max]=200000" target=”_blank”>Delnice</a></div>`)[0];
+                popup_4cbbd2dfe2e594bb94fc8d350a98e3de.setContent(html_3492da3db15109315c3cf97bacaeeca1);
+            
+        
+
+        marker_7c73d9cbc8da8d55a25615a73f3c026a.bindPopup(popup_4cbbd2dfe2e594bb94fc8d350a98e3de)
+        ;
+
+        
+    
+    
+                marker_7c73d9cbc8da8d55a25615a73f3c026a.setIcon(beautify_icon_bb0a1fd0a64b85313608d056cdcc20f6);
+            
+    
+            var marker_b1fe1977a84ddf36cdc685d57ca07b49 = L.marker(
+                [45.4734582, 14.7001289],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_5cb315b5f755567b1fdc550b125bc042 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_b1fe1977a84ddf36cdc685d57ca07b49.setIcon(beautify_icon_5cb315b5f755567b1fdc550b125bc042);
+        
+    
+        var popup_b2e765c2369e2c7302590ac92de0e590 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ebfe3a0ae0e4a6cf2c6cef97532b777c = $(`<div id="html_ebfe3a0ae0e4a6cf2c6cef97532b777c" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-donja-krasicevica?price[max]=200000" target=”_blank”>Donja Krašićevica</a></div>`)[0];
+                popup_b2e765c2369e2c7302590ac92de0e590.setContent(html_ebfe3a0ae0e4a6cf2c6cef97532b777c);
+            
+        
+
+        marker_b1fe1977a84ddf36cdc685d57ca07b49.bindPopup(popup_b2e765c2369e2c7302590ac92de0e590)
+        ;
+
+        
+    
+    
+                marker_b1fe1977a84ddf36cdc685d57ca07b49.setIcon(beautify_icon_5cb315b5f755567b1fdc550b125bc042);
+            
+    
+            var marker_e45bb8b160de3b0d19af7ef9a4b1b30d = L.marker(
+                [45.466203, 14.8762948],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_9dc97b99597ad0146def40e9c68f6934 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_e45bb8b160de3b0d19af7ef9a4b1b30d.setIcon(beautify_icon_9dc97b99597ad0146def40e9c68f6934);
+        
+    
+        var popup_cbd3f868f3c6c3a0d3017dc39640b966 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b0acf161cb82a358604d3e8a112dcaa1 = $(`<div id="html_b0acf161cb82a358604d3e8a112dcaa1" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-golik?price[max]=200000" target=”_blank”>Golik</a></div>`)[0];
+                popup_cbd3f868f3c6c3a0d3017dc39640b966.setContent(html_b0acf161cb82a358604d3e8a112dcaa1);
+            
+        
+
+        marker_e45bb8b160de3b0d19af7ef9a4b1b30d.bindPopup(popup_cbd3f868f3c6c3a0d3017dc39640b966)
+        ;
+
+        
+    
+    
+                marker_e45bb8b160de3b0d19af7ef9a4b1b30d.setIcon(beautify_icon_9dc97b99597ad0146def40e9c68f6934);
+            
+    
+            var marker_e977c0980e4b96903e3e9c271e4eac11 = L.marker(
+                [45.4563909, 14.7168902],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_94533b62ac74d415ccc9bf6b15f74010 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_e977c0980e4b96903e3e9c271e4eac11.setIcon(beautify_icon_94533b62ac74d415ccc9bf6b15f74010);
+        
+    
+        var popup_9d280fba72d196f8e62b45d2a67e1163 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5de58820af948d8af07225da0ce35334 = $(`<div id="html_5de58820af948d8af07225da0ce35334" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-gornji-okrug?price[max]=200000" target=”_blank”>Gornji Okrug</a></div>`)[0];
+                popup_9d280fba72d196f8e62b45d2a67e1163.setContent(html_5de58820af948d8af07225da0ce35334);
+            
+        
+
+        marker_e977c0980e4b96903e3e9c271e4eac11.bindPopup(popup_9d280fba72d196f8e62b45d2a67e1163)
+        ;
+
+        
+    
+    
+                marker_e977c0980e4b96903e3e9c271e4eac11.setIcon(beautify_icon_94533b62ac74d415ccc9bf6b15f74010);
+            
+    
+            var marker_0e464a08e5f9bbdf68d8154d8353a984 = L.marker(
+                [45.4190068, 14.8305914],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_d60db3ccaf42b8a4d8846474b7748e64 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_0e464a08e5f9bbdf68d8154d8353a984.setIcon(beautify_icon_d60db3ccaf42b8a4d8846474b7748e64);
+        
+    
+        var popup_788ddbe57db2de63d3eadbdfdf45ef57 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f98a99e24937b351b2b37b1f9ba9b7ff = $(`<div id="html_f98a99e24937b351b2b37b1f9ba9b7ff" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-gornji-turni?price[max]=200000" target=”_blank”>Gornji Turni</a></div>`)[0];
+                popup_788ddbe57db2de63d3eadbdfdf45ef57.setContent(html_f98a99e24937b351b2b37b1f9ba9b7ff);
+            
+        
+
+        marker_0e464a08e5f9bbdf68d8154d8353a984.bindPopup(popup_788ddbe57db2de63d3eadbdfdf45ef57)
+        ;
+
+        
+    
+    
+                marker_0e464a08e5f9bbdf68d8154d8353a984.setIcon(beautify_icon_d60db3ccaf42b8a4d8846474b7748e64);
+            
+    
+            var marker_4c50495c1990a5d865cd65f692c153e0 = L.marker(
+                [45.4664311, 14.8117411],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_e7b6f9e996b3db57b7b56d9bc461b425 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_4c50495c1990a5d865cd65f692c153e0.setIcon(beautify_icon_e7b6f9e996b3db57b7b56d9bc461b425);
+        
+    
+        var popup_bef8621095f2bf1443072e8282c2cae3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e0eb791562f8a1c640dab6b54b97dc29 = $(`<div id="html_e0eb791562f8a1c640dab6b54b97dc29" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-grbajel?price[max]=200000" target=”_blank”>Grbajel</a></div>`)[0];
+                popup_bef8621095f2bf1443072e8282c2cae3.setContent(html_e0eb791562f8a1c640dab6b54b97dc29);
+            
+        
+
+        marker_4c50495c1990a5d865cd65f692c153e0.bindPopup(popup_bef8621095f2bf1443072e8282c2cae3)
+        ;
+
+        
+    
+    
+                marker_4c50495c1990a5d865cd65f692c153e0.setIcon(beautify_icon_e7b6f9e996b3db57b7b56d9bc461b425);
+            
+    
+            var marker_965d4756a1b305f4619613db1b17f465 = L.marker(
+                [45.4560132, 14.8525165],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_4e798a792d17d9d92b97be8cc45a99fc = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_965d4756a1b305f4619613db1b17f465.setIcon(beautify_icon_4e798a792d17d9d92b97be8cc45a99fc);
+        
+    
+        var popup_4b8c9570b96221f51a4096b801c9983a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6380d45d8073692cbb3dfe1e89c25c75 = $(`<div id="html_6380d45d8073692cbb3dfe1e89c25c75" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-krivac?price[max]=200000" target=”_blank”>Krivac</a></div>`)[0];
+                popup_4b8c9570b96221f51a4096b801c9983a.setContent(html_6380d45d8073692cbb3dfe1e89c25c75);
+            
+        
+
+        marker_965d4756a1b305f4619613db1b17f465.bindPopup(popup_4b8c9570b96221f51a4096b801c9983a)
+        ;
+
+        
+    
+    
+                marker_965d4756a1b305f4619613db1b17f465.setIcon(beautify_icon_4e798a792d17d9d92b97be8cc45a99fc);
+            
+    
+            var marker_eec4c641bf60b2edcf902a2005fd36a4 = L.marker(
+                [45.4747317, 14.8064868],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_8132c298ccca3ec06814207e5c98a9b9 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_eec4c641bf60b2edcf902a2005fd36a4.setIcon(beautify_icon_8132c298ccca3ec06814207e5c98a9b9);
+        
+    
+        var popup_2e1eb13a21b4024c30ef2038e436bfc9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_00266b00e3a8b83bc804e568b6e3d527 = $(`<div id="html_00266b00e3a8b83bc804e568b6e3d527" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-kuzelj?price[max]=200000" target=”_blank”>Kuželj</a></div>`)[0];
+                popup_2e1eb13a21b4024c30ef2038e436bfc9.setContent(html_00266b00e3a8b83bc804e568b6e3d527);
+            
+        
+
+        marker_eec4c641bf60b2edcf902a2005fd36a4.bindPopup(popup_2e1eb13a21b4024c30ef2038e436bfc9)
+        ;
+
+        
+    
+    
+                marker_eec4c641bf60b2edcf902a2005fd36a4.setIcon(beautify_icon_8132c298ccca3ec06814207e5c98a9b9);
+            
+    
+            var marker_18a4b9404a52be0ee129a92bfd4d39ce = L.marker(
+                [49.6626599, 15.4964748],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_22986520bd43a7d9248d8752579da058 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_18a4b9404a52be0ee129a92bfd4d39ce.setIcon(beautify_icon_22986520bd43a7d9248d8752579da058);
+        
+    
+        var popup_e66232744ceeb33f73af97cd7f3b395d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f758c32ab0767d957cdcba7960cd60a2 = $(`<div id="html_f758c32ab0767d957cdcba7960cd60a2" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-lucice?price[max]=200000" target=”_blank”>Lučice</a></div>`)[0];
+                popup_e66232744ceeb33f73af97cd7f3b395d.setContent(html_f758c32ab0767d957cdcba7960cd60a2);
+            
+        
+
+        marker_18a4b9404a52be0ee129a92bfd4d39ce.bindPopup(popup_e66232744ceeb33f73af97cd7f3b395d)
+        ;
+
+        
+    
+    
+                marker_18a4b9404a52be0ee129a92bfd4d39ce.setIcon(beautify_icon_22986520bd43a7d9248d8752579da058);
+            
+    
+            var marker_7543eb141582860933bb40831d896409 = L.marker(
+                [45.4306077, 14.7046072],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_94ace5e4694664d10ab4e5393c5e8e29 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_7543eb141582860933bb40831d896409.setIcon(beautify_icon_94ace5e4694664d10ab4e5393c5e8e29);
+        
+    
+        var popup_6ce4cca51894ab35b5f4e4604808a98f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_661e1b09467445a12838846f890b8c75 = $(`<div id="html_661e1b09467445a12838846f890b8c75" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-malo-selo?price[max]=200000" target=”_blank”>Malo Selo</a></div>`)[0];
+                popup_6ce4cca51894ab35b5f4e4604808a98f.setContent(html_661e1b09467445a12838846f890b8c75);
+            
+        
+
+        marker_7543eb141582860933bb40831d896409.bindPopup(popup_6ce4cca51894ab35b5f4e4604808a98f)
+        ;
+
+        
+    
+    
+                marker_7543eb141582860933bb40831d896409.setIcon(beautify_icon_94ace5e4694664d10ab4e5393c5e8e29);
+            
+    
+            var marker_79516f3aad2110fad668dae43fb42da8 = L.marker(
+                [45.4171908, 14.8212046],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_6b0a029a1d640cb326020f7ddbb720bd = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_79516f3aad2110fad668dae43fb42da8.setIcon(beautify_icon_6b0a029a1d640cb326020f7ddbb720bd);
+        
+    
+        var popup_ec3d00bf57f1ffb48defe599c6546ff5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_05f18f92f7c732e41d76114660064e19 = $(`<div id="html_05f18f92f7c732e41d76114660064e19" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-marija-trost?price[max]=200000" target=”_blank”>Marija Trošt</a></div>`)[0];
+                popup_ec3d00bf57f1ffb48defe599c6546ff5.setContent(html_05f18f92f7c732e41d76114660064e19);
+            
+        
+
+        marker_79516f3aad2110fad668dae43fb42da8.bindPopup(popup_ec3d00bf57f1ffb48defe599c6546ff5)
+        ;
+
+        
+    
+    
+                marker_79516f3aad2110fad668dae43fb42da8.setIcon(beautify_icon_6b0a029a1d640cb326020f7ddbb720bd);
+            
+    
+            var marker_95e9039e14cde467ea84c8463e547e08 = L.marker(
+                [45.4377516, 14.8655473],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_4abfc2d381e51c8140b44d7bc3541cbc = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_95e9039e14cde467ea84c8463e547e08.setIcon(beautify_icon_4abfc2d381e51c8140b44d7bc3541cbc);
+        
+    
+        var popup_e35b58ad767165bc1f7ce439d32ccdb3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_518ef0cc7e7c9ddb5f95df842df6c9dd = $(`<div id="html_518ef0cc7e7c9ddb5f95df842df6c9dd" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-radocaj-brodski?price[max]=200000" target=”_blank”>Radočaj Brodski</a></div>`)[0];
+                popup_e35b58ad767165bc1f7ce439d32ccdb3.setContent(html_518ef0cc7e7c9ddb5f95df842df6c9dd);
+            
+        
+
+        marker_95e9039e14cde467ea84c8463e547e08.bindPopup(popup_e35b58ad767165bc1f7ce439d32ccdb3)
+        ;
+
+        
+    
+    
+                marker_95e9039e14cde467ea84c8463e547e08.setIcon(beautify_icon_4abfc2d381e51c8140b44d7bc3541cbc);
+            
+    
+            var marker_4f7ae7fac2b20265217edd872c5c8614 = L.marker(
+                [45.484581, 14.7017605],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_6b5d70c60bf9df855ec9040e4b5e63cb = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_4f7ae7fac2b20265217edd872c5c8614.setIcon(beautify_icon_6b5d70c60bf9df855ec9040e4b5e63cb);
+        
+    
+        var popup_38a47a121c20e6c82a8ab9d1bb1c9618 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cf20db45e3d95228c5a4f8b743ab567a = $(`<div id="html_cf20db45e3d95228c5a4f8b743ab567a" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-razloge?price[max]=200000" target=”_blank”>Razloge</a></div>`)[0];
+                popup_38a47a121c20e6c82a8ab9d1bb1c9618.setContent(html_cf20db45e3d95228c5a4f8b743ab567a);
+            
+        
+
+        marker_4f7ae7fac2b20265217edd872c5c8614.bindPopup(popup_38a47a121c20e6c82a8ab9d1bb1c9618)
+        ;
+
+        
+    
+    
+                marker_4f7ae7fac2b20265217edd872c5c8614.setIcon(beautify_icon_6b5d70c60bf9df855ec9040e4b5e63cb);
+            
+    
+            var marker_2a3ed6d990fd9d836ad655c80c44953b = L.marker(
+                [45.5150879, 14.7511261],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_b5827138506edfefb99b192b5b9ea2a2 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_2a3ed6d990fd9d836ad655c80c44953b.setIcon(beautify_icon_b5827138506edfefb99b192b5b9ea2a2);
+        
+    
+        var popup_5e3f4c65d64262037ab3f2409dbf1f32 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_00326c7ca27db3f7da2d8ca506252e56 = $(`<div id="html_00326c7ca27db3f7da2d8ca506252e56" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-turke?price[max]=200000" target=”_blank”>Turke</a></div>`)[0];
+                popup_5e3f4c65d64262037ab3f2409dbf1f32.setContent(html_00326c7ca27db3f7da2d8ca506252e56);
+            
+        
+
+        marker_2a3ed6d990fd9d836ad655c80c44953b.bindPopup(popup_5e3f4c65d64262037ab3f2409dbf1f32)
+        ;
+
+        
+    
+    
+                marker_2a3ed6d990fd9d836ad655c80c44953b.setIcon(beautify_icon_b5827138506edfefb99b192b5b9ea2a2);
+            
+    
+            var marker_e1f37ef841963363674c29fc00d2a7bc = L.marker(
+                [45.3944926, 14.6824894],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_0af9b5568b7adb129717b9c423e71e8d = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_e1f37ef841963363674c29fc00d2a7bc.setIcon(beautify_icon_0af9b5568b7adb129717b9c423e71e8d);
+        
+    
+        var popup_927a01d11d2e919af7931d7372dca745 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_250b428689013335e999e19793a25311 = $(`<div id="html_250b428689013335e999e19793a25311" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/delnice-zelin-crnoluski?price[max]=200000" target=”_blank”>Zelin Crnoluški</a></div>`)[0];
+                popup_927a01d11d2e919af7931d7372dca745.setContent(html_250b428689013335e999e19793a25311);
+            
+        
+
+        marker_e1f37ef841963363674c29fc00d2a7bc.bindPopup(popup_927a01d11d2e919af7931d7372dca745)
+        ;
+
+        
+    
+    
+                marker_e1f37ef841963363674c29fc00d2a7bc.setIcon(beautify_icon_0af9b5568b7adb129717b9c423e71e8d);
+            
+    
+            var marker_c1fcaa6f20ac2d97bd3c4c52a2df8e52 = L.marker(
+                [45.2911771, 14.7231443],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_662cb3b51877b0e3df5c6a725104a334 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_c1fcaa6f20ac2d97bd3c4c52a2df8e52.setIcon(beautify_icon_662cb3b51877b0e3df5c6a725104a334);
+        
+    
+        var popup_b6ddcdcd9b086952d60451270b72553c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bf8d256ac54438dbae2d7dcd150ac95d = $(`<div id="html_bf8d256ac54438dbae2d7dcd150ac95d" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/fuzine-banovina?price[max]=200000" target=”_blank”>Banovina</a></div>`)[0];
+                popup_b6ddcdcd9b086952d60451270b72553c.setContent(html_bf8d256ac54438dbae2d7dcd150ac95d);
+            
+        
+
+        marker_c1fcaa6f20ac2d97bd3c4c52a2df8e52.bindPopup(popup_b6ddcdcd9b086952d60451270b72553c)
+        ;
+
+        
+    
+    
+                marker_c1fcaa6f20ac2d97bd3c4c52a2df8e52.setIcon(beautify_icon_662cb3b51877b0e3df5c6a725104a334);
+            
+    
+            var marker_d4fba527641b9fbd75f01f35a59e9ab4 = L.marker(
+                [45.3274617, 14.740317],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_444f461568f9091b35154644a0e7750c = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_d4fba527641b9fbd75f01f35a59e9ab4.setIcon(beautify_icon_444f461568f9091b35154644a0e7750c);
+        
+    
+        var popup_f8138a2732bf0d64b412f28fc3f829d5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c80d256bb917faf995b6f90219b596d = $(`<div id="html_8c80d256bb917faf995b6f90219b596d" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/fuzine-belo-selo?price[max]=200000" target=”_blank”>Belo Selo</a></div>`)[0];
+                popup_f8138a2732bf0d64b412f28fc3f829d5.setContent(html_8c80d256bb917faf995b6f90219b596d);
+            
+        
+
+        marker_d4fba527641b9fbd75f01f35a59e9ab4.bindPopup(popup_f8138a2732bf0d64b412f28fc3f829d5)
+        ;
+
+        
+    
+    
+                marker_d4fba527641b9fbd75f01f35a59e9ab4.setIcon(beautify_icon_444f461568f9091b35154644a0e7750c);
+            
+    
+            var marker_4772222795ddbbc6976b56941634374e = L.marker(
+                [45.3107004, 14.6837022],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_37c8d9977050b4970e25c8b13ad84344 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_4772222795ddbbc6976b56941634374e.setIcon(beautify_icon_37c8d9977050b4970e25c8b13ad84344);
+        
+    
+        var popup_9f86b95cc850f650c436e7f58f4f45d3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_29ea78b636e2c7aec8467448672ceb04 = $(`<div id="html_29ea78b636e2c7aec8467448672ceb04" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/fuzine-benkovac-fuzinski?price[max]=200000" target=”_blank”>Benkovac Fužinski</a></div>`)[0];
+                popup_9f86b95cc850f650c436e7f58f4f45d3.setContent(html_29ea78b636e2c7aec8467448672ceb04);
+            
+        
+
+        marker_4772222795ddbbc6976b56941634374e.bindPopup(popup_9f86b95cc850f650c436e7f58f4f45d3)
+        ;
+
+        
+    
+    
+                marker_4772222795ddbbc6976b56941634374e.setIcon(beautify_icon_37c8d9977050b4970e25c8b13ad84344);
+            
+    
+            var marker_43eac3e11a0f33a1f43d01f5459d0acb = L.marker(
+                [45.3046471, 14.7135873],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_805f71b4182633f0e21022b209995921 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_43eac3e11a0f33a1f43d01f5459d0acb.setIcon(beautify_icon_805f71b4182633f0e21022b209995921);
+        
+    
+        var popup_42d80aa9090bae318dae5bf601e3669b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cdb1ede040549488af2119f19c24580b = $(`<div id="html_cdb1ede040549488af2119f19c24580b" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/fuzine-fuzine?price[max]=200000" target=”_blank”>Fužine</a></div>`)[0];
+                popup_42d80aa9090bae318dae5bf601e3669b.setContent(html_cdb1ede040549488af2119f19c24580b);
+            
+        
+
+        marker_43eac3e11a0f33a1f43d01f5459d0acb.bindPopup(popup_42d80aa9090bae318dae5bf601e3669b)
+        ;
+
+        
+    
+    
+                marker_43eac3e11a0f33a1f43d01f5459d0acb.setIcon(beautify_icon_805f71b4182633f0e21022b209995921);
+            
+    
+            var marker_11ac67b0278364dba8ff446b89eb9896 = L.marker(
+                [45.2790342, 14.7191481],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_ddd36fbd6495ee46f78009c4c3efa91d = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_11ac67b0278364dba8ff446b89eb9896.setIcon(beautify_icon_ddd36fbd6495ee46f78009c4c3efa91d);
+        
+    
+        var popup_0138de98994b922abc5b103ab1fd0871 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_05816e35717458c619ada63b5b164134 = $(`<div id="html_05816e35717458c619ada63b5b164134" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/fuzine-lic?price[max]=200000" target=”_blank”>Lič</a></div>`)[0];
+                popup_0138de98994b922abc5b103ab1fd0871.setContent(html_05816e35717458c619ada63b5b164134);
+            
+        
+
+        marker_11ac67b0278364dba8ff446b89eb9896.bindPopup(popup_0138de98994b922abc5b103ab1fd0871)
+        ;
+
+        
+    
+    
+                marker_11ac67b0278364dba8ff446b89eb9896.setIcon(beautify_icon_ddd36fbd6495ee46f78009c4c3efa91d);
+            
+    
+            var marker_7f3b41cb2d7e59cf2fd36f3559799c18 = L.marker(
+                [45.3317921, 14.7534028],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_792b564162e388246864b74f61b50047 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_7f3b41cb2d7e59cf2fd36f3559799c18.setIcon(beautify_icon_792b564162e388246864b74f61b50047);
+        
+    
+        var popup_e9e78ea7e793e887922aae24725f0951 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fa2e87b2977d79e2c813223d3b31d90d = $(`<div id="html_fa2e87b2977d79e2c813223d3b31d90d" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/fuzine-slavica?price[max]=200000" target=”_blank”>Slavica</a></div>`)[0];
+                popup_e9e78ea7e793e887922aae24725f0951.setContent(html_fa2e87b2977d79e2c813223d3b31d90d);
+            
+        
+
+        marker_7f3b41cb2d7e59cf2fd36f3559799c18.bindPopup(popup_e9e78ea7e793e887922aae24725f0951)
+        ;
+
+        
+    
+    
+                marker_7f3b41cb2d7e59cf2fd36f3559799c18.setIcon(beautify_icon_792b564162e388246864b74f61b50047);
+            
+    
+            var marker_e8fd7b1de1955345214c3237f002c84a = L.marker(
+                [45.3167546, 14.7288706],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_f16f3907e17ef652bfbcdd3a5e339954 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_e8fd7b1de1955345214c3237f002c84a.setIcon(beautify_icon_f16f3907e17ef652bfbcdd3a5e339954);
+        
+    
+        var popup_25865d1b362f3ba7d9e0de7ffdebd817 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_34f030b22f2a07c72cec5c190adec067 = $(`<div id="html_34f030b22f2a07c72cec5c190adec067" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/fuzine-vrata?price[max]=200000" target=”_blank”>Vrata</a></div>`)[0];
+                popup_25865d1b362f3ba7d9e0de7ffdebd817.setContent(html_34f030b22f2a07c72cec5c190adec067);
+            
+        
+
+        marker_e8fd7b1de1955345214c3237f002c84a.bindPopup(popup_25865d1b362f3ba7d9e0de7ffdebd817)
+        ;
+
+        
+    
+    
+                marker_e8fd7b1de1955345214c3237f002c84a.setIcon(beautify_icon_f16f3907e17ef652bfbcdd3a5e339954);
+            
+    
+            var marker_04888369101a73246a9fb1b7aa605284 = L.marker(
+                [59.6454064, -151.5445643],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_c996a1b5570ff0956721ea68e7ae2d18 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_04888369101a73246a9fb1b7aa605284.setIcon(beautify_icon_c996a1b5570ff0956721ea68e7ae2d18);
+        
+    
+        var popup_77c2b46923279e9650e58a7429f3d98b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dbd0eef9b3fd3bb83e921b26a031a78e = $(`<div id="html_dbd0eef9b3fd3bb83e921b26a031a78e" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/lokve-homer?price[max]=200000" target=”_blank”>Homer</a></div>`)[0];
+                popup_77c2b46923279e9650e58a7429f3d98b.setContent(html_dbd0eef9b3fd3bb83e921b26a031a78e);
+            
+        
+
+        marker_04888369101a73246a9fb1b7aa605284.bindPopup(popup_77c2b46923279e9650e58a7429f3d98b)
+        ;
+
+        
+    
+    
+                marker_04888369101a73246a9fb1b7aa605284.setIcon(beautify_icon_c996a1b5570ff0956721ea68e7ae2d18);
+            
+    
+            var marker_61c0fd53934a8d5332f0d2afa0c014c1 = L.marker(
+                [45.3581828, 14.750644],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_da1e99a54c239a5c8ba5059249dea732 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_61c0fd53934a8d5332f0d2afa0c014c1.setIcon(beautify_icon_da1e99a54c239a5c8ba5059249dea732);
+        
+    
+        var popup_9ed5710f689be3463a6deb960b711b26 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eaa0b69e833274989737d13a531ed201 = $(`<div id="html_eaa0b69e833274989737d13a531ed201" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/lokve-lokve?price[max]=200000" target=”_blank”>Lokve</a></div>`)[0];
+                popup_9ed5710f689be3463a6deb960b711b26.setContent(html_eaa0b69e833274989737d13a531ed201);
+            
+        
+
+        marker_61c0fd53934a8d5332f0d2afa0c014c1.bindPopup(popup_9ed5710f689be3463a6deb960b711b26)
+        ;
+
+        
+    
+    
+                marker_61c0fd53934a8d5332f0d2afa0c014c1.setIcon(beautify_icon_da1e99a54c239a5c8ba5059249dea732);
+            
+    
+            var marker_acdf64eba866919cd08bfe49905ff12c = L.marker(
+                [45.3701338, 14.6652596],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_be420cd6c80a58f65a684570c52807a4 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_acdf64eba866919cd08bfe49905ff12c.setIcon(beautify_icon_be420cd6c80a58f65a684570c52807a4);
+        
+    
+        var popup_0a1d194763f8eac044b6cb4231733a79 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_386256b70e5d40ceef04f7293640bafb = $(`<div id="html_386256b70e5d40ceef04f7293640bafb" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/lokve-mrzla-vodica?price[max]=200000" target=”_blank”>Mrzla Vodica</a></div>`)[0];
+                popup_0a1d194763f8eac044b6cb4231733a79.setContent(html_386256b70e5d40ceef04f7293640bafb);
+            
+        
+
+        marker_acdf64eba866919cd08bfe49905ff12c.bindPopup(popup_0a1d194763f8eac044b6cb4231733a79)
+        ;
+
+        
+    
+    
+                marker_acdf64eba866919cd08bfe49905ff12c.setIcon(beautify_icon_be420cd6c80a58f65a684570c52807a4);
+            
+    
+            var marker_c32703b4fd5bb392694291845c92178d = L.marker(
+                [45.3814726, 14.6837404],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_49d0c81e7988ffae6c45bc6067bd6a46 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_c32703b4fd5bb392694291845c92178d.setIcon(beautify_icon_49d0c81e7988ffae6c45bc6067bd6a46);
+        
+    
+        var popup_159de98edd716a1334f15a69c68fa307 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b2196ffcb2e4933ba9db9b9e878407f5 = $(`<div id="html_b2196ffcb2e4933ba9db9b9e878407f5" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/lokve-zelin-mrzlovodicki?price[max]=200000" target=”_blank”>Zelin Mrzlovodički</a></div>`)[0];
+                popup_159de98edd716a1334f15a69c68fa307.setContent(html_b2196ffcb2e4933ba9db9b9e878407f5);
+            
+        
+
+        marker_c32703b4fd5bb392694291845c92178d.bindPopup(popup_159de98edd716a1334f15a69c68fa307)
+        ;
+
+        
+    
+    
+                marker_c32703b4fd5bb392694291845c92178d.setIcon(beautify_icon_49d0c81e7988ffae6c45bc6067bd6a46);
+            
+    
+            var marker_85c5eaf10e272c94955a1375be2f20b5 = L.marker(
+                [45.3045433, 14.906431],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_e03be279752d5a7543f07c849065d647 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_85c5eaf10e272c94955a1375be2f20b5.setIcon(beautify_icon_e03be279752d5a7543f07c849065d647);
+        
+    
+        var popup_2a87c70d2b7ba6c08c9b65b1edfb7cf3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_847852a7f13ecf3dafdf54297f2a16ae = $(`<div id="html_847852a7f13ecf3dafdf54297f2a16ae" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/mrkopalj-begovo-razdolje?price[max]=200000" target=”_blank”>Begovo Razdolje</a></div>`)[0];
+                popup_2a87c70d2b7ba6c08c9b65b1edfb7cf3.setContent(html_847852a7f13ecf3dafdf54297f2a16ae);
+            
+        
+
+        marker_85c5eaf10e272c94955a1375be2f20b5.bindPopup(popup_2a87c70d2b7ba6c08c9b65b1edfb7cf3)
+        ;
+
+        
+    
+    
+                marker_85c5eaf10e272c94955a1375be2f20b5.setIcon(beautify_icon_e03be279752d5a7543f07c849065d647);
+            
+    
+            var marker_a1601065f79f52c264713a843a367a74 = L.marker(
+                [45.3221258, 14.7954251],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_c66091a5bfff00f056772fd6d3dbbe1f = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_a1601065f79f52c264713a843a367a74.setIcon(beautify_icon_c66091a5bfff00f056772fd6d3dbbe1f);
+        
+    
+        var popup_4e08ae7ca824ee6448c6903965dbafe0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4d32f56e9b55d993dba64c23b76a9257 = $(`<div id="html_4d32f56e9b55d993dba64c23b76a9257" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/mrkopalj-brestova-draga?price[max]=200000" target=”_blank”>Brestova Draga</a></div>`)[0];
+                popup_4e08ae7ca824ee6448c6903965dbafe0.setContent(html_4d32f56e9b55d993dba64c23b76a9257);
+            
+        
+
+        marker_a1601065f79f52c264713a843a367a74.bindPopup(popup_4e08ae7ca824ee6448c6903965dbafe0)
+        ;
+
+        
+    
+    
+                marker_a1601065f79f52c264713a843a367a74.setIcon(beautify_icon_c66091a5bfff00f056772fd6d3dbbe1f);
+            
+    
+            var marker_042fc49a452f3cf21e863fffc54e146f = L.marker(
+                [45.3154497, 14.8557128],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_bf2ae917c60493ad0d125bfeb15ed7db = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_042fc49a452f3cf21e863fffc54e146f.setIcon(beautify_icon_bf2ae917c60493ad0d125bfeb15ed7db);
+        
+    
+        var popup_338a143312522448db73e60690625f3d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_27fa4693ce6c41fccda97606ad1f96fe = $(`<div id="html_27fa4693ce6c41fccda97606ad1f96fe" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/mrkopalj-mrkopalj?price[max]=200000" target=”_blank”>Mrkopalj</a></div>`)[0];
+                popup_338a143312522448db73e60690625f3d.setContent(html_27fa4693ce6c41fccda97606ad1f96fe);
+            
+        
+
+        marker_042fc49a452f3cf21e863fffc54e146f.bindPopup(popup_338a143312522448db73e60690625f3d)
+        ;
+
+        
+    
+    
+                marker_042fc49a452f3cf21e863fffc54e146f.setIcon(beautify_icon_bf2ae917c60493ad0d125bfeb15ed7db);
+            
+    
+            var marker_34a37c02873afd505bd33a2627b6841d = L.marker(
+                [45.3224952, 14.8192229],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_081959a2470c359896edac301db47665 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_34a37c02873afd505bd33a2627b6841d.setIcon(beautify_icon_081959a2470c359896edac301db47665);
+        
+    
+        var popup_598ff567423eb25bce48c0ef69f36ba6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bf3e0b8dc57f966c6cfbb5c69ec529f6 = $(`<div id="html_bf3e0b8dc57f966c6cfbb5c69ec529f6" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/mrkopalj-sunger?price[max]=200000" target=”_blank”>Sunger</a></div>`)[0];
+                popup_598ff567423eb25bce48c0ef69f36ba6.setContent(html_bf3e0b8dc57f966c6cfbb5c69ec529f6);
+            
+        
+
+        marker_34a37c02873afd505bd33a2627b6841d.bindPopup(popup_598ff567423eb25bce48c0ef69f36ba6)
+        ;
+
+        
+    
+    
+                marker_34a37c02873afd505bd33a2627b6841d.setIcon(beautify_icon_081959a2470c359896edac301db47665);
+            
+    
+            var marker_b187705d2d5ea4ff8e7b389a4d81692d = L.marker(
+                [45.3037256, 14.8765723],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_65f8564283f77545c4e64721cf2deea8 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_b187705d2d5ea4ff8e7b389a4d81692d.setIcon(beautify_icon_65f8564283f77545c4e64721cf2deea8);
+        
+    
+        var popup_8851985dc8fb96f3c4f9c8c7c54b437e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2ad686b0d17e90aecdc5726b8d459182 = $(`<div id="html_2ad686b0d17e90aecdc5726b8d459182" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/mrkopalj-tuk-mrkopaljski?price[max]=200000" target=”_blank”>Tuk Mrkopaljski</a></div>`)[0];
+                popup_8851985dc8fb96f3c4f9c8c7c54b437e.setContent(html_2ad686b0d17e90aecdc5726b8d459182);
+            
+        
+
+        marker_b187705d2d5ea4ff8e7b389a4d81692d.bindPopup(popup_8851985dc8fb96f3c4f9c8c7c54b437e)
+        ;
+
+        
+    
+    
+                marker_b187705d2d5ea4ff8e7b389a4d81692d.setIcon(beautify_icon_65f8564283f77545c4e64721cf2deea8);
+            
+    
+            var marker_c4ab5081f7d0e84299ab166ec37e91c9 = L.marker(
+                [45.2963054, 14.882721],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_312d61d876b7279be808a12bb28a4909 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_c4ab5081f7d0e84299ab166ec37e91c9.setIcon(beautify_icon_312d61d876b7279be808a12bb28a4909);
+        
+    
+        var popup_18304c7fe7759898f63d71f48c2a0c6f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_db046aa3157df6a1d4ccb4a5684db017 = $(`<div id="html_db046aa3157df6a1d4ccb4a5684db017" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/mrkopalj-tuk-vojni?price[max]=200000" target=”_blank”>Tuk Vojni</a></div>`)[0];
+                popup_18304c7fe7759898f63d71f48c2a0c6f.setContent(html_db046aa3157df6a1d4ccb4a5684db017);
+            
+        
+
+        marker_c4ab5081f7d0e84299ab166ec37e91c9.bindPopup(popup_18304c7fe7759898f63d71f48c2a0c6f)
+        ;
+
+        
+    
+    
+                marker_c4ab5081f7d0e84299ab166ec37e91c9.setIcon(beautify_icon_312d61d876b7279be808a12bb28a4909);
+            
+    
+            var marker_b0fe472ddecabf55dc63d0f9c2149cb0 = L.marker(
+                [45.3931085, 14.8839943],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_80a3e6a7e5bd2f4f18f1a20a2907d2a4 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_b0fe472ddecabf55dc63d0f9c2149cb0.setIcon(beautify_icon_80a3e6a7e5bd2f4f18f1a20a2907d2a4);
+        
+    
+        var popup_250fca89b218e0f210a555fd613da162 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7f3bb014da1e9a0b47abc91ee70c378c = $(`<div id="html_7f3bb014da1e9a0b47abc91ee70c378c" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/ravna-gora-kupjak?price[max]=200000" target=”_blank”>Kupjak</a></div>`)[0];
+                popup_250fca89b218e0f210a555fd613da162.setContent(html_7f3bb014da1e9a0b47abc91ee70c378c);
+            
+        
+
+        marker_b0fe472ddecabf55dc63d0f9c2149cb0.bindPopup(popup_250fca89b218e0f210a555fd613da162)
+        ;
+
+        
+    
+    
+                marker_b0fe472ddecabf55dc63d0f9c2149cb0.setIcon(beautify_icon_80a3e6a7e5bd2f4f18f1a20a2907d2a4);
+            
+    
+            var marker_f7db874643617e333ecdcb80f6ceb382 = L.marker(
+                [45.3867757, 14.894416],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_e9cd700e191029cf39847c62247d3e52 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_f7db874643617e333ecdcb80f6ceb382.setIcon(beautify_icon_e9cd700e191029cf39847c62247d3e52);
+        
+    
+        var popup_a9d1e479929b7831d2fa4098d430e1df = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_029c46bccb7dc07574b56cc60a05cffd = $(`<div id="html_029c46bccb7dc07574b56cc60a05cffd" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/ravna-gora-leskova-draga?price[max]=200000" target=”_blank”>Leskova Draga</a></div>`)[0];
+                popup_a9d1e479929b7831d2fa4098d430e1df.setContent(html_029c46bccb7dc07574b56cc60a05cffd);
+            
+        
+
+        marker_f7db874643617e333ecdcb80f6ceb382.bindPopup(popup_a9d1e479929b7831d2fa4098d430e1df)
+        ;
+
+        
+    
+    
+                marker_f7db874643617e333ecdcb80f6ceb382.setIcon(beautify_icon_e9cd700e191029cf39847c62247d3e52);
+            
+    
+            var marker_06a13505b8fef049519bf814034c2b41 = L.marker(
+                [45.3741644, 14.9393863],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_32e5b78180586b9ad5aa1004ec72a17c = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_06a13505b8fef049519bf814034c2b41.setIcon(beautify_icon_32e5b78180586b9ad5aa1004ec72a17c);
+        
+    
+        var popup_40202587afc3200abc1436fda6bf9d98 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_be6fc7eb00deae6c8705ac642b5c5a57 = $(`<div id="html_be6fc7eb00deae6c8705ac642b5c5a57" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/ravna-gora-ravna-gora?price[max]=200000" target=”_blank”>Ravna Gora</a></div>`)[0];
+                popup_40202587afc3200abc1436fda6bf9d98.setContent(html_be6fc7eb00deae6c8705ac642b5c5a57);
+            
+        
+
+        marker_06a13505b8fef049519bf814034c2b41.bindPopup(popup_40202587afc3200abc1436fda6bf9d98)
+        ;
+
+        
+    
+    
+                marker_06a13505b8fef049519bf814034c2b41.setIcon(beautify_icon_32e5b78180586b9ad5aa1004ec72a17c);
+            
+    
+            var marker_0337e99ede1e4c4a49ee1d31a6676b10 = L.marker(
+                [45.3758679, 14.999392],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_26d0339c71d31902cc0cabb372881770 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_0337e99ede1e4c4a49ee1d31a6676b10.setIcon(beautify_icon_26d0339c71d31902cc0cabb372881770);
+        
+    
+        var popup_ad88bf930555f2a04dff5a61480d9fd2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0be7eebb07e3e9ff8b5a9128a08cfee0 = $(`<div id="html_0be7eebb07e3e9ff8b5a9128a08cfee0" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/ravna-gora-stara-susica?price[max]=200000" target=”_blank”>Stara Sušica</a></div>`)[0];
+                popup_ad88bf930555f2a04dff5a61480d9fd2.setContent(html_0be7eebb07e3e9ff8b5a9128a08cfee0);
+            
+        
+
+        marker_0337e99ede1e4c4a49ee1d31a6676b10.bindPopup(popup_ad88bf930555f2a04dff5a61480d9fd2)
+        ;
+
+        
+    
+    
+                marker_0337e99ede1e4c4a49ee1d31a6676b10.setIcon(beautify_icon_26d0339c71d31902cc0cabb372881770);
+            
+    
+            var marker_1fa1823cba07c2df9e4de3d65ce5eaf1 = L.marker(
+                [45.3621682, 14.8798249],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_2637f787014239e933a438c95aa6de35 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_1fa1823cba07c2df9e4de3d65ce5eaf1.setIcon(beautify_icon_2637f787014239e933a438c95aa6de35);
+        
+    
+        var popup_b083c1b532726f751d2c0fdcda7b13ff = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d4da674aa169a737a78c652842ece387 = $(`<div id="html_d4da674aa169a737a78c652842ece387" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/ravna-gora-stari-laz?price[max]=200000" target=”_blank”>Stari Laz</a></div>`)[0];
+                popup_b083c1b532726f751d2c0fdcda7b13ff.setContent(html_d4da674aa169a737a78c652842ece387);
+            
+        
+
+        marker_1fa1823cba07c2df9e4de3d65ce5eaf1.bindPopup(popup_b083c1b532726f751d2c0fdcda7b13ff)
+        ;
+
+        
+    
+    
+                marker_1fa1823cba07c2df9e4de3d65ce5eaf1.setIcon(beautify_icon_2637f787014239e933a438c95aa6de35);
+            
+    
+            var marker_99274bac1280834eb9ecf9400d491d5c = L.marker(
+                [45.4374903, 14.9353866],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_67430a1eb5b5b1ce7002d5a27dee994b = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_99274bac1280834eb9ecf9400d491d5c.setIcon(beautify_icon_67430a1eb5b5b1ce7002d5a27dee994b);
+        
+    
+        var popup_2c5b99e99db419c1a7a7ebfb50a9f213 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa826ca714fab7825aaa2bd8dbeb6ac3 = $(`<div id="html_aa826ca714fab7825aaa2bd8dbeb6ac3" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/skrad-brezje-dobransko?price[max]=200000" target=”_blank”>Brezje Dobransko</a></div>`)[0];
+                popup_2c5b99e99db419c1a7a7ebfb50a9f213.setContent(html_aa826ca714fab7825aaa2bd8dbeb6ac3);
+            
+        
+
+        marker_99274bac1280834eb9ecf9400d491d5c.bindPopup(popup_2c5b99e99db419c1a7a7ebfb50a9f213)
+        ;
+
+        
+    
+    
+                marker_99274bac1280834eb9ecf9400d491d5c.setIcon(beautify_icon_67430a1eb5b5b1ce7002d5a27dee994b);
+            
+    
+            var marker_da40f08ae3445921a9038878cce43c25 = L.marker(
+                [45.4177413, 14.9467054],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_38016c772f080786787645cc791edd1e = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_da40f08ae3445921a9038878cce43c25.setIcon(beautify_icon_38016c772f080786787645cc791edd1e);
+        
+    
+        var popup_7316a23163034fc76ebfd34198866258 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a8605b06cd023ad6a15e5ca11240cbaf = $(`<div id="html_a8605b06cd023ad6a15e5ca11240cbaf" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/skrad-bukov-vrh?price[max]=200000" target=”_blank”>Bukov Vrh</a></div>`)[0];
+                popup_7316a23163034fc76ebfd34198866258.setContent(html_a8605b06cd023ad6a15e5ca11240cbaf);
+            
+        
+
+        marker_da40f08ae3445921a9038878cce43c25.bindPopup(popup_7316a23163034fc76ebfd34198866258)
+        ;
+
+        
+    
+    
+                marker_da40f08ae3445921a9038878cce43c25.setIcon(beautify_icon_38016c772f080786787645cc791edd1e);
+            
+    
+            var marker_12bf456ba101086f08d4573ffe0c1f66 = L.marker(
+                [45.4224894, 14.9321496],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_8d7640150179b6a990ba40d22eca41c6 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_12bf456ba101086f08d4573ffe0c1f66.setIcon(beautify_icon_8d7640150179b6a990ba40d22eca41c6);
+        
+    
+        var popup_4599bad22b3e7448bdd6b8ad4c858904 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0cdae076ea37ca9701f7b49f47278873 = $(`<div id="html_0cdae076ea37ca9701f7b49f47278873" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/skrad-divjake?price[max]=200000" target=”_blank”>Divjake</a></div>`)[0];
+                popup_4599bad22b3e7448bdd6b8ad4c858904.setContent(html_0cdae076ea37ca9701f7b49f47278873);
+            
+        
+
+        marker_12bf456ba101086f08d4573ffe0c1f66.bindPopup(popup_4599bad22b3e7448bdd6b8ad4c858904)
+        ;
+
+        
+    
+    
+                marker_12bf456ba101086f08d4573ffe0c1f66.setIcon(beautify_icon_8d7640150179b6a990ba40d22eca41c6);
+            
+    
+            var marker_55b26dee2d7831c03499f61ce52bb906 = L.marker(
+                [44.923885, 24.5661731],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_da483f07a30d7b56280bfca68131dfaf = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_55b26dee2d7831c03499f61ce52bb906.setIcon(beautify_icon_da483f07a30d7b56280bfca68131dfaf);
+        
+    
+        var popup_05ac5f73c18cbd29e1ac73d87438c84d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bb949ee82f7c0e10baaffd69c5bd38cb = $(`<div id="html_bb949ee82f7c0e10baaffd69c5bd38cb" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/skrad-gorani?price[max]=200000" target=”_blank”>Gorani</a></div>`)[0];
+                popup_05ac5f73c18cbd29e1ac73d87438c84d.setContent(html_bb949ee82f7c0e10baaffd69c5bd38cb);
+            
+        
+
+        marker_55b26dee2d7831c03499f61ce52bb906.bindPopup(popup_05ac5f73c18cbd29e1ac73d87438c84d)
+        ;
+
+        
+    
+    
+                marker_55b26dee2d7831c03499f61ce52bb906.setIcon(beautify_icon_da483f07a30d7b56280bfca68131dfaf);
+            
+    
+            var marker_8756559e15fc1e05401a9646bd40f4b1 = L.marker(
+                [45.4428944, 14.9397287],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_7a5882e101548194bd0024521fdfca61 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_8756559e15fc1e05401a9646bd40f4b1.setIcon(beautify_icon_7a5882e101548194bd0024521fdfca61);
+        
+    
+        var popup_09736d3ceafb9d6757d388ba7ac13577 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5b5822d03c196b68156e8b2813fec458 = $(`<div id="html_5b5822d03c196b68156e8b2813fec458" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/skrad-gornja-dobra?price[max]=200000" target=”_blank”>Gornja Dobra</a></div>`)[0];
+                popup_09736d3ceafb9d6757d388ba7ac13577.setContent(html_5b5822d03c196b68156e8b2813fec458);
+            
+        
+
+        marker_8756559e15fc1e05401a9646bd40f4b1.bindPopup(popup_09736d3ceafb9d6757d388ba7ac13577)
+        ;
+
+        
+    
+    
+                marker_8756559e15fc1e05401a9646bd40f4b1.setIcon(beautify_icon_7a5882e101548194bd0024521fdfca61);
+            
+    
+            var marker_488cbc8bf61e9ba583c2abf20f98970c = L.marker(
+                [45.3964239, 14.9287947],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_95d6397872d36457d6c219d05d5e4a27 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_488cbc8bf61e9ba583c2abf20f98970c.setIcon(beautify_icon_95d6397872d36457d6c219d05d5e4a27);
+        
+    
+        var popup_7e88fd6c8f6873cb2e2d122d55e30427 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_44d796d9c620fffd1ebe8ba834f9ecf1 = $(`<div id="html_44d796d9c620fffd1ebe8ba834f9ecf1" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/skrad-hlevci?price[max]=200000" target=”_blank”>Hlevci</a></div>`)[0];
+                popup_7e88fd6c8f6873cb2e2d122d55e30427.setContent(html_44d796d9c620fffd1ebe8ba834f9ecf1);
+            
+        
+
+        marker_488cbc8bf61e9ba583c2abf20f98970c.bindPopup(popup_7e88fd6c8f6873cb2e2d122d55e30427)
+        ;
+
+        
+    
+    
+                marker_488cbc8bf61e9ba583c2abf20f98970c.setIcon(beautify_icon_95d6397872d36457d6c219d05d5e4a27);
+            
+    
+            var marker_eab87b8b4d95a43e495afb587a9e7b77 = L.marker(
+                [45.4170276, 14.9275477],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_26a18df858f5a8c865f2fba7fc4091b9 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_eab87b8b4d95a43e495afb587a9e7b77.setIcon(beautify_icon_26a18df858f5a8c865f2fba7fc4091b9);
+        
+    
+        var popup_4a2e0fbbd91cd60df45bc61a9bbe9e2a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dfe4495cf7363030b8f9fafa2434ba52 = $(`<div id="html_dfe4495cf7363030b8f9fafa2434ba52" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/skrad-hribac?price[max]=200000" target=”_blank”>Hribac</a></div>`)[0];
+                popup_4a2e0fbbd91cd60df45bc61a9bbe9e2a.setContent(html_dfe4495cf7363030b8f9fafa2434ba52);
+            
+        
+
+        marker_eab87b8b4d95a43e495afb587a9e7b77.bindPopup(popup_4a2e0fbbd91cd60df45bc61a9bbe9e2a)
+        ;
+
+        
+    
+    
+                marker_eab87b8b4d95a43e495afb587a9e7b77.setIcon(beautify_icon_26a18df858f5a8c865f2fba7fc4091b9);
+            
+    
+            var marker_92fa9e4050e83fa5fcb97771e5b68a21 = L.marker(
+                [45.4353313, 14.923602],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_e1bd188ff8c77eb2fe84856d645644bc = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_92fa9e4050e83fa5fcb97771e5b68a21.setIcon(beautify_icon_e1bd188ff8c77eb2fe84856d645644bc);
+        
+    
+        var popup_619d06ad8dbd2f9aa0fe93585aff7c06 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7076ba44bc4dfbc00b9821ae23ce8065 = $(`<div id="html_7076ba44bc4dfbc00b9821ae23ce8065" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/skrad-malo-selce?price[max]=200000" target=”_blank”>Malo Selce</a></div>`)[0];
+                popup_619d06ad8dbd2f9aa0fe93585aff7c06.setContent(html_7076ba44bc4dfbc00b9821ae23ce8065);
+            
+        
+
+        marker_92fa9e4050e83fa5fcb97771e5b68a21.bindPopup(popup_619d06ad8dbd2f9aa0fe93585aff7c06)
+        ;
+
+        
+    
+    
+                marker_92fa9e4050e83fa5fcb97771e5b68a21.setIcon(beautify_icon_e1bd188ff8c77eb2fe84856d645644bc);
+            
+    
+            var marker_f79383c50314319bb6195d1f810391cd = L.marker(
+                [45.4391527, 14.8973555],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_c3190c19e38c2d5d7e4931de1614dfae = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_f79383c50314319bb6195d1f810391cd.setIcon(beautify_icon_c3190c19e38c2d5d7e4931de1614dfae);
+        
+    
+        var popup_23c78240864148c234b91857476d92ce = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ec664ff12a1aa16ab2ea00ee588d5da2 = $(`<div id="html_ec664ff12a1aa16ab2ea00ee588d5da2" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/skrad-planina-skradska?price[max]=200000" target=”_blank”>Planina Skradska</a></div>`)[0];
+                popup_23c78240864148c234b91857476d92ce.setContent(html_ec664ff12a1aa16ab2ea00ee588d5da2);
+            
+        
+
+        marker_f79383c50314319bb6195d1f810391cd.bindPopup(popup_23c78240864148c234b91857476d92ce)
+        ;
+
+        
+    
+    
+                marker_f79383c50314319bb6195d1f810391cd.setIcon(beautify_icon_c3190c19e38c2d5d7e4931de1614dfae);
+            
+    
+            var marker_c2abc0e6dea2c7a5d1178389109ca60d = L.marker(
+                [45.4317786, 14.9058642],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_82a10103cc1c56d372b4440ea8d351aa = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_c2abc0e6dea2c7a5d1178389109ca60d.setIcon(beautify_icon_82a10103cc1c56d372b4440ea8d351aa);
+        
+    
+        var popup_93aaf333d17a9e84361bb2645e757410 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_738c68bc95b99087c296b68456a9ec2f = $(`<div id="html_738c68bc95b99087c296b68456a9ec2f" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/skrad-skrad?price[max]=200000" target=”_blank”>Skrad</a></div>`)[0];
+                popup_93aaf333d17a9e84361bb2645e757410.setContent(html_738c68bc95b99087c296b68456a9ec2f);
+            
+        
+
+        marker_c2abc0e6dea2c7a5d1178389109ca60d.bindPopup(popup_93aaf333d17a9e84361bb2645e757410)
+        ;
+
+        
+    
+    
+                marker_c2abc0e6dea2c7a5d1178389109ca60d.setIcon(beautify_icon_82a10103cc1c56d372b4440ea8d351aa);
+            
+    
+            var marker_d7a835730592689d6f383132e27ba4f5 = L.marker(
+                [45.1618724, 14.7608879],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_94f12487563b8304ddc043741f5ec3cc = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_d7a835730592689d6f383132e27ba4f5.setIcon(beautify_icon_94f12487563b8304ddc043741f5ec3cc);
+        
+    
+        var popup_5c1af469323cae2e99b0220a755acd31 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b54586dc9fe30a6b6656065e6f007b67 = $(`<div id="html_b54586dc9fe30a6b6656065e6f007b67" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vinodolska-opcina-bribir?price[max]=200000" target=”_blank”>Bribir</a></div>`)[0];
+                popup_5c1af469323cae2e99b0220a755acd31.setContent(html_b54586dc9fe30a6b6656065e6f007b67);
+            
+        
+
+        marker_d7a835730592689d6f383132e27ba4f5.bindPopup(popup_5c1af469323cae2e99b0220a755acd31)
+        ;
+
+        
+    
+    
+                marker_d7a835730592689d6f383132e27ba4f5.setIcon(beautify_icon_94f12487563b8304ddc043741f5ec3cc);
+            
+    
+            var marker_acd8a50e3e59c79ec6cdb4b384e20d83 = L.marker(
+                [45.2410329, 14.6499112],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_5ca1359bf7fff6f5067e8646349e73a5 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_acd8a50e3e59c79ec6cdb4b384e20d83.setIcon(beautify_icon_5ca1359bf7fff6f5067e8646349e73a5);
+        
+    
+        var popup_7dbf45fe8f0db05009e1dd0a774e6af6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cdeff860ecdec2ef3f3eb4cf23fa8481 = $(`<div id="html_cdeff860ecdec2ef3f3eb4cf23fa8481" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vinodolska-opcina-drivenik?price[max]=200000" target=”_blank”>Drivenik</a></div>`)[0];
+                popup_7dbf45fe8f0db05009e1dd0a774e6af6.setContent(html_cdeff860ecdec2ef3f3eb4cf23fa8481);
+            
+        
+
+        marker_acd8a50e3e59c79ec6cdb4b384e20d83.bindPopup(popup_7dbf45fe8f0db05009e1dd0a774e6af6)
+        ;
+
+        
+    
+    
+                marker_acd8a50e3e59c79ec6cdb4b384e20d83.setIcon(beautify_icon_5ca1359bf7fff6f5067e8646349e73a5);
+            
+    
+            var marker_2ab1d0867f8365377b1ae41e662346ee = L.marker(
+                [45.2042909, 14.7170144],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_538552b6afc0342fca257afc292a7504 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_2ab1d0867f8365377b1ae41e662346ee.setIcon(beautify_icon_538552b6afc0342fca257afc292a7504);
+        
+    
+        var popup_7840db9e7fe33b1525d7d5f5d8910896 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8346eb953b409af3daa4c56b2e02b247 = $(`<div id="html_8346eb953b409af3daa4c56b2e02b247" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vinodolska-opcina-grizane-belgrad?price[max]=200000" target=”_blank”>Grižane-Belgrad</a></div>`)[0];
+                popup_7840db9e7fe33b1525d7d5f5d8910896.setContent(html_8346eb953b409af3daa4c56b2e02b247);
+            
+        
+
+        marker_2ab1d0867f8365377b1ae41e662346ee.bindPopup(popup_7840db9e7fe33b1525d7d5f5d8910896)
+        ;
+
+        
+    
+    
+                marker_2ab1d0867f8365377b1ae41e662346ee.setIcon(beautify_icon_538552b6afc0342fca257afc292a7504);
+            
+    
+            var marker_c279bc151b35c555651b08f2b6430745 = L.marker(
+                [45.2202299, 14.6779576],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_233b3482fe72adb6872781a924839e14 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_c279bc151b35c555651b08f2b6430745.setIcon(beautify_icon_233b3482fe72adb6872781a924839e14);
+        
+    
+        var popup_f6a60010d0b3b0181e535741c729d3e6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_601057e39cbda327b48c37f57a9f7186 = $(`<div id="html_601057e39cbda327b48c37f57a9f7186" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vinodolska-opcina-tribalj?price[max]=200000" target=”_blank”>Tribalj</a></div>`)[0];
+                popup_f6a60010d0b3b0181e535741c729d3e6.setContent(html_601057e39cbda327b48c37f57a9f7186);
+            
+        
+
+        marker_c279bc151b35c555651b08f2b6430745.bindPopup(popup_f6a60010d0b3b0181e535741c729d3e6)
+        ;
+
+        
+    
+    
+                marker_c279bc151b35c555651b08f2b6430745.setIcon(beautify_icon_233b3482fe72adb6872781a924839e14);
+            
+    
+            var marker_20e6072eac36c62eac99bb02e819be6d = L.marker(
+                [45.4844414, 15.0726394],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_6c1082167314b0c38cf59c6a69c47357 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_20e6072eac36c62eac99bb02e819be6d.setIcon(beautify_icon_6c1082167314b0c38cf59c6a69c47357);
+        
+    
+        var popup_48c726ab52546d796ec53a093ce03dcc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f537fba2677ccf9a7645e077e21cd422 = $(`<div id="html_f537fba2677ccf9a7645e077e21cd422" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-blazevci?price[max]=200000" target=”_blank”>Blaževci</a></div>`)[0];
+                popup_48c726ab52546d796ec53a093ce03dcc.setContent(html_f537fba2677ccf9a7645e077e21cd422);
+            
+        
+
+        marker_20e6072eac36c62eac99bb02e819be6d.bindPopup(popup_48c726ab52546d796ec53a093ce03dcc)
+        ;
+
+        
+    
+    
+                marker_20e6072eac36c62eac99bb02e819be6d.setIcon(beautify_icon_6c1082167314b0c38cf59c6a69c47357);
+            
+    
+            var marker_32b84721fc5cad685c0e6092e2bc8486 = L.marker(
+                [45.4384512, 15.0083836],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_403183d6f3b35df777d758577591c3a2 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_32b84721fc5cad685c0e6092e2bc8486.setIcon(beautify_icon_403183d6f3b35df777d758577591c3a2);
+        
+    
+        var popup_728e2b81aeea9bb71e5d93193fb3f998 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_63cda7b9224da4cd50dc64a0cabddf3d = $(`<div id="html_63cda7b9224da4cd50dc64a0cabddf3d" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-bunjevci?price[max]=200000" target=”_blank”>Bunjevci</a></div>`)[0];
+                popup_728e2b81aeea9bb71e5d93193fb3f998.setContent(html_63cda7b9224da4cd50dc64a0cabddf3d);
+            
+        
+
+        marker_32b84721fc5cad685c0e6092e2bc8486.bindPopup(popup_728e2b81aeea9bb71e5d93193fb3f998)
+        ;
+
+        
+    
+    
+                marker_32b84721fc5cad685c0e6092e2bc8486.setIcon(beautify_icon_403183d6f3b35df777d758577591c3a2);
+            
+    
+            var marker_1b9b04d00c5c8c68f33844e90e7e489f = L.marker(
+                [45.4258853, 15.0291495],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_dee3d3af5e86eb1482981754f6d47977 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_1b9b04d00c5c8c68f33844e90e7e489f.setIcon(beautify_icon_dee3d3af5e86eb1482981754f6d47977);
+        
+    
+        var popup_6d718530098836491314e85369d294d3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d2eaddf5fade032792d7c28982ff583e = $(`<div id="html_d2eaddf5fade032792d7c28982ff583e" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-dokmanovici?price[max]=200000" target=”_blank”>Dokmanovići</a></div>`)[0];
+                popup_6d718530098836491314e85369d294d3.setContent(html_d2eaddf5fade032792d7c28982ff583e);
+            
+        
+
+        marker_1b9b04d00c5c8c68f33844e90e7e489f.bindPopup(popup_6d718530098836491314e85369d294d3)
+        ;
+
+        
+    
+    
+                marker_1b9b04d00c5c8c68f33844e90e7e489f.setIcon(beautify_icon_dee3d3af5e86eb1482981754f6d47977);
+            
+    
+            var marker_50fbd5de3214b09653ecf1a2fddeda6b = L.marker(
+                [45.4236614, 15.1253852],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_cea0f2799e435d78ed85bc81d5af24e6 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_50fbd5de3214b09653ecf1a2fddeda6b.setIcon(beautify_icon_cea0f2799e435d78ed85bc81d5af24e6);
+        
+    
+        var popup_380ee7f6ce8a21af3609c6b6c511dae5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a92373164a9e39d2755f83db0fda7704 = $(`<div id="html_a92373164a9e39d2755f83db0fda7704" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-dolenci?price[max]=200000" target=”_blank”>Dolenci</a></div>`)[0];
+                popup_380ee7f6ce8a21af3609c6b6c511dae5.setContent(html_a92373164a9e39d2755f83db0fda7704);
+            
+        
+
+        marker_50fbd5de3214b09653ecf1a2fddeda6b.bindPopup(popup_380ee7f6ce8a21af3609c6b6c511dae5)
+        ;
+
+        
+    
+    
+                marker_50fbd5de3214b09653ecf1a2fddeda6b.setIcon(beautify_icon_cea0f2799e435d78ed85bc81d5af24e6);
+            
+    
+            var marker_d6ae864d0d2c437af656c9bc7b8445f3 = L.marker(
+                [45.3359861, 15.1212537],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_e759da2e5bbf7e35586994c527b42e8e = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_d6ae864d0d2c437af656c9bc7b8445f3.setIcon(beautify_icon_e759da2e5bbf7e35586994c527b42e8e);
+        
+    
+        var popup_07a36b29c8c4939e1757b6851809406c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1ed1314908dfaf18bb234a2a8305a8c7 = $(`<div id="html_1ed1314908dfaf18bb234a2a8305a8c7" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-gomirje?price[max]=200000" target=”_blank”>Gomirje</a></div>`)[0];
+                popup_07a36b29c8c4939e1757b6851809406c.setContent(html_1ed1314908dfaf18bb234a2a8305a8c7);
+            
+        
+
+        marker_d6ae864d0d2c437af656c9bc7b8445f3.bindPopup(popup_07a36b29c8c4939e1757b6851809406c)
+        ;
+
+        
+    
+    
+                marker_d6ae864d0d2c437af656c9bc7b8445f3.setIcon(beautify_icon_e759da2e5bbf7e35586994c527b42e8e);
+            
+    
+            var marker_a2441cc6396391b51c8dfb1819393568 = L.marker(
+                [45.3935304, 15.0817254],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_f10614b9c9287ab418b77809a4a3ba5d = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_a2441cc6396391b51c8dfb1819393568.setIcon(beautify_icon_f10614b9c9287ab418b77809a4a3ba5d);
+        
+    
+        var popup_9a670eaf948142f9ea9a748c0c1bbe89 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_744742aa283fcefdee82d8c7815bba81 = $(`<div id="html_744742aa283fcefdee82d8c7815bba81" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-hajdine?price[max]=200000" target=”_blank”>Hajdine</a></div>`)[0];
+                popup_9a670eaf948142f9ea9a748c0c1bbe89.setContent(html_744742aa283fcefdee82d8c7815bba81);
+            
+        
+
+        marker_a2441cc6396391b51c8dfb1819393568.bindPopup(popup_9a670eaf948142f9ea9a748c0c1bbe89)
+        ;
+
+        
+    
+    
+                marker_a2441cc6396391b51c8dfb1819393568.setIcon(beautify_icon_f10614b9c9287ab418b77809a4a3ba5d);
+            
+    
+            var marker_e6de4ca61b7f0fbab91b4f632d9d7d9f = L.marker(
+                [45.3653594, 15.091009],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_32b4ab927a84a272ef9f44cb88bd2235 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_e6de4ca61b7f0fbab91b4f632d9d7d9f.setIcon(beautify_icon_32b4ab927a84a272ef9f44cb88bd2235);
+        
+    
+        var popup_85099a11dcd0caea40addfe033bec80b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_325c62c0ddc7a3f7652c0147fe3c8ed5 = $(`<div id="html_325c62c0ddc7a3f7652c0147fe3c8ed5" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-hambariste?price[max]=200000" target=”_blank”>Hambarište</a></div>`)[0];
+                popup_85099a11dcd0caea40addfe033bec80b.setContent(html_325c62c0ddc7a3f7652c0147fe3c8ed5);
+            
+        
+
+        marker_e6de4ca61b7f0fbab91b4f632d9d7d9f.bindPopup(popup_85099a11dcd0caea40addfe033bec80b)
+        ;
+
+        
+    
+    
+                marker_e6de4ca61b7f0fbab91b4f632d9d7d9f.setIcon(beautify_icon_32b4ab927a84a272ef9f44cb88bd2235);
+            
+    
+            var marker_4e6b14eb9d20cc4ab51656b3386bd66d = L.marker(
+                [45.3781956, 15.030126],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_ef5ddff550b0cc0b97cfec70dee9a8b2 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_4e6b14eb9d20cc4ab51656b3386bd66d.setIcon(beautify_icon_ef5ddff550b0cc0b97cfec70dee9a8b2);
+        
+    
+        var popup_3d40163286d9b48f4376006b1b1ad8f5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ee73d0ee7d0ab38ffa99be08bc163eb2 = $(`<div id="html_ee73d0ee7d0ab38ffa99be08bc163eb2" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-jablan?price[max]=200000" target=”_blank”>Jablan</a></div>`)[0];
+                popup_3d40163286d9b48f4376006b1b1ad8f5.setContent(html_ee73d0ee7d0ab38ffa99be08bc163eb2);
+            
+        
+
+        marker_4e6b14eb9d20cc4ab51656b3386bd66d.bindPopup(popup_3d40163286d9b48f4376006b1b1ad8f5)
+        ;
+
+        
+    
+    
+                marker_4e6b14eb9d20cc4ab51656b3386bd66d.setIcon(beautify_icon_ef5ddff550b0cc0b97cfec70dee9a8b2);
+            
+    
+            var marker_646a1fca0023a936ac36ea79f26f9c46 = L.marker(
+                [43.6165358, 16.9532558],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_22d7c706ade86b7d778a38cf33c9259f = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_646a1fca0023a936ac36ea79f26f9c46.setIcon(beautify_icon_22d7c706ade86b7d778a38cf33c9259f);
+        
+    
+        var popup_e108d124094ad84e34cd47ead0cb5b18 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_740f26d15c17aab97dee7350eedb08c6 = $(`<div id="html_740f26d15c17aab97dee7350eedb08c6" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-kamensko?price[max]=200000" target=”_blank”>Kamensko</a></div>`)[0];
+                popup_e108d124094ad84e34cd47ead0cb5b18.setContent(html_740f26d15c17aab97dee7350eedb08c6);
+            
+        
+
+        marker_646a1fca0023a936ac36ea79f26f9c46.bindPopup(popup_e108d124094ad84e34cd47ead0cb5b18)
+        ;
+
+        
+    
+    
+                marker_646a1fca0023a936ac36ea79f26f9c46.setIcon(beautify_icon_22d7c706ade86b7d778a38cf33c9259f);
+            
+    
+            var marker_801e787495a4d2b9cbe8e38a0f06e375 = L.marker(
+                [45.4235862, 15.1919229],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_9a08c91c657c1f07e3596944f6320c2e = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_801e787495a4d2b9cbe8e38a0f06e375.setIcon(beautify_icon_9a08c91c657c1f07e3596944f6320c2e);
+        
+    
+        var popup_0e0eefc0ec58c65a924fa00f8c6575dd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c402ed7446dbfadb2dfc3b240c0e28e5 = $(`<div id="html_c402ed7446dbfadb2dfc3b240c0e28e5" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-klanac?price[max]=200000" target=”_blank”>Klanac</a></div>`)[0];
+                popup_0e0eefc0ec58c65a924fa00f8c6575dd.setContent(html_c402ed7446dbfadb2dfc3b240c0e28e5);
+            
+        
+
+        marker_801e787495a4d2b9cbe8e38a0f06e375.bindPopup(popup_0e0eefc0ec58c65a924fa00f8c6575dd)
+        ;
+
+        
+    
+    
+                marker_801e787495a4d2b9cbe8e38a0f06e375.setIcon(beautify_icon_9a08c91c657c1f07e3596944f6320c2e);
+            
+    
+            var marker_845bdb9bdc183cb01485748e46012859 = L.marker(
+                [45.3996986, 15.0355781],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_73c0c886fe83c9b3c4f8d9e2936a9200 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_845bdb9bdc183cb01485748e46012859.setIcon(beautify_icon_73c0c886fe83c9b3c4f8d9e2936a9200);
+        
+    
+        var popup_ff1d49d5f5d31aec8fce9818503b24a5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d2517a80e936c1283944f8491fab7d10 = $(`<div id="html_d2517a80e936c1283944f8491fab7d10" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-komlenici?price[max]=200000" target=”_blank”>Komlenići</a></div>`)[0];
+                popup_ff1d49d5f5d31aec8fce9818503b24a5.setContent(html_d2517a80e936c1283944f8491fab7d10);
+            
+        
+
+        marker_845bdb9bdc183cb01485748e46012859.bindPopup(popup_ff1d49d5f5d31aec8fce9818503b24a5)
+        ;
+
+        
+    
+    
+                marker_845bdb9bdc183cb01485748e46012859.setIcon(beautify_icon_73c0c886fe83c9b3c4f8d9e2936a9200);
+            
+    
+            var marker_9f88319f5234c1d6748a23c808197cd6 = L.marker(
+                [45.4284912, 15.1252418],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_4dd3eadc76d6e2c9b0ed5c1cb048a7c8 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_9f88319f5234c1d6748a23c808197cd6.setIcon(beautify_icon_4dd3eadc76d6e2c9b0ed5c1cb048a7c8);
+        
+    
+        var popup_146b5187b935af73bff395c29cfca907 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_99ad625bd87ad4f5cd87c28f91bf2148 = $(`<div id="html_99ad625bd87ad4f5cd87c28f91bf2148" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-lukovdol?price[max]=200000" target=”_blank”>Lukovdol</a></div>`)[0];
+                popup_146b5187b935af73bff395c29cfca907.setContent(html_99ad625bd87ad4f5cd87c28f91bf2148);
+            
+        
+
+        marker_9f88319f5234c1d6748a23c808197cd6.bindPopup(popup_146b5187b935af73bff395c29cfca907)
+        ;
+
+        
+    
+    
+                marker_9f88319f5234c1d6748a23c808197cd6.setIcon(beautify_icon_4dd3eadc76d6e2c9b0ed5c1cb048a7c8);
+            
+    
+            var marker_715badd602aeccb1f99dc97382ed48ec = L.marker(
+                [45.399921, 15.185415],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_7caed0b7ab3249a8174bec894cab1911 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_715badd602aeccb1f99dc97382ed48ec.setIcon(beautify_icon_7caed0b7ab3249a8174bec894cab1911);
+        
+    
+        var popup_5bfdc13d4be08f1a165ee93190cb7e16 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_518d083b9e192f3fce7a6c98f73ef3ca = $(`<div id="html_518d083b9e192f3fce7a6c98f73ef3ca" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-mali-jadrc?price[max]=200000" target=”_blank”>Mali Jadrč</a></div>`)[0];
+                popup_5bfdc13d4be08f1a165ee93190cb7e16.setContent(html_518d083b9e192f3fce7a6c98f73ef3ca);
+            
+        
+
+        marker_715badd602aeccb1f99dc97382ed48ec.bindPopup(popup_5bfdc13d4be08f1a165ee93190cb7e16)
+        ;
+
+        
+    
+    
+                marker_715badd602aeccb1f99dc97382ed48ec.setIcon(beautify_icon_7caed0b7ab3249a8174bec894cab1911);
+            
+    
+            var marker_42b71e495408dd92cedd4e06b2104870 = L.marker(
+                [45.414021, 15.1608013],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_26ae9b86296ccb371a702fc3226a3bdd = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_42b71e495408dd92cedd4e06b2104870.setIcon(beautify_icon_26ae9b86296ccb371a702fc3226a3bdd);
+        
+    
+        var popup_a8adffee6947d7f060bd44daf2aac834 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d049cd617a45eaaab6e47574bc0e8393 = $(`<div id="html_d049cd617a45eaaab6e47574bc0e8393" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-mocile?price[max]=200000" target=”_blank”>Močile</a></div>`)[0];
+                popup_a8adffee6947d7f060bd44daf2aac834.setContent(html_d049cd617a45eaaab6e47574bc0e8393);
+            
+        
+
+        marker_42b71e495408dd92cedd4e06b2104870.bindPopup(popup_a8adffee6947d7f060bd44daf2aac834)
+        ;
+
+        
+    
+    
+                marker_42b71e495408dd92cedd4e06b2104870.setIcon(beautify_icon_26ae9b86296ccb371a702fc3226a3bdd);
+            
+    
+            var marker_f793943667f1f5a6d6521768f30df43b = L.marker(
+                [49.8577899, 17.7203897],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_a0af0fcda30eadcf6c6d113ec4b13420 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_f793943667f1f5a6d6521768f30df43b.setIcon(beautify_icon_a0af0fcda30eadcf6c6d113ec4b13420);
+        
+    
+        var popup_9189335f7a2dcbf8853303e95cf84654 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c78ea4e76dbfd99d54d4312f09c2079e = $(`<div id="html_c78ea4e76dbfd99d54d4312f09c2079e" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-moravice?price[max]=200000" target=”_blank”>Moravice</a></div>`)[0];
+                popup_9189335f7a2dcbf8853303e95cf84654.setContent(html_c78ea4e76dbfd99d54d4312f09c2079e);
+            
+        
+
+        marker_f793943667f1f5a6d6521768f30df43b.bindPopup(popup_9189335f7a2dcbf8853303e95cf84654)
+        ;
+
+        
+    
+    
+                marker_f793943667f1f5a6d6521768f30df43b.setIcon(beautify_icon_a0af0fcda30eadcf6c6d113ec4b13420);
+            
+    
+            var marker_0b33ad65a45c45366e5febbaf0e5442f = L.marker(
+                [45.4219213, 14.9932966],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_324e9450dda093444feeb65e970b5c53 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_0b33ad65a45c45366e5febbaf0e5442f.setIcon(beautify_icon_324e9450dda093444feeb65e970b5c53);
+        
+    
+        var popup_a3d093a5e100092e758d72e07d3f788e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_09c9f9c928d141209c6441c11b9be8e9 = $(`<div id="html_09c9f9c928d141209c6441c11b9be8e9" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-petrovici?price[max]=200000" target=”_blank”>Petrovići</a></div>`)[0];
+                popup_a3d093a5e100092e758d72e07d3f788e.setContent(html_09c9f9c928d141209c6441c11b9be8e9);
+            
+        
+
+        marker_0b33ad65a45c45366e5febbaf0e5442f.bindPopup(popup_a3d093a5e100092e758d72e07d3f788e)
+        ;
+
+        
+    
+    
+                marker_0b33ad65a45c45366e5febbaf0e5442f.setIcon(beautify_icon_324e9450dda093444feeb65e970b5c53);
+            
+    
+            var marker_da99809e20a2729876a0b21820813d98 = L.marker(
+                [45.0837632, 14.1194945],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_beeefbe5c63dc77db23cb1daa521bdb8 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_da99809e20a2729876a0b21820813d98.setIcon(beautify_icon_beeefbe5c63dc77db23cb1daa521bdb8);
+        
+    
+        var popup_d0ad92922ad6aaebde81bd7525bcd688 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7dc99f5473af5f70809e513040018693 = $(`<div id="html_7dc99f5473af5f70809e513040018693" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-presika?price[max]=200000" target=”_blank”>Presika</a></div>`)[0];
+                popup_d0ad92922ad6aaebde81bd7525bcd688.setContent(html_7dc99f5473af5f70809e513040018693);
+            
+        
+
+        marker_da99809e20a2729876a0b21820813d98.bindPopup(popup_d0ad92922ad6aaebde81bd7525bcd688)
+        ;
+
+        
+    
+    
+                marker_da99809e20a2729876a0b21820813d98.setIcon(beautify_icon_beeefbe5c63dc77db23cb1daa521bdb8);
+            
+    
+            var marker_c8c45ccd408e59f929f3f0f14860ccdd = L.marker(
+                [45.4500319, 15.0017804],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_cc1ecef1805e38d1280333c3312101c0 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_c8c45ccd408e59f929f3f0f14860ccdd.setIcon(beautify_icon_cc1ecef1805e38d1280333c3312101c0);
+        
+    
+        var popup_9f5db8d1fff96405d044715d8954e21d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fbe414f63ba6f7ed3afce0e1cf442f7e = $(`<div id="html_fbe414f63ba6f7ed3afce0e1cf442f7e" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-radigojna?price[max]=200000" target=”_blank”>Radigojna</a></div>`)[0];
+                popup_9f5db8d1fff96405d044715d8954e21d.setContent(html_fbe414f63ba6f7ed3afce0e1cf442f7e);
+            
+        
+
+        marker_c8c45ccd408e59f929f3f0f14860ccdd.bindPopup(popup_9f5db8d1fff96405d044715d8954e21d)
+        ;
+
+        
+    
+    
+                marker_c8c45ccd408e59f929f3f0f14860ccdd.setIcon(beautify_icon_cc1ecef1805e38d1280333c3312101c0);
+            
+    
+            var marker_b9757ceb96f911725d13d9fe4dccafd8 = L.marker(
+                [45.4058727, 15.0291436],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_de21a32f60920f4c4c0d2258b1305e3a = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_b9757ceb96f911725d13d9fe4dccafd8.setIcon(beautify_icon_de21a32f60920f4c4c0d2258b1305e3a);
+        
+    
+        var popup_ac84e393b3e658ad35d646502f508864 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1acf1b5b59f1f610fff0ef3346c5aabb = $(`<div id="html_1acf1b5b59f1f610fff0ef3346c5aabb" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-radosevici?price[max]=200000" target=”_blank”>Radoševići</a></div>`)[0];
+                popup_ac84e393b3e658ad35d646502f508864.setContent(html_1acf1b5b59f1f610fff0ef3346c5aabb);
+            
+        
+
+        marker_b9757ceb96f911725d13d9fe4dccafd8.bindPopup(popup_ac84e393b3e658ad35d646502f508864)
+        ;
+
+        
+    
+    
+                marker_b9757ceb96f911725d13d9fe4dccafd8.setIcon(beautify_icon_de21a32f60920f4c4c0d2258b1305e3a);
+            
+    
+            var marker_a7aae6471bdac9ade04cabeda21918bc = L.marker(
+                [41.8933203, 12.4829321],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_9f9b64ded3757e18db3b54e37da0bbf2 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_a7aae6471bdac9ade04cabeda21918bc.setIcon(beautify_icon_9f9b64ded3757e18db3b54e37da0bbf2);
+        
+    
+        var popup_907b8a8a1f6bc00e1e54286067dcd9f0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9a2fd460c1a2ea9758d7a07688a03d58 = $(`<div id="html_9a2fd460c1a2ea9758d7a07688a03d58" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-rim?price[max]=200000" target=”_blank”>Rim</a></div>`)[0];
+                popup_907b8a8a1f6bc00e1e54286067dcd9f0.setContent(html_9a2fd460c1a2ea9758d7a07688a03d58);
+            
+        
+
+        marker_a7aae6471bdac9ade04cabeda21918bc.bindPopup(popup_907b8a8a1f6bc00e1e54286067dcd9f0)
+        ;
+
+        
+    
+    
+                marker_a7aae6471bdac9ade04cabeda21918bc.setIcon(beautify_icon_9f9b64ded3757e18db3b54e37da0bbf2);
+            
+    
+            var marker_90a581ad9f078006d3b38269a30a2af3 = L.marker(
+                [45.4200864, 15.1721742],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_2a7316a8fa74c3c3ef82162091aa6d56 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_90a581ad9f078006d3b38269a30a2af3.setIcon(beautify_icon_2a7316a8fa74c3c3ef82162091aa6d56);
+        
+    
+        var popup_723e8f6a4419df8340d2c6ed68b73f24 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_11f8a5ca59dfdf45bf0c51ad6390dc18 = $(`<div id="html_11f8a5ca59dfdf45bf0c51ad6390dc18" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-severin-kupi?price[max]=200000" target=”_blank”>Severin na Kupi</a></div>`)[0];
+                popup_723e8f6a4419df8340d2c6ed68b73f24.setContent(html_11f8a5ca59dfdf45bf0c51ad6390dc18);
+            
+        
+
+        marker_90a581ad9f078006d3b38269a30a2af3.bindPopup(popup_723e8f6a4419df8340d2c6ed68b73f24)
+        ;
+
+        
+    
+    
+                marker_90a581ad9f078006d3b38269a30a2af3.setIcon(beautify_icon_2a7316a8fa74c3c3ef82162091aa6d56);
+            
+    
+            var marker_63dc6c508d52e02b6466fcd8cc5392ff = L.marker(
+                [45.3854647, 15.1023887],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_d69cdd590e38143188f76c2ca2e2a780 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_63dc6c508d52e02b6466fcd8cc5392ff.setIcon(beautify_icon_d69cdd590e38143188f76c2ca2e2a780);
+        
+    
+        var popup_dea2e15d4d916973aaa932c638f33170 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b25de28b2356a626a115e8e1ea4aa662 = $(`<div id="html_b25de28b2356a626a115e8e1ea4aa662" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-stubica?price[max]=200000" target=”_blank”>Stubica</a></div>`)[0];
+                popup_dea2e15d4d916973aaa932c638f33170.setContent(html_b25de28b2356a626a115e8e1ea4aa662);
+            
+        
+
+        marker_63dc6c508d52e02b6466fcd8cc5392ff.bindPopup(popup_dea2e15d4d916973aaa932c638f33170)
+        ;
+
+        
+    
+    
+                marker_63dc6c508d52e02b6466fcd8cc5392ff.setIcon(beautify_icon_d69cdd590e38143188f76c2ca2e2a780);
+            
+    
+            var marker_42095d1f29c1762bfb2ae83a23f8c096 = L.marker(
+                [45.4115902, 15.0231425],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_8b0beb63d4d0d635c16c75489a931b48 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_42095d1f29c1762bfb2ae83a23f8c096.setIcon(beautify_icon_8b0beb63d4d0d635c16c75489a931b48);
+        
+    
+        var popup_b50148f3b79f7ab3284b362905623448 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f8dd1f8e3b8fae27b7da176c1f895c1e = $(`<div id="html_f8dd1f8e3b8fae27b7da176c1f895c1e" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-tici?price[max]=200000" target=”_blank”>Tići</a></div>`)[0];
+                popup_b50148f3b79f7ab3284b362905623448.setContent(html_f8dd1f8e3b8fae27b7da176c1f895c1e);
+            
+        
+
+        marker_42095d1f29c1762bfb2ae83a23f8c096.bindPopup(popup_b50148f3b79f7ab3284b362905623448)
+        ;
+
+        
+    
+    
+                marker_42095d1f29c1762bfb2ae83a23f8c096.setIcon(beautify_icon_8b0beb63d4d0d635c16c75489a931b48);
+            
+    
+            var marker_a08021b61ae654cb7bebd518710be3a0 = L.marker(
+                [45.4442373, 15.0014916],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_cc86be0e34fdc16bbe3502fe1c12d390 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_a08021b61ae654cb7bebd518710be3a0.setIcon(beautify_icon_cc86be0e34fdc16bbe3502fe1c12d390);
+        
+    
+        var popup_8b0d3e227fef5f308077c9237649fffe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_10c321781989af19618ac2c9730baea9 = $(`<div id="html_10c321781989af19618ac2c9730baea9" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-tomici?price[max]=200000" target=”_blank”>Tomići</a></div>`)[0];
+                popup_8b0d3e227fef5f308077c9237649fffe.setContent(html_10c321781989af19618ac2c9730baea9);
+            
+        
+
+        marker_a08021b61ae654cb7bebd518710be3a0.bindPopup(popup_8b0d3e227fef5f308077c9237649fffe)
+        ;
+
+        
+    
+    
+                marker_a08021b61ae654cb7bebd518710be3a0.setIcon(beautify_icon_cc86be0e34fdc16bbe3502fe1c12d390);
+            
+    
+            var marker_0343acd497a9c107c6500925060494d3 = L.marker(
+                [52.7966976, 6.0951866],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_fccdb4ecee36486b3f2dea49134897d5 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_0343acd497a9c107c6500925060494d3.setIcon(beautify_icon_fccdb4ecee36486b3f2dea49134897d5);
+        
+    
+        var popup_2c8972f03e8740c660335abf16725c37 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d4d0e20b92374647239f3a3b00c359e3 = $(`<div id="html_d4d0e20b92374647239f3a3b00c359e3" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-tuk?price[max]=200000" target=”_blank”>Tuk</a></div>`)[0];
+                popup_2c8972f03e8740c660335abf16725c37.setContent(html_d4d0e20b92374647239f3a3b00c359e3);
+            
+        
+
+        marker_0343acd497a9c107c6500925060494d3.bindPopup(popup_2c8972f03e8740c660335abf16725c37)
+        ;
+
+        
+    
+    
+                marker_0343acd497a9c107c6500925060494d3.setIcon(beautify_icon_fccdb4ecee36486b3f2dea49134897d5);
+            
+    
+            var marker_31e4743d66ca88478f71344b54918e82 = L.marker(
+                [45.3973708, 15.1936966],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_d77403b8abf8998b6395e98a7b6c5368 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_31e4743d66ca88478f71344b54918e82.setIcon(beautify_icon_d77403b8abf8998b6395e98a7b6c5368);
+        
+    
+        var popup_df2b91dbbccf5e9bac120f29f7613153 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0d3f7df9ebeea9ba1aca2cc205738256 = $(`<div id="html_0d3f7df9ebeea9ba1aca2cc205738256" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-veliki-jadrc?price[max]=200000" target=”_blank”>Veliki Jadrč</a></div>`)[0];
+                popup_df2b91dbbccf5e9bac120f29f7613153.setContent(html_0d3f7df9ebeea9ba1aca2cc205738256);
+            
+        
+
+        marker_31e4743d66ca88478f71344b54918e82.bindPopup(popup_df2b91dbbccf5e9bac120f29f7613153)
+        ;
+
+        
+    
+    
+                marker_31e4743d66ca88478f71344b54918e82.setIcon(beautify_icon_d77403b8abf8998b6395e98a7b6c5368);
+            
+    
+            var marker_cc57fb3b29bcb2ce9eec9fd1b390d89f = L.marker(
+                [45.3740037, 15.0781121],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_9544f96a4ba1ae0bc41ced4cb68afcbc = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_cc57fb3b29bcb2ce9eec9fd1b390d89f.setIcon(beautify_icon_9544f96a4ba1ae0bc41ced4cb68afcbc);
+        
+    
+        var popup_de87477adb8b52a7d6059a39b88d5af3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e97117bf2e8d51e7154ef49b6ea54f24 = $(`<div id="html_e97117bf2e8d51e7154ef49b6ea54f24" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-vrbovsko?price[max]=200000" target=”_blank”>Vrbovsko</a></div>`)[0];
+                popup_de87477adb8b52a7d6059a39b88d5af3.setContent(html_e97117bf2e8d51e7154ef49b6ea54f24);
+            
+        
+
+        marker_cc57fb3b29bcb2ce9eec9fd1b390d89f.bindPopup(popup_de87477adb8b52a7d6059a39b88d5af3)
+        ;
+
+        
+    
+    
+                marker_cc57fb3b29bcb2ce9eec9fd1b390d89f.setIcon(beautify_icon_9544f96a4ba1ae0bc41ced4cb68afcbc);
+            
+    
+            var marker_2fae3319a92443162b74fcc5f612f9b1 = L.marker(
+                [45.4179038, 15.0370941],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_559fe31adeedd9caf7da4858598ca6ef = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_2fae3319a92443162b74fcc5f612f9b1.setIcon(beautify_icon_559fe31adeedd9caf7da4858598ca6ef);
+        
+    
+        var popup_d0f547c98c4c019c18ba7b5c39c6b419 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5c1c0f3dcd208b06d33f554bb71a577e = $(`<div id="html_5c1c0f3dcd208b06d33f554bb71a577e" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-vucinici?price[max]=200000" target=”_blank”>Vučinići</a></div>`)[0];
+                popup_d0f547c98c4c019c18ba7b5c39c6b419.setContent(html_5c1c0f3dcd208b06d33f554bb71a577e);
+            
+        
+
+        marker_2fae3319a92443162b74fcc5f612f9b1.bindPopup(popup_d0f547c98c4c019c18ba7b5c39c6b419)
+        ;
+
+        
+    
+    
+                marker_2fae3319a92443162b74fcc5f612f9b1.setIcon(beautify_icon_559fe31adeedd9caf7da4858598ca6ef);
+            
+    
+            var marker_8ea4685715b323bdd5b5e5373466f1bd = L.marker(
+                [45.3708631, 15.0627601],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_52488c8e5bce8c4c9627f2f638bb193e = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_8ea4685715b323bdd5b5e5373466f1bd.setIcon(beautify_icon_52488c8e5bce8c4c9627f2f638bb193e);
+        
+    
+        var popup_8c3f3c2c48091268378c68fe1d3b18d3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3e0d659c1ef3a5ef4828f71656bdfca7 = $(`<div id="html_3e0d659c1ef3a5ef4828f71656bdfca7" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-vujnovici?price[max]=200000" target=”_blank”>Vujnovići</a></div>`)[0];
+                popup_8c3f3c2c48091268378c68fe1d3b18d3.setContent(html_3e0d659c1ef3a5ef4828f71656bdfca7);
+            
+        
+
+        marker_8ea4685715b323bdd5b5e5373466f1bd.bindPopup(popup_8c3f3c2c48091268378c68fe1d3b18d3)
+        ;
+
+        
+    
+    
+                marker_8ea4685715b323bdd5b5e5373466f1bd.setIcon(beautify_icon_52488c8e5bce8c4c9627f2f638bb193e);
+            
+    
+            var marker_f7b51c0a48cd43ceb47a0fd3d8577900 = L.marker(
+                [45.4805827, 15.0816693],
+                {
+}
+            ).addTo(map_12eb4a10008ee9ed883ec7a0de458bba);
+        
+    
+            var beautify_icon_6b10c6c5a4c012b2b75e9d27c3051cee = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_f7b51c0a48cd43ceb47a0fd3d8577900.setIcon(beautify_icon_6b10c6c5a4c012b2b75e9d27c3051cee);
+        
+    
+        var popup_5e5be5e81e9bb1a765b865e9f84b9c22 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ba5c554e5428176b57c1faee5a6a39ad = $(`<div id="html_ba5c554e5428176b57c1faee5a6a39ad" style="width: 100.0%; height: 100.0%;"><a href="https://www.njuskalo.hr/prodaja-kuca/vrbovsko-zapec?price[max]=200000" target=”_blank”>Zapeć</a></div>`)[0];
+                popup_5e5be5e81e9bb1a765b865e9f84b9c22.setContent(html_ba5c554e5428176b57c1faee5a6a39ad);
+            
+        
+
+        marker_f7b51c0a48cd43ceb47a0fd3d8577900.bindPopup(popup_5e5be5e81e9bb1a765b865e9f84b9c22)
+        ;
+
+        
+    
+    
+                marker_f7b51c0a48cd43ceb47a0fd3d8577900.setIcon(beautify_icon_6b10c6c5a4c012b2b75e9d27c3051cee);
+            
+</script>
+</html>

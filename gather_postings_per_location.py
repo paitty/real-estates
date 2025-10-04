@@ -11,6 +11,57 @@ import folium.plugins as plugins
 # prints a random value from the list
 list1 = [2, 3, 4]
 
+selection = [
+        "Fu\u017eine",
+        "Lokve",
+        "Mrkopalj",
+        "Vinodolska Op\u0107ina",
+        "Delnice",
+        "Ravna Gora",
+        "Skrad",
+        "Brod Moravice",
+        "Vrbovsko"
+    ]
+
+all_cities = [
+        "Bakar",
+        "Ba\u0161ka",
+        "Brod Moravice",
+        "Cres",
+        "Crikvenica",
+        "\u010cabar",
+        "\u010cavle",
+        "Delnice",
+        "Dobrinj",
+        "Fu\u017eine",
+        "Jelenje",
+        "Kastav",
+        "Klana",
+        "Kostrena",
+        "Kraljevica",
+        "Krk",
+        "Lokve",
+        "Lovran",
+        "Mali Lo\u0161inj",
+        "Malinska-Duba\u0161nica",
+        "Matulji",
+        "Mo\u0161\u0107eni\u010dka Draga",
+        "Mrkopalj",
+        "Novi Vinodolski",
+        "Omi\u0161alj",
+        "Opatija",
+        "Opatija - Okolica",
+        "Punat",
+        "Rab",
+        "Ravna Gora",
+        "Rijeka",
+        "Skrad",
+        "Vinodolska Op\u0107ina",
+        "Vi\u0161kovo",
+        "Vrbnik",
+        "Vrbovsko"
+    ]
+
 headers = {'Accept':	'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Encoding':	'gzip, deflate, br, zstd',
     'Accept-Language':	'en-US,fr;q=0.8,hr;q=0.5,en;q=0.3',
@@ -26,29 +77,24 @@ headers = {'Accept':	'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;
     'Upgrade-Insecure-Requests':	'1',
     'User-Agent':	'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:135.0) Gecko/20100101 Firefox/135.0'}
 
-def get_cities_from_Njuskalo():
+def get_cities_from_Njuskalo(topic):
     with sync_playwright() as p:
-        browser = p.firefox.launch(headless=False)
+        browser = p.webkit.launch(headless=False)
         page = browser.new_page()
-        page.goto("https://www.njuskalo.hr/prodaja-kuca/istra")
+        page.goto("https://www.njuskalo.hr/"+topic)
         page.click('button:has-text("Prihvati i zatvori")')
-        page.click('button:has-text("RAZUMIJEM")')
+        #page.click('button:has-text("RAZUMIJEM")')
 
         all_items = page.locator("li").all()
-        list_of_cities=[]
-        njuskalo_link=[]
-        just_link=[]
-
-        detail_list_of_cities=[]
-        detail_njuskalo_link=[]
-        detail_just_link=[]
 
         for item in all_items:
             if item.get_attribute("class")=='CategoryListing-topCategoryItem':
                 item_element = item.locator("a")
-                list_of_cities.append(item_element.inner_html().strip())
-                just_link.append(item_element.get_attribute("href"))
-                njuskalo_link.append('<a href=\''+item_element.get_attribute("href")+'\'>'+item_element.inner_html().strip()+'</a>')
+                city = item_element.inner_html().strip()
+                if city in selection:
+                    list_of_cities.append(city)
+                    just_link.append(item_element.get_attribute("href"))
+                    njuskalo_link.append('<a href=\''+item_element.get_attribute("href")+'\'>'+item_element.inner_html().strip()+'</a>')
         
         for link in just_link:
             time.sleep(1+random.choice(list1))
@@ -93,15 +139,15 @@ def add_price_in_listings(link_list,max_price):
         output.append(link+'?price[max]='+str(max_price))
     return output
 
-def display_cities_on_map(list_of_cities, just_link, numbers_in_city, html_filename):
+def display_cities_on_map(region, list_of_cities, just_link, numbers_in_city, html_filename):
 
     #headers={'User-Agent': 'Mozilla/5.0'}
     
-    with open("latitude.json", 'r') as outfile:
+    with open("latitude_"+region+".json", 'r') as outfile:
         latitudes = json.load(outfile)
-    with open("longitude.json", 'r') as outfile:
+    with open("longitude_"+region+".json", 'r') as outfile:
         longitudes = json.load(outfile)
-    with open("duration.json", 'r') as outfile:
+    with open("duration_"+region+".json", 'r') as outfile:
         durations = json.load(outfile)
     
     njuskalo_link = just_link
@@ -114,7 +160,9 @@ def display_cities_on_map(list_of_cities, just_link, numbers_in_city, html_filen
                         'Longitude':longitudes,
                         'Durations':durations})
 
-    m = folium.Map(location=[45.1816824,13.86411], tiles="OpenStreetMap", zoom_start=10)
+    #center = [45.1816824,13.86411] #Istra
+    center = [45.31155, 14.84928] #GKotar
+    m = folium.Map(location=center, tiles="OpenStreetMap", zoom_start=10)
 
     for i in range(0,len(df)):
         point_location=[df.iloc[i]['Latitude'], df.iloc[i]['Longitude']]
@@ -137,7 +185,7 @@ def display_cities_on_map(list_of_cities, just_link, numbers_in_city, html_filen
                              colors = ['#004506',"#2efa00","#bcd100", "#e62c0b"],
                            labels = ['< 20 min', '< 30 min', '< 45 min', '>= 45min'])
     m.save(html_filename)
-    webbrowser.get('firefox').open_new_tab('file:////Users/pierre-adrien.itty/Downloads/scraper/'+html_filename)
+    webbrowser.get('firefox').open_new_tab(html_filename)
 
 def get_numbers_from_njuskalo(just_link):
     numbers_in_city = []
@@ -160,29 +208,30 @@ def get_numbers_from_njuskalo(just_link):
         browser.close()
     return numbers_in_city
 
-def get_lat_lon(list_of_cities):
+def get_lat_lon(name,list_of_cities):
     latitudes = []
     longitudes = []
     durations = []
     for city in list_of_cities:            
         if city == 'Monteserpo - Komunal':
             city = 'MONTE sERPO'
-        city=city + ', istra'
+        #city=city + ', istra'
         print(city)
-        url='https://nominatim.openstreetmap.org/search.php?q='+city+'&format=jsonv2'
+        url='https://nominatim.openstreetmap.org/search?q='+city+'&format=jsonv2'
         r= requests.get(url, headers=headers)
         if r.json() == []:
-            url='https://nominatim.openstreetmap.org/search.php?q='+city.split()[0]+'&format=jsonv2'
+            url='https://nominatim.openstreetmap.org/search?q='+city.split()[0]+'&format=jsonv2'
             r= requests.get(url, headers=headers)
         latitudes.append(r.json()[0]['lat'])
         longitudes.append(r.json()[0]['lon'])
-        durations.append(get_duration([r.json()[0]['lat'], r.json()[0]['lon']]))
+        #durations.append(get_duration([r.json()[0]['lat'], r.json()[0]['lon']]))
+        durations.append(0)
     
-    with open("latitude.json", 'w') as outfile:
+    with open("latitude_"+name+".json", 'w') as outfile:
         json.dump(latitudes, outfile, indent=4)
-    with open("longitude.json", 'w') as outfile:
+    with open("longitude_"+name+".json", 'w') as outfile:
         json.dump(longitudes, outfile, indent=4)
-    with open("duration.json", 'w') as outfile:
+    with open("duration_"+name+".json", 'w') as outfile:
         json.dump(durations, outfile, indent=4)
 
 
@@ -294,27 +343,46 @@ def get_duration(location):
     duration = r.json()['durations'][0][1]/60
     return duration
 
+region = "Kotar2"
 
-list_of_cities, just_link = open_from_json('detail_list_of_cities','detail_just_link','city_save.json')
+list_of_cities=[]
+njuskalo_link=[]
+just_link=[]
+
+detail_list_of_cities=[]
+detail_njuskalo_link=[]
+detail_just_link=[]
+
+if region == "istra":
+    get_cities_from_Njuskalo("prodaja-kuca/istra")
+elif region == "Kotar2":
+    get_cities_from_Njuskalo("prodaja-kuca/primorsko-goranska")
+else:
+    exit
+
+save_cities_to_json("city_save_"+region+".json")
+
+
+list_of_cities, just_link = open_from_json('detail_list_of_cities','detail_just_link','city_save_'+region+'.json')
+
+#list_of_cities = detail_list_of_cities
+#just_link = detail_just_link
 
 just_link = add_price_in_listings(just_link,200000)
 
-
 numbers_in_city = [''] * len(just_link)
-start_i=0
+#start_i=0
 
-start_i, numbers_in_city = open_from_json('start_i','numbers_in_city','numbers_save.json')
+#start_i, numbers_in_city = open_from_json('start_i','numbers_in_city','numbers_save.json')
+#
+#while len(just_link) > start_i:
+#    start = start_i
+#    end =min(len(just_link),start_i+10)
+#    numbers_in_city[start:end] = get_numbers_from_njuskalo(just_link[start:end])
+#    start_i=min(len(just_link),start_i+10)
+#    save_numbers_to_json('numbers_save.json')
 
-while len(just_link) > start_i:
-    start = start_i
-    end =min(len(just_link),start_i+10)
-    numbers_in_city[start:end] = get_numbers_from_njuskalo(just_link[start:end])
-    start_i=min(len(just_link),start_i+10)
-    save_numbers_to_json('numbers_save.json')
-
-
-
-start_i, numbers_in_city = open_from_json('start_i','numbers_in_city','numbers_save.json')
+#start_i, numbers_in_city = open_from_json('start_i','numbers_in_city','numbers_save.json')
 
 #list_of_cities = list_of_cities[:6]
 #just_link = just_link[:6]
@@ -324,6 +392,7 @@ start_i, numbers_in_city = open_from_json('start_i','numbers_in_city','numbers_s
 #numbers_in_city =  ['13', '0', '0', '1', '47', '0', '0', '3', '0', '3', '1', '0', '0', '1', '2', '1', '0', '5', '0', '4', '0', '2', '2', '0', '0', '3', '24', '0', '2', '1', '0', '0', '22', '0', '0', '2', '2', '2', '1', '1', '0', '5', '0', '1', '1', '1', '46', '0', '0', '0', '8', '5', '0', '1', '1', '0', '1', '1', '2', ...]
 pass
 #numbers_in_city = [''] * len(just_link)
-get_lat_lon(list_of_cities)
 
-display_cities_on_map(list_of_cities, just_link, numbers_in_city, 'detail_footprint.html')
+get_lat_lon(region,list_of_cities)
+
+display_cities_on_map(region, list_of_cities, just_link, numbers_in_city, 'footprint_'+region+'.html')
