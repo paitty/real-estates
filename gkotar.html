@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search by Location</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    label, select, input {
+      margin-right: 10px;
+      padding: 6px;
+    }
+    .places a {
+      display: inline-block;
+      margin: 5px;
+      padding: 8px 14px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .places a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h2>Property Search</h2>
+
+  <label for="maxPrice">Max Price:</label>
+  <input type="number" id="maxPrice" placeholder="Enter max price" />
+
+  <label for="type">Type:</label>
+  <select id="type">
+    <option value="prodaja-kuca">Buy house</option>
+    <option value="prodaja-zemljista">Buy land</option>
+  </select>
+
+  <h3>Select a Location:</h3>
+  <div class="places">
+    <a href="#" data-location="rovinj-rovinjsko-selo">rovinj-rovinjsko-selo</a>
+    <a href="#" data-location="ogulin-donje-dubrave" target=”_blank”>Donje Dubrave</a>
+    <a href="#" data-location="split">Split</a>
+    <a href="#" data-location="rijeka">Rijeka</a>
+    <a href="#" data-location="osijek">Osijek</a>
+  </div>
+
+  <script>
+    const baseUrl = "https://www.njuskalo.hr"; //rovinj-rovinjsko-selo?price[max]=200000 <-- change this to your real site
+
+    // Attach click listeners to all location links
+    document.querySelectorAll(".places a").forEach(link => {
+      link.addEventListener("click", event => {
+        event.preventDefault();
+
+        const location = link.getAttribute("data-location");
+        const maxPrice = document.getElementById("maxPrice").value;
+        const type = document.getElementById("type").value;
+
+        // Build the URL with all parameters
+        const url = `${baseUrl}/${encodeURIComponent(type)}/${encodeURIComponent(location)}?price[max]=${encodeURIComponent(maxPrice)}`;
+
+        // Open in new tab
+        window.open(url, "_blank");
+      });
+    });
+  </script>
+    <div class="container">
+        <iframe height=500 width="800" id="iframe1" name="iframe1" frameborder="0" src="detail_footprint_GKotar.html"></iframe>
+     </div>  
+</body>
+</html>

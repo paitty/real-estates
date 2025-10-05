@@ -7,6 +7,7 @@ import random
 import time
 import json
 import folium.plugins as plugins
+from branca.element import Element
 
 # prints a random value from the list
 list1 = [2, 3, 4]
@@ -20,7 +21,8 @@ selection = [
         "Ravna Gora",
         "Skrad",
         "Brod Moravice",
-        "Vrbovsko"
+        "Vrbovsko",
+        "Ogulin"
     ]
 
 all_cities = [
@@ -79,7 +81,7 @@ headers = {'Accept':	'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;
 
 def get_cities_from_Njuskalo(topic):
     with sync_playwright() as p:
-        browser = p.webkit.launch(headless=False)
+        browser = p.firefox.launch(headless=False)
         page = browser.new_page()
         page.goto("https://www.njuskalo.hr/"+topic)
         page.click('button:has-text("Prihvati i zatvori")')
@@ -87,15 +89,22 @@ def get_cities_from_Njuskalo(topic):
 
         all_items = page.locator("li").all()
 
-        for item in all_items:
-            if item.get_attribute("class")=='CategoryListing-topCategoryItem':
-                item_element = item.locator("a")
-                city = item_element.inner_html().strip()
-                if city in selection:
-                    list_of_cities.append(city)
-                    just_link.append(item_element.get_attribute("href"))
-                    njuskalo_link.append('<a href=\''+item_element.get_attribute("href")+'\'>'+item_element.inner_html().strip()+'</a>')
-        
+        if True:
+            for item in all_items:
+                if item.get_attribute("class")=='CategoryListing-topCategoryItem':
+                    item_element = item.locator("a")
+                    city = item_element.inner_html().strip()
+                    if city in selection:
+                        list_of_cities.append(city)
+                        just_link.append(item_element.get_attribute("href"))
+                        njuskalo_link.append('<a href=\''+item_element.get_attribute("href")+'\'>'+item_element.inner_html().strip()+'</a>')
+
+        city = "Ogulin"
+        list_of_cities.append(city)
+        just_link.append("https://www.njuskalo.hr/prodaja-kuca/Ogulin")
+        njuskalo_link.append("<a href='https://www.njuskalo.hr/prodaja-kuca/Ogulin'>Ogulin</a>")
+ 
+
         for link in just_link:
             time.sleep(1+random.choice(list1))
             page.goto(link)
@@ -132,7 +141,6 @@ def open_from_json(output1_label, output2_label, filename):
     output2  = data[output2_label]
     return output1, output2
 
-
 def add_price_in_listings(link_list,max_price):
     output = []
     for link in link_list:
@@ -152,8 +160,8 @@ def display_cities_on_map(region, list_of_cities, just_link, numbers_in_city, ht
     
     njuskalo_link = just_link
     for i in range(len(just_link)):
-        njuskalo_link[i] = '<a href="'+just_link[i]+'" target=”_blank”>'+list_of_cities[i]+'</a>'
-    
+        njuskalo_link[i] = "<a href='#' onclick=\"notifyParent('"+(just_link[i].split("/prodaja-kuca/"))[1]+"')\">"+list_of_cities[i]+'</a>'
+        
     df = pd.DataFrame({'Properties':njuskalo_link,
                         'Numbers':numbers_in_city, 
                         'Latitude':latitudes,
@@ -181,9 +189,15 @@ def display_cities_on_map(region, list_of_cities, just_link, numbers_in_city, ht
         icon=plugins.BeautifyIcon(icon="arrow-down", icon_shape="marker",number=df.iloc[i]['Numbers'], border_color=icon_color, text_color=icon_color),
         popup=df.iloc[i]['Properties'],
         ).add_to(m)
-    m = add_categorical_legend(m, 'Distance to Rovinj:',
-                             colors = ['#004506',"#2efa00","#bcd100", "#e62c0b"],
-                           labels = ['< 20 min', '< 30 min', '< 45 min', '>= 45min'])
+    #m = add_categorical_legend(m, 'Distance to Rovinj:',
+    #                         colors = ['#004506',"#2efa00","#bcd100", "#e62c0b"],
+    #                       labels = ['< 20 min', '< 30 min', '< 45 min', '>= 45min'])
+    my_js = '''
+    function notifyParent(linkId) {
+      window.parent.handleIframeClick(linkId);
+    }
+    '''
+    m.get_root().script.add_child(Element(my_js))
     m.save(html_filename)
     webbrowser.get('firefox').open_new_tab(html_filename)
 
@@ -222,6 +236,9 @@ def get_lat_lon(name,list_of_cities):
         if r.json() == []:
             url='https://nominatim.openstreetmap.org/search?q='+city.split()[0]+'&format=jsonv2'
             r= requests.get(url, headers=headers)
+        if r.json() == []:
+            url='https://nominatim.openstreetmap.org/search?q=zagreb&format=jsonv2'
+            r= requests.get(url, headers=headers)
         latitudes.append(r.json()[0]['lat'])
         longitudes.append(r.json()[0]['lon'])
         #durations.append(get_duration([r.json()[0]['lat'], r.json()[0]['lon']]))
@@ -233,7 +250,6 @@ def get_lat_lon(name,list_of_cities):
         json.dump(longitudes, outfile, indent=4)
     with open("duration_"+name+".json", 'w') as outfile:
         json.dump(durations, outfile, indent=4)
-
 
 def add_categorical_legend(folium_map, title, colors, labels):
     if len(colors) != len(labels):
@@ -343,7 +359,8 @@ def get_duration(location):
     duration = r.json()['durations'][0][1]/60
     return duration
 
-region = "Kotar2"
+region = "GKotar"
+detail = "detail_"
 
 list_of_cities=[]
 njuskalo_link=[]
@@ -353,22 +370,25 @@ detail_list_of_cities=[]
 detail_njuskalo_link=[]
 detail_just_link=[]
 
-if region == "istra":
-    get_cities_from_Njuskalo("prodaja-kuca/istra")
-elif region == "Kotar2":
-    get_cities_from_Njuskalo("prodaja-kuca/primorsko-goranska")
-else:
-    exit
+if False:
+    if region == "istra":
+        get_cities_from_Njuskalo("prodaja-kuca/istra")
+    elif region == "GKotar":
+        get_cities_from_Njuskalo("prodaja-kuca/primorsko-goranska")
+    elif region == "lika":
+        get_cities_from_Njuskalo("prodaja-kuca/licko-senjska")   
+    elif region == "karlovac":
+        get_cities_from_Njuskalo("prodaja-kuca/karlovacka")   
+    else:
+        exit
+    save_cities_to_json("city_save_"+region+".json")
 
-save_cities_to_json("city_save_"+region+".json")
-
-
-list_of_cities, just_link = open_from_json('detail_list_of_cities','detail_just_link','city_save_'+region+'.json')
+list_of_cities, just_link = open_from_json(detail+'list_of_cities',detail+'just_link','city_save_'+region+'.json')
 
 #list_of_cities = detail_list_of_cities
 #just_link = detail_just_link
 
-just_link = add_price_in_listings(just_link,200000)
+#just_link = add_price_in_listings(just_link,200000)
 
 numbers_in_city = [''] * len(just_link)
 #start_i=0
@@ -393,6 +413,6 @@ numbers_in_city = [''] * len(just_link)
 pass
 #numbers_in_city = [''] * len(just_link)
 
-get_lat_lon(region,list_of_cities)
+#get_lat_lon(region,list_of_cities)
 
-display_cities_on_map(region, list_of_cities, just_link, numbers_in_city, 'footprint_'+region+'.html')
+display_cities_on_map(region, list_of_cities, just_link, numbers_in_city, detail+'footprint_'+region+'.html')

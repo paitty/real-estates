@@ -1,0 +1,5080 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_80892fbc61cc3041045f49d3ffa8a390 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_80892fbc61cc3041045f49d3ffa8a390" ></div>
+        
+</body>
+<script>
+    
+    
+    function notifyParent(linkId) {
+      window.parent.handleIframeClick(linkId);
+    }
+    
+    
+            var map_80892fbc61cc3041045f49d3ffa8a390 = L.map(
+                "map_80892fbc61cc3041045f49d3ffa8a390",
+                {
+                    center: [45.31155, 14.84928],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7546042a17adb0e09286b2958ad3eced = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_7546042a17adb0e09286b2958ad3eced.addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var marker_f201c95d1388f908bfa39ed8adcf2578 = L.marker(
+                [45.4636079, 14.9711378],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_cc78ed53cb58cacd16e1d2c162648243 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_f201c95d1388f908bfa39ed8adcf2578.setIcon(beautify_icon_cc78ed53cb58cacd16e1d2c162648243);
+        
+    
+        var popup_f30c3ecd237defdc8b1e4cbf69a62b5e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8ba9f684fae287897b8b32a04d0b9f63 = $(`<div id="html_8ba9f684fae287897b8b32a04d0b9f63" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('brod-moravice-brod-moravice')">Brod Moravice</a></div>`)[0];
+                popup_f30c3ecd237defdc8b1e4cbf69a62b5e.setContent(html_8ba9f684fae287897b8b32a04d0b9f63);
+            
+        
+
+        marker_f201c95d1388f908bfa39ed8adcf2578.bindPopup(popup_f30c3ecd237defdc8b1e4cbf69a62b5e)
+        ;
+
+        
+    
+    
+                marker_f201c95d1388f908bfa39ed8adcf2578.setIcon(beautify_icon_cc78ed53cb58cacd16e1d2c162648243);
+            
+    
+            var marker_68da515c147a330696b9a0c3ead7d882 = L.marker(
+                [45.5232137, 14.9319587],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_15df97c1d0c1c62831cd0e9b0c653c1f = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_68da515c147a330696b9a0c3ead7d882.setIcon(beautify_icon_15df97c1d0c1c62831cd0e9b0c653c1f);
+        
+    
+        var popup_45793e3d14f51da3753b6e5bbddf9265 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a996853b8b21edf5d21a417fafe978f7 = $(`<div id="html_a996853b8b21edf5d21a417fafe978f7" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('brod-moravice-colnari')">Colnari</a></div>`)[0];
+                popup_45793e3d14f51da3753b6e5bbddf9265.setContent(html_a996853b8b21edf5d21a417fafe978f7);
+            
+        
+
+        marker_68da515c147a330696b9a0c3ead7d882.bindPopup(popup_45793e3d14f51da3753b6e5bbddf9265)
+        ;
+
+        
+    
+    
+                marker_68da515c147a330696b9a0c3ead7d882.setIcon(beautify_icon_15df97c1d0c1c62831cd0e9b0c653c1f);
+            
+    
+            var marker_e3d83f41734774e6fa608365cd8dbc93 = L.marker(
+                [45.4716325, 14.9586184],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_c692fee9dca4bd1bf4a7f75d98e1b4c2 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_e3d83f41734774e6fa608365cd8dbc93.setIcon(beautify_icon_c692fee9dca4bd1bf4a7f75d98e1b4c2);
+        
+    
+        var popup_495e8c735e32e11aaa94377d61e8e942 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cf0b499e085337f03dc81e85971bcf4a = $(`<div id="html_cf0b499e085337f03dc81e85971bcf4a" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('brod-moravice-delaci')">Delači</a></div>`)[0];
+                popup_495e8c735e32e11aaa94377d61e8e942.setContent(html_cf0b499e085337f03dc81e85971bcf4a);
+            
+        
+
+        marker_e3d83f41734774e6fa608365cd8dbc93.bindPopup(popup_495e8c735e32e11aaa94377d61e8e942)
+        ;
+
+        
+    
+    
+                marker_e3d83f41734774e6fa608365cd8dbc93.setIcon(beautify_icon_c692fee9dca4bd1bf4a7f75d98e1b4c2);
+            
+    
+            var marker_1a46b4ec7e1f9b840ff7fcce50d9a386 = L.marker(
+                [45.4488988, 14.9673044],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_44aaf6d7befbb2f07a574a9aa7b4b95e = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_1a46b4ec7e1f9b840ff7fcce50d9a386.setIcon(beautify_icon_44aaf6d7befbb2f07a574a9aa7b4b95e);
+        
+    
+        var popup_5466c4f4ae232f773a86ccf72486ac1f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0f89456f93827fa82b00c4ea709a3f95 = $(`<div id="html_0f89456f93827fa82b00c4ea709a3f95" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('brod-moravice-donja-dobra')">Donja Dobra</a></div>`)[0];
+                popup_5466c4f4ae232f773a86ccf72486ac1f.setContent(html_0f89456f93827fa82b00c4ea709a3f95);
+            
+        
+
+        marker_1a46b4ec7e1f9b840ff7fcce50d9a386.bindPopup(popup_5466c4f4ae232f773a86ccf72486ac1f)
+        ;
+
+        
+    
+    
+                marker_1a46b4ec7e1f9b840ff7fcce50d9a386.setIcon(beautify_icon_44aaf6d7befbb2f07a574a9aa7b4b95e);
+            
+    
+            var marker_050d81c9e59f420738dc18c93cf3692d = L.marker(
+                [45.471798, 14.9759104],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_88a00b77148d7386856094ee3f6dbf7c = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_050d81c9e59f420738dc18c93cf3692d.setIcon(beautify_icon_88a00b77148d7386856094ee3f6dbf7c);
+        
+    
+        var popup_255ef6884e0c39a9eb05f317472aedff = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_733e3005ad1a336ca2289bf466aa9f46 = $(`<div id="html_733e3005ad1a336ca2289bf466aa9f46" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('brod-moravice-gornji-kuti')">Gornji Kuti</a></div>`)[0];
+                popup_255ef6884e0c39a9eb05f317472aedff.setContent(html_733e3005ad1a336ca2289bf466aa9f46);
+            
+        
+
+        marker_050d81c9e59f420738dc18c93cf3692d.bindPopup(popup_255ef6884e0c39a9eb05f317472aedff)
+        ;
+
+        
+    
+    
+                marker_050d81c9e59f420738dc18c93cf3692d.setIcon(beautify_icon_88a00b77148d7386856094ee3f6dbf7c);
+            
+    
+            var marker_00b6d9e046ee8871f03047db71ad5dd5 = L.marker(
+                [45.4824849, 14.9192389],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_ba497411ddeda5a3f4106d8b011971cf = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_00b6d9e046ee8871f03047db71ad5dd5.setIcon(beautify_icon_ba497411ddeda5a3f4106d8b011971cf);
+        
+    
+        var popup_107d6d5e4a6ca85a39067be377513e8f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d2699a8293e87663278bcc07528ab34b = $(`<div id="html_d2699a8293e87663278bcc07528ab34b" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('brod-moravice-kocijani')">Kocijani</a></div>`)[0];
+                popup_107d6d5e4a6ca85a39067be377513e8f.setContent(html_d2699a8293e87663278bcc07528ab34b);
+            
+        
+
+        marker_00b6d9e046ee8871f03047db71ad5dd5.bindPopup(popup_107d6d5e4a6ca85a39067be377513e8f)
+        ;
+
+        
+    
+    
+                marker_00b6d9e046ee8871f03047db71ad5dd5.setIcon(beautify_icon_ba497411ddeda5a3f4106d8b011971cf);
+            
+    
+            var marker_ea8347463b8b59072b806a4c9104872f = L.marker(
+                [45.4668483, 14.9508896],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_1f293bdc5f0c8036fadf759a857a56c0 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_ea8347463b8b59072b806a4c9104872f.setIcon(beautify_icon_1f293bdc5f0c8036fadf759a857a56c0);
+        
+    
+        var popup_9f08c8bcdd93e7b6ab9fe02a1db7fbec = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5fde2b8958c4e928b85822531b003f3c = $(`<div id="html_5fde2b8958c4e928b85822531b003f3c" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('brod-moravice-lokvica')">Lokvica</a></div>`)[0];
+                popup_9f08c8bcdd93e7b6ab9fe02a1db7fbec.setContent(html_5fde2b8958c4e928b85822531b003f3c);
+            
+        
+
+        marker_ea8347463b8b59072b806a4c9104872f.bindPopup(popup_9f08c8bcdd93e7b6ab9fe02a1db7fbec)
+        ;
+
+        
+    
+    
+                marker_ea8347463b8b59072b806a4c9104872f.setIcon(beautify_icon_1f293bdc5f0c8036fadf759a857a56c0);
+            
+    
+            var marker_77764d046f315afc8661b11f5103f67f = L.marker(
+                [45.4700394, 15.0136412],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_643b034b80b0029f71557be4bf705558 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_77764d046f315afc8661b11f5103f67f.setIcon(beautify_icon_643b034b80b0029f71557be4bf705558);
+        
+    
+        var popup_465652c28305cd4f35b35ecc7479c170 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3ddc4eefb314120e8fba5af9868f8d2d = $(`<div id="html_3ddc4eefb314120e8fba5af9868f8d2d" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('brod-moravice-male-drage')">Male Drage</a></div>`)[0];
+                popup_465652c28305cd4f35b35ecc7479c170.setContent(html_3ddc4eefb314120e8fba5af9868f8d2d);
+            
+        
+
+        marker_77764d046f315afc8661b11f5103f67f.bindPopup(popup_465652c28305cd4f35b35ecc7479c170)
+        ;
+
+        
+    
+    
+                marker_77764d046f315afc8661b11f5103f67f.setIcon(beautify_icon_643b034b80b0029f71557be4bf705558);
+            
+    
+            var marker_c2a1b43e7d88316f98ff9b64090b5c34 = L.marker(
+                [45.4440578, 14.9669113],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_7922205f21e10a3bfd7f27f66eaa3b2d = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_c2a1b43e7d88316f98ff9b64090b5c34.setIcon(beautify_icon_7922205f21e10a3bfd7f27f66eaa3b2d);
+        
+    
+        var popup_d3116d787c60b6661cd376dd0def5faa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7b4dad31437827839d3d934fee792888 = $(`<div id="html_7b4dad31437827839d3d934fee792888" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('brod-moravice-novi-lazi')">Novi Lazi</a></div>`)[0];
+                popup_d3116d787c60b6661cd376dd0def5faa.setContent(html_7b4dad31437827839d3d934fee792888);
+            
+        
+
+        marker_c2a1b43e7d88316f98ff9b64090b5c34.bindPopup(popup_d3116d787c60b6661cd376dd0def5faa)
+        ;
+
+        
+    
+    
+                marker_c2a1b43e7d88316f98ff9b64090b5c34.setIcon(beautify_icon_7922205f21e10a3bfd7f27f66eaa3b2d);
+            
+    
+            var marker_a5e3656ddfb30f12cd4995accbc678ba = L.marker(
+                [45.4989209, 14.9409113],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_add664770facb2262c9194264f113ade = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_a5e3656ddfb30f12cd4995accbc678ba.setIcon(beautify_icon_add664770facb2262c9194264f113ade);
+        
+    
+        var popup_c377097f29d913ce2f398f36f25794ca = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_55eedae9196f1365fcd4698cb454a26a = $(`<div id="html_55eedae9196f1365fcd4698cb454a26a" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('brod-moravice-podgorani')">Podgorani</a></div>`)[0];
+                popup_c377097f29d913ce2f398f36f25794ca.setContent(html_55eedae9196f1365fcd4698cb454a26a);
+            
+        
+
+        marker_a5e3656ddfb30f12cd4995accbc678ba.bindPopup(popup_c377097f29d913ce2f398f36f25794ca)
+        ;
+
+        
+    
+    
+                marker_a5e3656ddfb30f12cd4995accbc678ba.setIcon(beautify_icon_add664770facb2262c9194264f113ade);
+            
+    
+            var marker_ded51b6376c55654c2ee4af0a0fbb616 = L.marker(
+                [45.4357953, 14.9676639],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_b2984a28c73daca362d7cf12c99213c4 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_ded51b6376c55654c2ee4af0a0fbb616.setIcon(beautify_icon_b2984a28c73daca362d7cf12c99213c4);
+        
+    
+        var popup_dc4bef4975a8ca70cfc47575234f3c7a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bde947f374a270848924f66068bf0051 = $(`<div id="html_bde947f374a270848924f66068bf0051" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('brod-moravice-stari-lazi')">Stari Lazi</a></div>`)[0];
+                popup_dc4bef4975a8ca70cfc47575234f3c7a.setContent(html_bde947f374a270848924f66068bf0051);
+            
+        
+
+        marker_ded51b6376c55654c2ee4af0a0fbb616.bindPopup(popup_dc4bef4975a8ca70cfc47575234f3c7a)
+        ;
+
+        
+    
+    
+                marker_ded51b6376c55654c2ee4af0a0fbb616.setIcon(beautify_icon_b2984a28c73daca362d7cf12c99213c4);
+            
+    
+            var marker_a7c8ba52f5a4f58744f8a385ee8e64df = L.marker(
+                [45.3732316, 13.7738441],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_8a2700ca4b5d02ddf1be1101d7098455 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_a7c8ba52f5a4f58744f8a385ee8e64df.setIcon(beautify_icon_8a2700ca4b5d02ddf1be1101d7098455);
+        
+    
+        var popup_4c1a3983f9894ad3439c30ca0f29643e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_958805639910ce85f31830cafdff2723 = $(`<div id="html_958805639910ce85f31830cafdff2723" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('brod-moravice-zavrsje')">Završje</a></div>`)[0];
+                popup_4c1a3983f9894ad3439c30ca0f29643e.setContent(html_958805639910ce85f31830cafdff2723);
+            
+        
+
+        marker_a7c8ba52f5a4f58744f8a385ee8e64df.bindPopup(popup_4c1a3983f9894ad3439c30ca0f29643e)
+        ;
+
+        
+    
+    
+                marker_a7c8ba52f5a4f58744f8a385ee8e64df.setIcon(beautify_icon_8a2700ca4b5d02ddf1be1101d7098455);
+            
+    
+            var marker_0e4e8ff67d6a152e47b892ebb9670153 = L.marker(
+                [45.4737457, 14.8942396],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_051c2527310a8121eb9df1b9c46547d7 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_0e4e8ff67d6a152e47b892ebb9670153.setIcon(beautify_icon_051c2527310a8121eb9df1b9c46547d7);
+        
+    
+        var popup_2349844201f8ec384f9dc62aba377a7f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_957afe8e5a1e87fea96ec496364d91f5 = $(`<div id="html_957afe8e5a1e87fea96ec496364d91f5" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-belo')">Belo</a></div>`)[0];
+                popup_2349844201f8ec384f9dc62aba377a7f.setContent(html_957afe8e5a1e87fea96ec496364d91f5);
+            
+        
+
+        marker_0e4e8ff67d6a152e47b892ebb9670153.bindPopup(popup_2349844201f8ec384f9dc62aba377a7f)
+        ;
+
+        
+    
+    
+                marker_0e4e8ff67d6a152e47b892ebb9670153.setIcon(beautify_icon_051c2527310a8121eb9df1b9c46547d7);
+            
+    
+            var marker_6532d3e45b2666516a64c1e0f6ebee84 = L.marker(
+                [45.4607493, 14.853801],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_64cecf514a3e6879d89be3839411d572 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_6532d3e45b2666516a64c1e0f6ebee84.setIcon(beautify_icon_64cecf514a3e6879d89be3839411d572);
+        
+    
+        var popup_e2c05e2b5e14708cc16f0a0878314ae0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e5f52628b1d98c9b225a3fe256a9e38b = $(`<div id="html_e5f52628b1d98c9b225a3fe256a9e38b" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-brod-kupi')">Brod na Kupi</a></div>`)[0];
+                popup_e2c05e2b5e14708cc16f0a0878314ae0.setContent(html_e5f52628b1d98c9b225a3fe256a9e38b);
+            
+        
+
+        marker_6532d3e45b2666516a64c1e0f6ebee84.bindPopup(popup_e2c05e2b5e14708cc16f0a0878314ae0)
+        ;
+
+        
+    
+    
+                marker_6532d3e45b2666516a64c1e0f6ebee84.setIcon(beautify_icon_64cecf514a3e6879d89be3839411d572);
+            
+    
+            var marker_81ed5fb4bca57dc1f5cc07d3542dadde = L.marker(
+                [45.418524, 14.7048082],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_200a84752bc0db71ccb06b0bf00f94f8 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_81ed5fb4bca57dc1f5cc07d3542dadde.setIcon(beautify_icon_200a84752bc0db71ccb06b0bf00f94f8);
+        
+    
+        var popup_420e9af3c136e02dc1d683af28bddbe3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4e5c3f3036fdb7b60371e8cea792bbc6 = $(`<div id="html_4e5c3f3036fdb7b60371e8cea792bbc6" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-crni-lug')">Crni Lug</a></div>`)[0];
+                popup_420e9af3c136e02dc1d683af28bddbe3.setContent(html_4e5c3f3036fdb7b60371e8cea792bbc6);
+            
+        
+
+        marker_81ed5fb4bca57dc1f5cc07d3542dadde.bindPopup(popup_420e9af3c136e02dc1d683af28bddbe3)
+        ;
+
+        
+    
+    
+                marker_81ed5fb4bca57dc1f5cc07d3542dadde.setIcon(beautify_icon_200a84752bc0db71ccb06b0bf00f94f8);
+            
+    
+            var marker_e898327a22d6ff4b8b072bf91259db06 = L.marker(
+                [45.4756617, 14.9068657],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_1f1b8c3acceba9227c247d76b4a3322b = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_e898327a22d6ff4b8b072bf91259db06.setIcon(beautify_icon_1f1b8c3acceba9227c247d76b4a3322b);
+        
+    
+        var popup_43c6e05518ea16cf858e79cb5b3ecd44 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_acd34e4c5445e9ea543a08b5ebadcad1 = $(`<div id="html_acd34e4c5445e9ea543a08b5ebadcad1" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-cedanj')">Čedanj</a></div>`)[0];
+                popup_43c6e05518ea16cf858e79cb5b3ecd44.setContent(html_acd34e4c5445e9ea543a08b5ebadcad1);
+            
+        
+
+        marker_e898327a22d6ff4b8b072bf91259db06.bindPopup(popup_43c6e05518ea16cf858e79cb5b3ecd44)
+        ;
+
+        
+    
+    
+                marker_e898327a22d6ff4b8b072bf91259db06.setIcon(beautify_icon_1f1b8c3acceba9227c247d76b4a3322b);
+            
+    
+            var marker_20f50e584d284f0519ce0a953b590178 = L.marker(
+                [45.3854839, 14.8486917],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_2fc86754e865f08cbd894ffe2f4ceede = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_20f50e584d284f0519ce0a953b590178.setIcon(beautify_icon_2fc86754e865f08cbd894ffe2f4ceede);
+        
+    
+        var popup_58a025846c952cc27d5b0a6fddf586b8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_67f16d39bea3dcd7eee1e59de00d6ba0 = $(`<div id="html_67f16d39bea3dcd7eee1e59de00d6ba0" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-dedin')">Dedin</a></div>`)[0];
+                popup_58a025846c952cc27d5b0a6fddf586b8.setContent(html_67f16d39bea3dcd7eee1e59de00d6ba0);
+            
+        
+
+        marker_20f50e584d284f0519ce0a953b590178.bindPopup(popup_58a025846c952cc27d5b0a6fddf586b8)
+        ;
+
+        
+    
+    
+                marker_20f50e584d284f0519ce0a953b590178.setIcon(beautify_icon_2fc86754e865f08cbd894ffe2f4ceede);
+            
+    
+            var marker_68a1d68fea8b3f90745a005e6d28b98c = L.marker(
+                [45.3981089, 14.8009293],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_98bf27e6739d8c457647ebc8cedf4a57 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_68a1d68fea8b3f90745a005e6d28b98c.setIcon(beautify_icon_98bf27e6739d8c457647ebc8cedf4a57);
+        
+    
+        var popup_d778585ce6ca55f03aa7603456526a6f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_93f909639faa8d9823a635b1f851dbe2 = $(`<div id="html_93f909639faa8d9823a635b1f851dbe2" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-delnice')">Delnice</a></div>`)[0];
+                popup_d778585ce6ca55f03aa7603456526a6f.setContent(html_93f909639faa8d9823a635b1f851dbe2);
+            
+        
+
+        marker_68a1d68fea8b3f90745a005e6d28b98c.bindPopup(popup_d778585ce6ca55f03aa7603456526a6f)
+        ;
+
+        
+    
+    
+                marker_68a1d68fea8b3f90745a005e6d28b98c.setIcon(beautify_icon_98bf27e6739d8c457647ebc8cedf4a57);
+            
+    
+            var marker_6dcc64956b8495010fe0cd4c8654f996 = L.marker(
+                [45.4734582, 14.7001289],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_7420a0d569b341697cb2d3355c67384b = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_6dcc64956b8495010fe0cd4c8654f996.setIcon(beautify_icon_7420a0d569b341697cb2d3355c67384b);
+        
+    
+        var popup_332e982e93e84e6c12a62046955b814a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_545011eaca90f68a31a88a309974cdd3 = $(`<div id="html_545011eaca90f68a31a88a309974cdd3" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-donja-krasicevica')">Donja Krašićevica</a></div>`)[0];
+                popup_332e982e93e84e6c12a62046955b814a.setContent(html_545011eaca90f68a31a88a309974cdd3);
+            
+        
+
+        marker_6dcc64956b8495010fe0cd4c8654f996.bindPopup(popup_332e982e93e84e6c12a62046955b814a)
+        ;
+
+        
+    
+    
+                marker_6dcc64956b8495010fe0cd4c8654f996.setIcon(beautify_icon_7420a0d569b341697cb2d3355c67384b);
+            
+    
+            var marker_cbc7aaedacfdddfcab9fdcca50a08119 = L.marker(
+                [45.466203, 14.8762948],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_35adfa52f8c4f8d5c35c265862a9adb5 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_cbc7aaedacfdddfcab9fdcca50a08119.setIcon(beautify_icon_35adfa52f8c4f8d5c35c265862a9adb5);
+        
+    
+        var popup_b479561e796acd84b67af9fec3eef3e5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_14e18f1f41f39c140c4ef1c41854dadb = $(`<div id="html_14e18f1f41f39c140c4ef1c41854dadb" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-golik')">Golik</a></div>`)[0];
+                popup_b479561e796acd84b67af9fec3eef3e5.setContent(html_14e18f1f41f39c140c4ef1c41854dadb);
+            
+        
+
+        marker_cbc7aaedacfdddfcab9fdcca50a08119.bindPopup(popup_b479561e796acd84b67af9fec3eef3e5)
+        ;
+
+        
+    
+    
+                marker_cbc7aaedacfdddfcab9fdcca50a08119.setIcon(beautify_icon_35adfa52f8c4f8d5c35c265862a9adb5);
+            
+    
+            var marker_d6a7fd73a838f765e52955b787ee7320 = L.marker(
+                [45.4563909, 14.7168902],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_a127acc35f1cc19c8af7e38967c7063a = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_d6a7fd73a838f765e52955b787ee7320.setIcon(beautify_icon_a127acc35f1cc19c8af7e38967c7063a);
+        
+    
+        var popup_e66fe58c37eda3e00e9b9b06fa7dbe2b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0a5b542d3879a91c922d6f590b2b4d7a = $(`<div id="html_0a5b542d3879a91c922d6f590b2b4d7a" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-gornji-okrug')">Gornji Okrug</a></div>`)[0];
+                popup_e66fe58c37eda3e00e9b9b06fa7dbe2b.setContent(html_0a5b542d3879a91c922d6f590b2b4d7a);
+            
+        
+
+        marker_d6a7fd73a838f765e52955b787ee7320.bindPopup(popup_e66fe58c37eda3e00e9b9b06fa7dbe2b)
+        ;
+
+        
+    
+    
+                marker_d6a7fd73a838f765e52955b787ee7320.setIcon(beautify_icon_a127acc35f1cc19c8af7e38967c7063a);
+            
+    
+            var marker_95187336775fc4db87d3e535511b99ce = L.marker(
+                [45.4190068, 14.8305914],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_8c4caf3d6c6ffb15279837e5ad7f5fbe = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_95187336775fc4db87d3e535511b99ce.setIcon(beautify_icon_8c4caf3d6c6ffb15279837e5ad7f5fbe);
+        
+    
+        var popup_1cb48efe5b8e843b1eed593ec2518c76 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b3e3a7bb21817b0945d4c7dcb65a9c32 = $(`<div id="html_b3e3a7bb21817b0945d4c7dcb65a9c32" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-gornji-turni')">Gornji Turni</a></div>`)[0];
+                popup_1cb48efe5b8e843b1eed593ec2518c76.setContent(html_b3e3a7bb21817b0945d4c7dcb65a9c32);
+            
+        
+
+        marker_95187336775fc4db87d3e535511b99ce.bindPopup(popup_1cb48efe5b8e843b1eed593ec2518c76)
+        ;
+
+        
+    
+    
+                marker_95187336775fc4db87d3e535511b99ce.setIcon(beautify_icon_8c4caf3d6c6ffb15279837e5ad7f5fbe);
+            
+    
+            var marker_339fed1acb0abf8158b75b2bcbe717e8 = L.marker(
+                [45.4664311, 14.8117411],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_9e25cd60535293d0b58639f3d74b852e = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_339fed1acb0abf8158b75b2bcbe717e8.setIcon(beautify_icon_9e25cd60535293d0b58639f3d74b852e);
+        
+    
+        var popup_0b09f1db4938e9a909392afbf4dc2725 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_68bb3e1b79387a63bf8d6136e4dbbd39 = $(`<div id="html_68bb3e1b79387a63bf8d6136e4dbbd39" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-grbajel')">Grbajel</a></div>`)[0];
+                popup_0b09f1db4938e9a909392afbf4dc2725.setContent(html_68bb3e1b79387a63bf8d6136e4dbbd39);
+            
+        
+
+        marker_339fed1acb0abf8158b75b2bcbe717e8.bindPopup(popup_0b09f1db4938e9a909392afbf4dc2725)
+        ;
+
+        
+    
+    
+                marker_339fed1acb0abf8158b75b2bcbe717e8.setIcon(beautify_icon_9e25cd60535293d0b58639f3d74b852e);
+            
+    
+            var marker_48592bed735cdc0fec47a01d4501b21c = L.marker(
+                [45.4560132, 14.8525165],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_67472d178992f09142312e1bc61f53e2 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_48592bed735cdc0fec47a01d4501b21c.setIcon(beautify_icon_67472d178992f09142312e1bc61f53e2);
+        
+    
+        var popup_dd0b74dbaffb8c4760754b4d8e229046 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ea8903956104210aa9e33cf4eac6f52b = $(`<div id="html_ea8903956104210aa9e33cf4eac6f52b" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-krivac')">Krivac</a></div>`)[0];
+                popup_dd0b74dbaffb8c4760754b4d8e229046.setContent(html_ea8903956104210aa9e33cf4eac6f52b);
+            
+        
+
+        marker_48592bed735cdc0fec47a01d4501b21c.bindPopup(popup_dd0b74dbaffb8c4760754b4d8e229046)
+        ;
+
+        
+    
+    
+                marker_48592bed735cdc0fec47a01d4501b21c.setIcon(beautify_icon_67472d178992f09142312e1bc61f53e2);
+            
+    
+            var marker_dd2f0e79039c48b9973f81c60dcabda8 = L.marker(
+                [45.4747317, 14.8064868],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_a62d1a7bfd69e382d4223423adcfdcf4 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_dd2f0e79039c48b9973f81c60dcabda8.setIcon(beautify_icon_a62d1a7bfd69e382d4223423adcfdcf4);
+        
+    
+        var popup_6ae585a2cfcbe4b4b8ab521c7193226d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_faa29a68e1cca43b5628c17be2701118 = $(`<div id="html_faa29a68e1cca43b5628c17be2701118" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-kuzelj')">Kuželj</a></div>`)[0];
+                popup_6ae585a2cfcbe4b4b8ab521c7193226d.setContent(html_faa29a68e1cca43b5628c17be2701118);
+            
+        
+
+        marker_dd2f0e79039c48b9973f81c60dcabda8.bindPopup(popup_6ae585a2cfcbe4b4b8ab521c7193226d)
+        ;
+
+        
+    
+    
+                marker_dd2f0e79039c48b9973f81c60dcabda8.setIcon(beautify_icon_a62d1a7bfd69e382d4223423adcfdcf4);
+            
+    
+            var marker_e93f0ecfa9efec4621f1c96cce387801 = L.marker(
+                [49.6626599, 15.4964748],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_890e83769daa0a578b0f24aedffed483 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_e93f0ecfa9efec4621f1c96cce387801.setIcon(beautify_icon_890e83769daa0a578b0f24aedffed483);
+        
+    
+        var popup_4b034b4ed2e01a8b26c13e97c91c2dd8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e87efab9381384d4267901876f2faeb6 = $(`<div id="html_e87efab9381384d4267901876f2faeb6" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-lucice')">Lučice</a></div>`)[0];
+                popup_4b034b4ed2e01a8b26c13e97c91c2dd8.setContent(html_e87efab9381384d4267901876f2faeb6);
+            
+        
+
+        marker_e93f0ecfa9efec4621f1c96cce387801.bindPopup(popup_4b034b4ed2e01a8b26c13e97c91c2dd8)
+        ;
+
+        
+    
+    
+                marker_e93f0ecfa9efec4621f1c96cce387801.setIcon(beautify_icon_890e83769daa0a578b0f24aedffed483);
+            
+    
+            var marker_671618031275051744ddc720ac8641b6 = L.marker(
+                [45.4306077, 14.7046072],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_99017402b1eacc4e3474dc309cfc67b4 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_671618031275051744ddc720ac8641b6.setIcon(beautify_icon_99017402b1eacc4e3474dc309cfc67b4);
+        
+    
+        var popup_5379d53bdcb33890279f05407f237d82 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8cf69b6982364099da11420ab0856506 = $(`<div id="html_8cf69b6982364099da11420ab0856506" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-malo-selo')">Malo Selo</a></div>`)[0];
+                popup_5379d53bdcb33890279f05407f237d82.setContent(html_8cf69b6982364099da11420ab0856506);
+            
+        
+
+        marker_671618031275051744ddc720ac8641b6.bindPopup(popup_5379d53bdcb33890279f05407f237d82)
+        ;
+
+        
+    
+    
+                marker_671618031275051744ddc720ac8641b6.setIcon(beautify_icon_99017402b1eacc4e3474dc309cfc67b4);
+            
+    
+            var marker_1ba0626a57de5e98342802675d5a5469 = L.marker(
+                [45.4171908, 14.8212046],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_186d42be3196a5458ac9f440d232d74f = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_1ba0626a57de5e98342802675d5a5469.setIcon(beautify_icon_186d42be3196a5458ac9f440d232d74f);
+        
+    
+        var popup_67cf091108acd80df29d3f5d55b6c7ed = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c6bc200931a0774c67218aed0502c366 = $(`<div id="html_c6bc200931a0774c67218aed0502c366" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-marija-trost')">Marija Trošt</a></div>`)[0];
+                popup_67cf091108acd80df29d3f5d55b6c7ed.setContent(html_c6bc200931a0774c67218aed0502c366);
+            
+        
+
+        marker_1ba0626a57de5e98342802675d5a5469.bindPopup(popup_67cf091108acd80df29d3f5d55b6c7ed)
+        ;
+
+        
+    
+    
+                marker_1ba0626a57de5e98342802675d5a5469.setIcon(beautify_icon_186d42be3196a5458ac9f440d232d74f);
+            
+    
+            var marker_e4c00c833143f70d366ba11c245d6866 = L.marker(
+                [45.4377516, 14.8655473],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_2109b89ac50f0604afeb18e82f2aff40 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_e4c00c833143f70d366ba11c245d6866.setIcon(beautify_icon_2109b89ac50f0604afeb18e82f2aff40);
+        
+    
+        var popup_e786b203d2255a84ec26ff618dfdaa09 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f03f6b0094394c88dac85994cc496e0d = $(`<div id="html_f03f6b0094394c88dac85994cc496e0d" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-radocaj-brodski')">Radočaj Brodski</a></div>`)[0];
+                popup_e786b203d2255a84ec26ff618dfdaa09.setContent(html_f03f6b0094394c88dac85994cc496e0d);
+            
+        
+
+        marker_e4c00c833143f70d366ba11c245d6866.bindPopup(popup_e786b203d2255a84ec26ff618dfdaa09)
+        ;
+
+        
+    
+    
+                marker_e4c00c833143f70d366ba11c245d6866.setIcon(beautify_icon_2109b89ac50f0604afeb18e82f2aff40);
+            
+    
+            var marker_4828eecc0631539598321d7c760d963f = L.marker(
+                [45.484581, 14.7017605],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_c475090ff70f1619f960d0f9d01df931 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_4828eecc0631539598321d7c760d963f.setIcon(beautify_icon_c475090ff70f1619f960d0f9d01df931);
+        
+    
+        var popup_b58046262ab551efcaec3c09467c2a89 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_728aabe120f181e8baba0de640ecc3e8 = $(`<div id="html_728aabe120f181e8baba0de640ecc3e8" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-razloge')">Razloge</a></div>`)[0];
+                popup_b58046262ab551efcaec3c09467c2a89.setContent(html_728aabe120f181e8baba0de640ecc3e8);
+            
+        
+
+        marker_4828eecc0631539598321d7c760d963f.bindPopup(popup_b58046262ab551efcaec3c09467c2a89)
+        ;
+
+        
+    
+    
+                marker_4828eecc0631539598321d7c760d963f.setIcon(beautify_icon_c475090ff70f1619f960d0f9d01df931);
+            
+    
+            var marker_5a6e767ce881e745796ff6e466d2c5a9 = L.marker(
+                [45.5150879, 14.7511261],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_0dc300f29dcec30363644bda67c216a5 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_5a6e767ce881e745796ff6e466d2c5a9.setIcon(beautify_icon_0dc300f29dcec30363644bda67c216a5);
+        
+    
+        var popup_3fd49e1d7e8b6169c1cf5005643b8956 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_976dd7f9794e3b0452fed94ac5c3477a = $(`<div id="html_976dd7f9794e3b0452fed94ac5c3477a" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-turke')">Turke</a></div>`)[0];
+                popup_3fd49e1d7e8b6169c1cf5005643b8956.setContent(html_976dd7f9794e3b0452fed94ac5c3477a);
+            
+        
+
+        marker_5a6e767ce881e745796ff6e466d2c5a9.bindPopup(popup_3fd49e1d7e8b6169c1cf5005643b8956)
+        ;
+
+        
+    
+    
+                marker_5a6e767ce881e745796ff6e466d2c5a9.setIcon(beautify_icon_0dc300f29dcec30363644bda67c216a5);
+            
+    
+            var marker_1a80dfd186de815903cbca8160ef9b9e = L.marker(
+                [45.3944926, 14.6824894],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_58ce57f12b8c19c289ca5cd5f80e3731 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_1a80dfd186de815903cbca8160ef9b9e.setIcon(beautify_icon_58ce57f12b8c19c289ca5cd5f80e3731);
+        
+    
+        var popup_33aac45fc6b24b0fdcbf244f3a1e3ba0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c1920aac6d967d859376568f5df93706 = $(`<div id="html_c1920aac6d967d859376568f5df93706" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('delnice-zelin-crnoluski')">Zelin Crnoluški</a></div>`)[0];
+                popup_33aac45fc6b24b0fdcbf244f3a1e3ba0.setContent(html_c1920aac6d967d859376568f5df93706);
+            
+        
+
+        marker_1a80dfd186de815903cbca8160ef9b9e.bindPopup(popup_33aac45fc6b24b0fdcbf244f3a1e3ba0)
+        ;
+
+        
+    
+    
+                marker_1a80dfd186de815903cbca8160ef9b9e.setIcon(beautify_icon_58ce57f12b8c19c289ca5cd5f80e3731);
+            
+    
+            var marker_2bb6475eb192afa1158de4f9836f0771 = L.marker(
+                [45.2911771, 14.7231443],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_4a674847c97b7483fd318a73bc37b07e = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_2bb6475eb192afa1158de4f9836f0771.setIcon(beautify_icon_4a674847c97b7483fd318a73bc37b07e);
+        
+    
+        var popup_d7a92598ce29aad4fc1e0397d341b544 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6dd0bdf5b7f307527a6cf2014914f18a = $(`<div id="html_6dd0bdf5b7f307527a6cf2014914f18a" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('fuzine-banovina')">Banovina</a></div>`)[0];
+                popup_d7a92598ce29aad4fc1e0397d341b544.setContent(html_6dd0bdf5b7f307527a6cf2014914f18a);
+            
+        
+
+        marker_2bb6475eb192afa1158de4f9836f0771.bindPopup(popup_d7a92598ce29aad4fc1e0397d341b544)
+        ;
+
+        
+    
+    
+                marker_2bb6475eb192afa1158de4f9836f0771.setIcon(beautify_icon_4a674847c97b7483fd318a73bc37b07e);
+            
+    
+            var marker_7b84ded8668079c5b0bea1143ecd3d3a = L.marker(
+                [45.3274617, 14.740317],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_1be320014469ff4415fe4351e0048fc5 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_7b84ded8668079c5b0bea1143ecd3d3a.setIcon(beautify_icon_1be320014469ff4415fe4351e0048fc5);
+        
+    
+        var popup_2a69f202222b81d098640469980a8935 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_66fb3c4a1899b4f64f7621d670b3eba7 = $(`<div id="html_66fb3c4a1899b4f64f7621d670b3eba7" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('fuzine-belo-selo')">Belo Selo</a></div>`)[0];
+                popup_2a69f202222b81d098640469980a8935.setContent(html_66fb3c4a1899b4f64f7621d670b3eba7);
+            
+        
+
+        marker_7b84ded8668079c5b0bea1143ecd3d3a.bindPopup(popup_2a69f202222b81d098640469980a8935)
+        ;
+
+        
+    
+    
+                marker_7b84ded8668079c5b0bea1143ecd3d3a.setIcon(beautify_icon_1be320014469ff4415fe4351e0048fc5);
+            
+    
+            var marker_a436922e2f185b7cc268715e94c47b96 = L.marker(
+                [45.3107004, 14.6837022],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_d5f5cef6881e792118bbf743e2d33ce6 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_a436922e2f185b7cc268715e94c47b96.setIcon(beautify_icon_d5f5cef6881e792118bbf743e2d33ce6);
+        
+    
+        var popup_072e3edb081ec27905332a554d79f27e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_db6a61502bf80cd1ccf253ca2b81f1e8 = $(`<div id="html_db6a61502bf80cd1ccf253ca2b81f1e8" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('fuzine-benkovac-fuzinski')">Benkovac Fužinski</a></div>`)[0];
+                popup_072e3edb081ec27905332a554d79f27e.setContent(html_db6a61502bf80cd1ccf253ca2b81f1e8);
+            
+        
+
+        marker_a436922e2f185b7cc268715e94c47b96.bindPopup(popup_072e3edb081ec27905332a554d79f27e)
+        ;
+
+        
+    
+    
+                marker_a436922e2f185b7cc268715e94c47b96.setIcon(beautify_icon_d5f5cef6881e792118bbf743e2d33ce6);
+            
+    
+            var marker_b477c328179a98449d700f1b8acf9904 = L.marker(
+                [45.3046471, 14.7135873],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_2874bbfb2384c9684c39ecae2ca7c80c = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_b477c328179a98449d700f1b8acf9904.setIcon(beautify_icon_2874bbfb2384c9684c39ecae2ca7c80c);
+        
+    
+        var popup_8b97b8a12019f00b3dc238faf93918fe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d353958a6fd28d18b33f6bddf75330fc = $(`<div id="html_d353958a6fd28d18b33f6bddf75330fc" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('fuzine-fuzine')">Fužine</a></div>`)[0];
+                popup_8b97b8a12019f00b3dc238faf93918fe.setContent(html_d353958a6fd28d18b33f6bddf75330fc);
+            
+        
+
+        marker_b477c328179a98449d700f1b8acf9904.bindPopup(popup_8b97b8a12019f00b3dc238faf93918fe)
+        ;
+
+        
+    
+    
+                marker_b477c328179a98449d700f1b8acf9904.setIcon(beautify_icon_2874bbfb2384c9684c39ecae2ca7c80c);
+            
+    
+            var marker_f23edeb174f046a61c3fb63273894643 = L.marker(
+                [45.2790342, 14.7191481],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_af667b5045cd18224229e900cdf76a6d = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_f23edeb174f046a61c3fb63273894643.setIcon(beautify_icon_af667b5045cd18224229e900cdf76a6d);
+        
+    
+        var popup_5829bbb94d30774bfbf9359c07fdd6b8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4f5c82c55481c1a53a245f97d20644e6 = $(`<div id="html_4f5c82c55481c1a53a245f97d20644e6" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('fuzine-lic')">Lič</a></div>`)[0];
+                popup_5829bbb94d30774bfbf9359c07fdd6b8.setContent(html_4f5c82c55481c1a53a245f97d20644e6);
+            
+        
+
+        marker_f23edeb174f046a61c3fb63273894643.bindPopup(popup_5829bbb94d30774bfbf9359c07fdd6b8)
+        ;
+
+        
+    
+    
+                marker_f23edeb174f046a61c3fb63273894643.setIcon(beautify_icon_af667b5045cd18224229e900cdf76a6d);
+            
+    
+            var marker_81213773bc89c12b35d36214b3a11051 = L.marker(
+                [45.3317921, 14.7534028],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_19e551fabc4d7448a1844c119a61d8bf = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_81213773bc89c12b35d36214b3a11051.setIcon(beautify_icon_19e551fabc4d7448a1844c119a61d8bf);
+        
+    
+        var popup_847493c77c34f4526b4351f95cb70d2c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ad9665a9e7a0d3d17b93366afb331bae = $(`<div id="html_ad9665a9e7a0d3d17b93366afb331bae" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('fuzine-slavica')">Slavica</a></div>`)[0];
+                popup_847493c77c34f4526b4351f95cb70d2c.setContent(html_ad9665a9e7a0d3d17b93366afb331bae);
+            
+        
+
+        marker_81213773bc89c12b35d36214b3a11051.bindPopup(popup_847493c77c34f4526b4351f95cb70d2c)
+        ;
+
+        
+    
+    
+                marker_81213773bc89c12b35d36214b3a11051.setIcon(beautify_icon_19e551fabc4d7448a1844c119a61d8bf);
+            
+    
+            var marker_f320e7b92cefc9c3d86987194cd7ce6a = L.marker(
+                [45.3167546, 14.7288706],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_8a0f6dac0c56921634da7eb9117c91cc = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_f320e7b92cefc9c3d86987194cd7ce6a.setIcon(beautify_icon_8a0f6dac0c56921634da7eb9117c91cc);
+        
+    
+        var popup_cf132259ea546215a7a4a32bf9ede42f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9c398324a472e7540716a99cf9ac1fe8 = $(`<div id="html_9c398324a472e7540716a99cf9ac1fe8" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('fuzine-vrata')">Vrata</a></div>`)[0];
+                popup_cf132259ea546215a7a4a32bf9ede42f.setContent(html_9c398324a472e7540716a99cf9ac1fe8);
+            
+        
+
+        marker_f320e7b92cefc9c3d86987194cd7ce6a.bindPopup(popup_cf132259ea546215a7a4a32bf9ede42f)
+        ;
+
+        
+    
+    
+                marker_f320e7b92cefc9c3d86987194cd7ce6a.setIcon(beautify_icon_8a0f6dac0c56921634da7eb9117c91cc);
+            
+    
+            var marker_91c408530b48d755ed08ad03bbb2847b = L.marker(
+                [59.6454064, -151.5445643],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_a5e8b00407d511e79bb72c595d0d8b89 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_91c408530b48d755ed08ad03bbb2847b.setIcon(beautify_icon_a5e8b00407d511e79bb72c595d0d8b89);
+        
+    
+        var popup_225021b0058b089a1a51a2d2b0d362c5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aea811eaa762af781b5f3d8ffbfb606e = $(`<div id="html_aea811eaa762af781b5f3d8ffbfb606e" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('lokve-homer')">Homer</a></div>`)[0];
+                popup_225021b0058b089a1a51a2d2b0d362c5.setContent(html_aea811eaa762af781b5f3d8ffbfb606e);
+            
+        
+
+        marker_91c408530b48d755ed08ad03bbb2847b.bindPopup(popup_225021b0058b089a1a51a2d2b0d362c5)
+        ;
+
+        
+    
+    
+                marker_91c408530b48d755ed08ad03bbb2847b.setIcon(beautify_icon_a5e8b00407d511e79bb72c595d0d8b89);
+            
+    
+            var marker_2838dd164d0d01816ad8344d0efd36ff = L.marker(
+                [45.3581828, 14.750644],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_275e0e7cd84789d2264770f1f2be6b20 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_2838dd164d0d01816ad8344d0efd36ff.setIcon(beautify_icon_275e0e7cd84789d2264770f1f2be6b20);
+        
+    
+        var popup_f1c84a8c4bcd4f8c0a182fbcecc1769c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6d59902b4e290b6fcb45d9a11c0ea43c = $(`<div id="html_6d59902b4e290b6fcb45d9a11c0ea43c" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('lokve-lokve')">Lokve</a></div>`)[0];
+                popup_f1c84a8c4bcd4f8c0a182fbcecc1769c.setContent(html_6d59902b4e290b6fcb45d9a11c0ea43c);
+            
+        
+
+        marker_2838dd164d0d01816ad8344d0efd36ff.bindPopup(popup_f1c84a8c4bcd4f8c0a182fbcecc1769c)
+        ;
+
+        
+    
+    
+                marker_2838dd164d0d01816ad8344d0efd36ff.setIcon(beautify_icon_275e0e7cd84789d2264770f1f2be6b20);
+            
+    
+            var marker_2951ebc0a98f65e1057073a356972a76 = L.marker(
+                [45.3701338, 14.6652596],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_3e8cdfe4457130051b3cfde06b369a4c = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_2951ebc0a98f65e1057073a356972a76.setIcon(beautify_icon_3e8cdfe4457130051b3cfde06b369a4c);
+        
+    
+        var popup_6a926b461a5d5606f9a6f77ed4749ffa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f757a9803bc6c01b6737d2962d181b4f = $(`<div id="html_f757a9803bc6c01b6737d2962d181b4f" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('lokve-mrzla-vodica')">Mrzla Vodica</a></div>`)[0];
+                popup_6a926b461a5d5606f9a6f77ed4749ffa.setContent(html_f757a9803bc6c01b6737d2962d181b4f);
+            
+        
+
+        marker_2951ebc0a98f65e1057073a356972a76.bindPopup(popup_6a926b461a5d5606f9a6f77ed4749ffa)
+        ;
+
+        
+    
+    
+                marker_2951ebc0a98f65e1057073a356972a76.setIcon(beautify_icon_3e8cdfe4457130051b3cfde06b369a4c);
+            
+    
+            var marker_909e18be129c7496a0d5bda6636e8da3 = L.marker(
+                [45.3814726, 14.6837404],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_f2bd6ac9a252f023c92fc2d3c48cf55c = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_909e18be129c7496a0d5bda6636e8da3.setIcon(beautify_icon_f2bd6ac9a252f023c92fc2d3c48cf55c);
+        
+    
+        var popup_e986988b5347569c7a4857ed10ae2198 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_535485cfd872bbc37070da119ec67ef9 = $(`<div id="html_535485cfd872bbc37070da119ec67ef9" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('lokve-zelin-mrzlovodicki')">Zelin Mrzlovodički</a></div>`)[0];
+                popup_e986988b5347569c7a4857ed10ae2198.setContent(html_535485cfd872bbc37070da119ec67ef9);
+            
+        
+
+        marker_909e18be129c7496a0d5bda6636e8da3.bindPopup(popup_e986988b5347569c7a4857ed10ae2198)
+        ;
+
+        
+    
+    
+                marker_909e18be129c7496a0d5bda6636e8da3.setIcon(beautify_icon_f2bd6ac9a252f023c92fc2d3c48cf55c);
+            
+    
+            var marker_8599aa95623942eb15c1eaf4a1b9eda0 = L.marker(
+                [45.3045433, 14.906431],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_18f9b60d5c6ed62796d80660789a2abe = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_8599aa95623942eb15c1eaf4a1b9eda0.setIcon(beautify_icon_18f9b60d5c6ed62796d80660789a2abe);
+        
+    
+        var popup_3a355fc369b6c094bfde84c93537f1a5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5c5972c4226f0fd11a6e19b95ebc2a65 = $(`<div id="html_5c5972c4226f0fd11a6e19b95ebc2a65" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('mrkopalj-begovo-razdolje')">Begovo Razdolje</a></div>`)[0];
+                popup_3a355fc369b6c094bfde84c93537f1a5.setContent(html_5c5972c4226f0fd11a6e19b95ebc2a65);
+            
+        
+
+        marker_8599aa95623942eb15c1eaf4a1b9eda0.bindPopup(popup_3a355fc369b6c094bfde84c93537f1a5)
+        ;
+
+        
+    
+    
+                marker_8599aa95623942eb15c1eaf4a1b9eda0.setIcon(beautify_icon_18f9b60d5c6ed62796d80660789a2abe);
+            
+    
+            var marker_3f419d76a332c5b051694a0cd49819ba = L.marker(
+                [45.3221258, 14.7954251],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_6299e1216b9f9b15d988c58a6bdcc3e2 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_3f419d76a332c5b051694a0cd49819ba.setIcon(beautify_icon_6299e1216b9f9b15d988c58a6bdcc3e2);
+        
+    
+        var popup_c528c43083a1ed49115e0560af7036f4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_313ac8cdc90021ad831133704d02a43f = $(`<div id="html_313ac8cdc90021ad831133704d02a43f" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('mrkopalj-brestova-draga')">Brestova Draga</a></div>`)[0];
+                popup_c528c43083a1ed49115e0560af7036f4.setContent(html_313ac8cdc90021ad831133704d02a43f);
+            
+        
+
+        marker_3f419d76a332c5b051694a0cd49819ba.bindPopup(popup_c528c43083a1ed49115e0560af7036f4)
+        ;
+
+        
+    
+    
+                marker_3f419d76a332c5b051694a0cd49819ba.setIcon(beautify_icon_6299e1216b9f9b15d988c58a6bdcc3e2);
+            
+    
+            var marker_a19259c99fa18d89216b9856aee3ff40 = L.marker(
+                [45.3154497, 14.8557128],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_7441d0aade5a136fb022005c56ad9400 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_a19259c99fa18d89216b9856aee3ff40.setIcon(beautify_icon_7441d0aade5a136fb022005c56ad9400);
+        
+    
+        var popup_9b5f3117def71c0b0160721776a00f88 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d2e41f95847b5a49e1b4d33243020e84 = $(`<div id="html_d2e41f95847b5a49e1b4d33243020e84" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('mrkopalj-mrkopalj')">Mrkopalj</a></div>`)[0];
+                popup_9b5f3117def71c0b0160721776a00f88.setContent(html_d2e41f95847b5a49e1b4d33243020e84);
+            
+        
+
+        marker_a19259c99fa18d89216b9856aee3ff40.bindPopup(popup_9b5f3117def71c0b0160721776a00f88)
+        ;
+
+        
+    
+    
+                marker_a19259c99fa18d89216b9856aee3ff40.setIcon(beautify_icon_7441d0aade5a136fb022005c56ad9400);
+            
+    
+            var marker_ea6c9d6af13366b4bf0ffd4cb92e0309 = L.marker(
+                [45.3224952, 14.8192229],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_c37df0f694f7829a1f9d3b90f8e1178f = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_ea6c9d6af13366b4bf0ffd4cb92e0309.setIcon(beautify_icon_c37df0f694f7829a1f9d3b90f8e1178f);
+        
+    
+        var popup_886a273fe1aa6198c4bf1ed2f1b14475 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_181dd13b4deeea7f965ed692b7e3185c = $(`<div id="html_181dd13b4deeea7f965ed692b7e3185c" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('mrkopalj-sunger')">Sunger</a></div>`)[0];
+                popup_886a273fe1aa6198c4bf1ed2f1b14475.setContent(html_181dd13b4deeea7f965ed692b7e3185c);
+            
+        
+
+        marker_ea6c9d6af13366b4bf0ffd4cb92e0309.bindPopup(popup_886a273fe1aa6198c4bf1ed2f1b14475)
+        ;
+
+        
+    
+    
+                marker_ea6c9d6af13366b4bf0ffd4cb92e0309.setIcon(beautify_icon_c37df0f694f7829a1f9d3b90f8e1178f);
+            
+    
+            var marker_c399d4d337ea361a3809a2587ddcdf1a = L.marker(
+                [45.3037256, 14.8765723],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_ff55082fe276ebb3db7956eab5d6e046 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_c399d4d337ea361a3809a2587ddcdf1a.setIcon(beautify_icon_ff55082fe276ebb3db7956eab5d6e046);
+        
+    
+        var popup_116323a6f0126c1fcbc0a78fc3af0675 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f987fb13deb0ce96325b0e8562531139 = $(`<div id="html_f987fb13deb0ce96325b0e8562531139" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('mrkopalj-tuk-mrkopaljski')">Tuk Mrkopaljski</a></div>`)[0];
+                popup_116323a6f0126c1fcbc0a78fc3af0675.setContent(html_f987fb13deb0ce96325b0e8562531139);
+            
+        
+
+        marker_c399d4d337ea361a3809a2587ddcdf1a.bindPopup(popup_116323a6f0126c1fcbc0a78fc3af0675)
+        ;
+
+        
+    
+    
+                marker_c399d4d337ea361a3809a2587ddcdf1a.setIcon(beautify_icon_ff55082fe276ebb3db7956eab5d6e046);
+            
+    
+            var marker_f9453195cf4d696ed101bab7cfb7a775 = L.marker(
+                [45.2963054, 14.882721],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_51b3b3ea18e9d08bfc0063ac6a565aaf = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_f9453195cf4d696ed101bab7cfb7a775.setIcon(beautify_icon_51b3b3ea18e9d08bfc0063ac6a565aaf);
+        
+    
+        var popup_195c9f59b3069a8a48dc37de90b9ec58 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5ae36c81df1d25708317caa9f60e168c = $(`<div id="html_5ae36c81df1d25708317caa9f60e168c" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('mrkopalj-tuk-vojni')">Tuk Vojni</a></div>`)[0];
+                popup_195c9f59b3069a8a48dc37de90b9ec58.setContent(html_5ae36c81df1d25708317caa9f60e168c);
+            
+        
+
+        marker_f9453195cf4d696ed101bab7cfb7a775.bindPopup(popup_195c9f59b3069a8a48dc37de90b9ec58)
+        ;
+
+        
+    
+    
+                marker_f9453195cf4d696ed101bab7cfb7a775.setIcon(beautify_icon_51b3b3ea18e9d08bfc0063ac6a565aaf);
+            
+    
+            var marker_9bfcdb55beb2092feae73b170b2e2a42 = L.marker(
+                [45.3931085, 14.8839943],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_444f9db44b49af5473c48771ef167b7a = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_9bfcdb55beb2092feae73b170b2e2a42.setIcon(beautify_icon_444f9db44b49af5473c48771ef167b7a);
+        
+    
+        var popup_0463b7eba5afebd839d111c1388184dd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bad258f7ea78521097a58abfe9354947 = $(`<div id="html_bad258f7ea78521097a58abfe9354947" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ravna-gora-kupjak')">Kupjak</a></div>`)[0];
+                popup_0463b7eba5afebd839d111c1388184dd.setContent(html_bad258f7ea78521097a58abfe9354947);
+            
+        
+
+        marker_9bfcdb55beb2092feae73b170b2e2a42.bindPopup(popup_0463b7eba5afebd839d111c1388184dd)
+        ;
+
+        
+    
+    
+                marker_9bfcdb55beb2092feae73b170b2e2a42.setIcon(beautify_icon_444f9db44b49af5473c48771ef167b7a);
+            
+    
+            var marker_966b505eb34d2585cd47281462862edc = L.marker(
+                [45.3867757, 14.894416],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_56bbf71dd2a13c8ceb8ac47fd46463ca = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_966b505eb34d2585cd47281462862edc.setIcon(beautify_icon_56bbf71dd2a13c8ceb8ac47fd46463ca);
+        
+    
+        var popup_215dd48feb602dd610ba018297f7a69e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c411d81be1d535924d28a2ee2f76bc73 = $(`<div id="html_c411d81be1d535924d28a2ee2f76bc73" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ravna-gora-leskova-draga')">Leskova Draga</a></div>`)[0];
+                popup_215dd48feb602dd610ba018297f7a69e.setContent(html_c411d81be1d535924d28a2ee2f76bc73);
+            
+        
+
+        marker_966b505eb34d2585cd47281462862edc.bindPopup(popup_215dd48feb602dd610ba018297f7a69e)
+        ;
+
+        
+    
+    
+                marker_966b505eb34d2585cd47281462862edc.setIcon(beautify_icon_56bbf71dd2a13c8ceb8ac47fd46463ca);
+            
+    
+            var marker_f57183776abb3b78e30799ccdc6d7dad = L.marker(
+                [45.3741644, 14.9393863],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_5487cb46b4fa32162239d869d35c4d41 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_f57183776abb3b78e30799ccdc6d7dad.setIcon(beautify_icon_5487cb46b4fa32162239d869d35c4d41);
+        
+    
+        var popup_20ab0f7859c4378d570048ab7e448235 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_69b6db42cf45aa3fc71158bae261f984 = $(`<div id="html_69b6db42cf45aa3fc71158bae261f984" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ravna-gora-ravna-gora')">Ravna Gora</a></div>`)[0];
+                popup_20ab0f7859c4378d570048ab7e448235.setContent(html_69b6db42cf45aa3fc71158bae261f984);
+            
+        
+
+        marker_f57183776abb3b78e30799ccdc6d7dad.bindPopup(popup_20ab0f7859c4378d570048ab7e448235)
+        ;
+
+        
+    
+    
+                marker_f57183776abb3b78e30799ccdc6d7dad.setIcon(beautify_icon_5487cb46b4fa32162239d869d35c4d41);
+            
+    
+            var marker_d8cf44d8ed676aca3c41a08f60f747fd = L.marker(
+                [45.3758679, 14.999392],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_dcef34a75ca510e2fe41fa0cd59a3e6e = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_d8cf44d8ed676aca3c41a08f60f747fd.setIcon(beautify_icon_dcef34a75ca510e2fe41fa0cd59a3e6e);
+        
+    
+        var popup_22925a7c779fdee59184fa8546eb0d90 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c73d55b7d64d1bbdd5764b8120c0922 = $(`<div id="html_8c73d55b7d64d1bbdd5764b8120c0922" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ravna-gora-stara-susica')">Stara Sušica</a></div>`)[0];
+                popup_22925a7c779fdee59184fa8546eb0d90.setContent(html_8c73d55b7d64d1bbdd5764b8120c0922);
+            
+        
+
+        marker_d8cf44d8ed676aca3c41a08f60f747fd.bindPopup(popup_22925a7c779fdee59184fa8546eb0d90)
+        ;
+
+        
+    
+    
+                marker_d8cf44d8ed676aca3c41a08f60f747fd.setIcon(beautify_icon_dcef34a75ca510e2fe41fa0cd59a3e6e);
+            
+    
+            var marker_8cc28c885c0d3a7801216291c61962a5 = L.marker(
+                [45.3621682, 14.8798249],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_e326b1ca3b53827cb8a15ae0aa0176ea = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_8cc28c885c0d3a7801216291c61962a5.setIcon(beautify_icon_e326b1ca3b53827cb8a15ae0aa0176ea);
+        
+    
+        var popup_ccaa4c8607e9097bf9012e8db0cfe49f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a78a88ab1e33a983d271516bf331aa2e = $(`<div id="html_a78a88ab1e33a983d271516bf331aa2e" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ravna-gora-stari-laz')">Stari Laz</a></div>`)[0];
+                popup_ccaa4c8607e9097bf9012e8db0cfe49f.setContent(html_a78a88ab1e33a983d271516bf331aa2e);
+            
+        
+
+        marker_8cc28c885c0d3a7801216291c61962a5.bindPopup(popup_ccaa4c8607e9097bf9012e8db0cfe49f)
+        ;
+
+        
+    
+    
+                marker_8cc28c885c0d3a7801216291c61962a5.setIcon(beautify_icon_e326b1ca3b53827cb8a15ae0aa0176ea);
+            
+    
+            var marker_4c95a00273d5b060ab68e70b8fddc719 = L.marker(
+                [45.4374903, 14.9353866],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_fd4d440dc833ebb31ad098690ae93449 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_4c95a00273d5b060ab68e70b8fddc719.setIcon(beautify_icon_fd4d440dc833ebb31ad098690ae93449);
+        
+    
+        var popup_334b4398078dda9c1d02fb6cf9e7ffd3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_103d75c0d1c66964487368c60326a5f0 = $(`<div id="html_103d75c0d1c66964487368c60326a5f0" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('skrad-brezje-dobransko')">Brezje Dobransko</a></div>`)[0];
+                popup_334b4398078dda9c1d02fb6cf9e7ffd3.setContent(html_103d75c0d1c66964487368c60326a5f0);
+            
+        
+
+        marker_4c95a00273d5b060ab68e70b8fddc719.bindPopup(popup_334b4398078dda9c1d02fb6cf9e7ffd3)
+        ;
+
+        
+    
+    
+                marker_4c95a00273d5b060ab68e70b8fddc719.setIcon(beautify_icon_fd4d440dc833ebb31ad098690ae93449);
+            
+    
+            var marker_2d8929e9004dc151dda2b7c8e925d162 = L.marker(
+                [45.4177413, 14.9467054],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_c16f53cc5ceb1dd57b9208b7a0ebbca7 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_2d8929e9004dc151dda2b7c8e925d162.setIcon(beautify_icon_c16f53cc5ceb1dd57b9208b7a0ebbca7);
+        
+    
+        var popup_ff1b9974badeace2d53b1db4462aa24d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bdff6150a9f84e2da032deed72169ebc = $(`<div id="html_bdff6150a9f84e2da032deed72169ebc" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('skrad-bukov-vrh')">Bukov Vrh</a></div>`)[0];
+                popup_ff1b9974badeace2d53b1db4462aa24d.setContent(html_bdff6150a9f84e2da032deed72169ebc);
+            
+        
+
+        marker_2d8929e9004dc151dda2b7c8e925d162.bindPopup(popup_ff1b9974badeace2d53b1db4462aa24d)
+        ;
+
+        
+    
+    
+                marker_2d8929e9004dc151dda2b7c8e925d162.setIcon(beautify_icon_c16f53cc5ceb1dd57b9208b7a0ebbca7);
+            
+    
+            var marker_44812e255b88844a3c0d380d5e83e7fe = L.marker(
+                [45.4224894, 14.9321496],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_fcd60e024c2bdad0d12893c8d5be990a = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_44812e255b88844a3c0d380d5e83e7fe.setIcon(beautify_icon_fcd60e024c2bdad0d12893c8d5be990a);
+        
+    
+        var popup_f0d99b82c74cb0a1448af7ba3f6a7ca9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_55a9386b32690a0db62538486ab5cfdb = $(`<div id="html_55a9386b32690a0db62538486ab5cfdb" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('skrad-divjake')">Divjake</a></div>`)[0];
+                popup_f0d99b82c74cb0a1448af7ba3f6a7ca9.setContent(html_55a9386b32690a0db62538486ab5cfdb);
+            
+        
+
+        marker_44812e255b88844a3c0d380d5e83e7fe.bindPopup(popup_f0d99b82c74cb0a1448af7ba3f6a7ca9)
+        ;
+
+        
+    
+    
+                marker_44812e255b88844a3c0d380d5e83e7fe.setIcon(beautify_icon_fcd60e024c2bdad0d12893c8d5be990a);
+            
+    
+            var marker_611762a96e49f87757ea83bf33d802c3 = L.marker(
+                [44.923885, 24.5661731],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_45d55d4000f50bee126c90abbd539117 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_611762a96e49f87757ea83bf33d802c3.setIcon(beautify_icon_45d55d4000f50bee126c90abbd539117);
+        
+    
+        var popup_ee8371a22e7f631dc030185790329bf7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ebb428c190dbd48c3eba079ee7950bea = $(`<div id="html_ebb428c190dbd48c3eba079ee7950bea" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('skrad-gorani')">Gorani</a></div>`)[0];
+                popup_ee8371a22e7f631dc030185790329bf7.setContent(html_ebb428c190dbd48c3eba079ee7950bea);
+            
+        
+
+        marker_611762a96e49f87757ea83bf33d802c3.bindPopup(popup_ee8371a22e7f631dc030185790329bf7)
+        ;
+
+        
+    
+    
+                marker_611762a96e49f87757ea83bf33d802c3.setIcon(beautify_icon_45d55d4000f50bee126c90abbd539117);
+            
+    
+            var marker_7fc744007ee1afe85c17d3f42821e8b7 = L.marker(
+                [45.4428944, 14.9397287],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_b8f3c1b1cc4c200a4361f9200a7a270b = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_7fc744007ee1afe85c17d3f42821e8b7.setIcon(beautify_icon_b8f3c1b1cc4c200a4361f9200a7a270b);
+        
+    
+        var popup_a4f66617a82e1f8ebbc58755d382c5d0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3352c32d0e26c0a799ad97663f44369b = $(`<div id="html_3352c32d0e26c0a799ad97663f44369b" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('skrad-gornja-dobra')">Gornja Dobra</a></div>`)[0];
+                popup_a4f66617a82e1f8ebbc58755d382c5d0.setContent(html_3352c32d0e26c0a799ad97663f44369b);
+            
+        
+
+        marker_7fc744007ee1afe85c17d3f42821e8b7.bindPopup(popup_a4f66617a82e1f8ebbc58755d382c5d0)
+        ;
+
+        
+    
+    
+                marker_7fc744007ee1afe85c17d3f42821e8b7.setIcon(beautify_icon_b8f3c1b1cc4c200a4361f9200a7a270b);
+            
+    
+            var marker_924a0fb124e04a816688c6e2e06333ff = L.marker(
+                [45.3964239, 14.9287947],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_ae5600ef7020a30378bf5af218535e11 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_924a0fb124e04a816688c6e2e06333ff.setIcon(beautify_icon_ae5600ef7020a30378bf5af218535e11);
+        
+    
+        var popup_92eeb1393884a39d3ade07032def447b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_80df93a0927ba3767bc12f5b14e5f8e2 = $(`<div id="html_80df93a0927ba3767bc12f5b14e5f8e2" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('skrad-hlevci')">Hlevci</a></div>`)[0];
+                popup_92eeb1393884a39d3ade07032def447b.setContent(html_80df93a0927ba3767bc12f5b14e5f8e2);
+            
+        
+
+        marker_924a0fb124e04a816688c6e2e06333ff.bindPopup(popup_92eeb1393884a39d3ade07032def447b)
+        ;
+
+        
+    
+    
+                marker_924a0fb124e04a816688c6e2e06333ff.setIcon(beautify_icon_ae5600ef7020a30378bf5af218535e11);
+            
+    
+            var marker_3eb4c31094b4cca02758a56d9054cb00 = L.marker(
+                [45.4170276, 14.9275477],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_0722a655bfa86982d6b014f503c0cc54 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_3eb4c31094b4cca02758a56d9054cb00.setIcon(beautify_icon_0722a655bfa86982d6b014f503c0cc54);
+        
+    
+        var popup_ffe2d57d68441a29c5e909f7affc7794 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d33bf22d053f70c252c1bf349a22670a = $(`<div id="html_d33bf22d053f70c252c1bf349a22670a" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('skrad-hribac')">Hribac</a></div>`)[0];
+                popup_ffe2d57d68441a29c5e909f7affc7794.setContent(html_d33bf22d053f70c252c1bf349a22670a);
+            
+        
+
+        marker_3eb4c31094b4cca02758a56d9054cb00.bindPopup(popup_ffe2d57d68441a29c5e909f7affc7794)
+        ;
+
+        
+    
+    
+                marker_3eb4c31094b4cca02758a56d9054cb00.setIcon(beautify_icon_0722a655bfa86982d6b014f503c0cc54);
+            
+    
+            var marker_91305c0fa28339d34a34dabab974e075 = L.marker(
+                [45.4353313, 14.923602],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_b9dde8248c2b4a600dbbe3fd0da0e4c6 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_91305c0fa28339d34a34dabab974e075.setIcon(beautify_icon_b9dde8248c2b4a600dbbe3fd0da0e4c6);
+        
+    
+        var popup_8b886149e8a3ad42f005a2d18180fa1c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5f67de0b7209c28bdc3ff8527f1d846f = $(`<div id="html_5f67de0b7209c28bdc3ff8527f1d846f" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('skrad-malo-selce')">Malo Selce</a></div>`)[0];
+                popup_8b886149e8a3ad42f005a2d18180fa1c.setContent(html_5f67de0b7209c28bdc3ff8527f1d846f);
+            
+        
+
+        marker_91305c0fa28339d34a34dabab974e075.bindPopup(popup_8b886149e8a3ad42f005a2d18180fa1c)
+        ;
+
+        
+    
+    
+                marker_91305c0fa28339d34a34dabab974e075.setIcon(beautify_icon_b9dde8248c2b4a600dbbe3fd0da0e4c6);
+            
+    
+            var marker_b400a199a50bc52b843a688ce023efd6 = L.marker(
+                [45.4391527, 14.8973555],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_f05194a1d28c41a3727758764ca5f964 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_b400a199a50bc52b843a688ce023efd6.setIcon(beautify_icon_f05194a1d28c41a3727758764ca5f964);
+        
+    
+        var popup_faf2e1ca037cbe85347829586776d6b5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6f8e8446da40afc9abc6cb8b9d6881d1 = $(`<div id="html_6f8e8446da40afc9abc6cb8b9d6881d1" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('skrad-planina-skradska')">Planina Skradska</a></div>`)[0];
+                popup_faf2e1ca037cbe85347829586776d6b5.setContent(html_6f8e8446da40afc9abc6cb8b9d6881d1);
+            
+        
+
+        marker_b400a199a50bc52b843a688ce023efd6.bindPopup(popup_faf2e1ca037cbe85347829586776d6b5)
+        ;
+
+        
+    
+    
+                marker_b400a199a50bc52b843a688ce023efd6.setIcon(beautify_icon_f05194a1d28c41a3727758764ca5f964);
+            
+    
+            var marker_e8bcfea04010f578c4bbd3f9f7f3ad04 = L.marker(
+                [45.4317786, 14.9058642],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_a259ecab44b74f21703b3ca911eac5a2 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_e8bcfea04010f578c4bbd3f9f7f3ad04.setIcon(beautify_icon_a259ecab44b74f21703b3ca911eac5a2);
+        
+    
+        var popup_dbdfe674ff2fcca43261bc6d8a35e21b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5cac28763905eed493ffd8f356781aea = $(`<div id="html_5cac28763905eed493ffd8f356781aea" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('skrad-skrad')">Skrad</a></div>`)[0];
+                popup_dbdfe674ff2fcca43261bc6d8a35e21b.setContent(html_5cac28763905eed493ffd8f356781aea);
+            
+        
+
+        marker_e8bcfea04010f578c4bbd3f9f7f3ad04.bindPopup(popup_dbdfe674ff2fcca43261bc6d8a35e21b)
+        ;
+
+        
+    
+    
+                marker_e8bcfea04010f578c4bbd3f9f7f3ad04.setIcon(beautify_icon_a259ecab44b74f21703b3ca911eac5a2);
+            
+    
+            var marker_aa5e8d2a23ab4b6e2d994752b5a2e4e3 = L.marker(
+                [45.1618724, 14.7608879],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_480b4bad3eb3f93daf8013d7325cf1b8 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_aa5e8d2a23ab4b6e2d994752b5a2e4e3.setIcon(beautify_icon_480b4bad3eb3f93daf8013d7325cf1b8);
+        
+    
+        var popup_e67d7c8234a309aea8a4d1b05d49568f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1efa9bc29a7f8b76257471a9a053d69f = $(`<div id="html_1efa9bc29a7f8b76257471a9a053d69f" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vinodolska-opcina-bribir')">Bribir</a></div>`)[0];
+                popup_e67d7c8234a309aea8a4d1b05d49568f.setContent(html_1efa9bc29a7f8b76257471a9a053d69f);
+            
+        
+
+        marker_aa5e8d2a23ab4b6e2d994752b5a2e4e3.bindPopup(popup_e67d7c8234a309aea8a4d1b05d49568f)
+        ;
+
+        
+    
+    
+                marker_aa5e8d2a23ab4b6e2d994752b5a2e4e3.setIcon(beautify_icon_480b4bad3eb3f93daf8013d7325cf1b8);
+            
+    
+            var marker_59166f31101d46c68d10dd2d1c5956dd = L.marker(
+                [45.2410329, 14.6499112],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_9bf3fb81855c3146fc296633c58a21e2 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_59166f31101d46c68d10dd2d1c5956dd.setIcon(beautify_icon_9bf3fb81855c3146fc296633c58a21e2);
+        
+    
+        var popup_d06f676593df260facdb95c20002b5d7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0103cae9e0b515871deba965cd5bef80 = $(`<div id="html_0103cae9e0b515871deba965cd5bef80" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vinodolska-opcina-drivenik')">Drivenik</a></div>`)[0];
+                popup_d06f676593df260facdb95c20002b5d7.setContent(html_0103cae9e0b515871deba965cd5bef80);
+            
+        
+
+        marker_59166f31101d46c68d10dd2d1c5956dd.bindPopup(popup_d06f676593df260facdb95c20002b5d7)
+        ;
+
+        
+    
+    
+                marker_59166f31101d46c68d10dd2d1c5956dd.setIcon(beautify_icon_9bf3fb81855c3146fc296633c58a21e2);
+            
+    
+            var marker_afa6e9b80e2c940de08f9355093c2c3c = L.marker(
+                [45.2042909, 14.7170144],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_48272cc7be1a00b3b99c46c0930c7e3b = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_afa6e9b80e2c940de08f9355093c2c3c.setIcon(beautify_icon_48272cc7be1a00b3b99c46c0930c7e3b);
+        
+    
+        var popup_32fb0039fdabe3047cbedac0496a519c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3c2c55f14ea1dfe7969ca863743368e7 = $(`<div id="html_3c2c55f14ea1dfe7969ca863743368e7" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vinodolska-opcina-grizane-belgrad')">Grižane-Belgrad</a></div>`)[0];
+                popup_32fb0039fdabe3047cbedac0496a519c.setContent(html_3c2c55f14ea1dfe7969ca863743368e7);
+            
+        
+
+        marker_afa6e9b80e2c940de08f9355093c2c3c.bindPopup(popup_32fb0039fdabe3047cbedac0496a519c)
+        ;
+
+        
+    
+    
+                marker_afa6e9b80e2c940de08f9355093c2c3c.setIcon(beautify_icon_48272cc7be1a00b3b99c46c0930c7e3b);
+            
+    
+            var marker_535b3c1eb39fd018cf571042fc392c6f = L.marker(
+                [45.2202299, 14.6779576],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_9019e42ae98fa04f47372b6b7c2f7121 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_535b3c1eb39fd018cf571042fc392c6f.setIcon(beautify_icon_9019e42ae98fa04f47372b6b7c2f7121);
+        
+    
+        var popup_21393c6d4a900c64bd280062ede7216c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b43ecbae34bc51fff0e9d2c34038faf9 = $(`<div id="html_b43ecbae34bc51fff0e9d2c34038faf9" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vinodolska-opcina-tribalj')">Tribalj</a></div>`)[0];
+                popup_21393c6d4a900c64bd280062ede7216c.setContent(html_b43ecbae34bc51fff0e9d2c34038faf9);
+            
+        
+
+        marker_535b3c1eb39fd018cf571042fc392c6f.bindPopup(popup_21393c6d4a900c64bd280062ede7216c)
+        ;
+
+        
+    
+    
+                marker_535b3c1eb39fd018cf571042fc392c6f.setIcon(beautify_icon_9019e42ae98fa04f47372b6b7c2f7121);
+            
+    
+            var marker_32417c4178d2212b55042ceec4a71734 = L.marker(
+                [45.4844414, 15.0726394],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_498b6c7c0b820b0375ba1af6b0ee1858 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_32417c4178d2212b55042ceec4a71734.setIcon(beautify_icon_498b6c7c0b820b0375ba1af6b0ee1858);
+        
+    
+        var popup_31cf0843a4ffd80254c83fccc971daba = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_61129c0f7b63b47748e77ec4b7eaa676 = $(`<div id="html_61129c0f7b63b47748e77ec4b7eaa676" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-blazevci')">Blaževci</a></div>`)[0];
+                popup_31cf0843a4ffd80254c83fccc971daba.setContent(html_61129c0f7b63b47748e77ec4b7eaa676);
+            
+        
+
+        marker_32417c4178d2212b55042ceec4a71734.bindPopup(popup_31cf0843a4ffd80254c83fccc971daba)
+        ;
+
+        
+    
+    
+                marker_32417c4178d2212b55042ceec4a71734.setIcon(beautify_icon_498b6c7c0b820b0375ba1af6b0ee1858);
+            
+    
+            var marker_9d2f343189546c9ef5864ee1c4673d21 = L.marker(
+                [45.4384512, 15.0083836],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_fdc7097e8f8a83b6a2ff881d35d4cbc6 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_9d2f343189546c9ef5864ee1c4673d21.setIcon(beautify_icon_fdc7097e8f8a83b6a2ff881d35d4cbc6);
+        
+    
+        var popup_5de5a07f950c9189f8fa5bde9e3478ea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0623b3b3ec9a8eab742daf8179e4b0e8 = $(`<div id="html_0623b3b3ec9a8eab742daf8179e4b0e8" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-bunjevci')">Bunjevci</a></div>`)[0];
+                popup_5de5a07f950c9189f8fa5bde9e3478ea.setContent(html_0623b3b3ec9a8eab742daf8179e4b0e8);
+            
+        
+
+        marker_9d2f343189546c9ef5864ee1c4673d21.bindPopup(popup_5de5a07f950c9189f8fa5bde9e3478ea)
+        ;
+
+        
+    
+    
+                marker_9d2f343189546c9ef5864ee1c4673d21.setIcon(beautify_icon_fdc7097e8f8a83b6a2ff881d35d4cbc6);
+            
+    
+            var marker_bca238bfa96db73c026f04944255696c = L.marker(
+                [45.4258853, 15.0291495],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_258ad9a530f9200c169f5ceb1e18e1bb = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_bca238bfa96db73c026f04944255696c.setIcon(beautify_icon_258ad9a530f9200c169f5ceb1e18e1bb);
+        
+    
+        var popup_82fdd75e8302506753d46a850b290843 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_02c119c7479f5864ef5d5d10c5c43f48 = $(`<div id="html_02c119c7479f5864ef5d5d10c5c43f48" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-dokmanovici')">Dokmanovići</a></div>`)[0];
+                popup_82fdd75e8302506753d46a850b290843.setContent(html_02c119c7479f5864ef5d5d10c5c43f48);
+            
+        
+
+        marker_bca238bfa96db73c026f04944255696c.bindPopup(popup_82fdd75e8302506753d46a850b290843)
+        ;
+
+        
+    
+    
+                marker_bca238bfa96db73c026f04944255696c.setIcon(beautify_icon_258ad9a530f9200c169f5ceb1e18e1bb);
+            
+    
+            var marker_e208534e7729ca3bff68c867a5b98977 = L.marker(
+                [45.4236614, 15.1253852],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_c3b875b0ad5d6567b8bb1bc31a52b62b = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_e208534e7729ca3bff68c867a5b98977.setIcon(beautify_icon_c3b875b0ad5d6567b8bb1bc31a52b62b);
+        
+    
+        var popup_1104c081ef63f989bb3311109f8e901f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ccaa4006106cdedc8a3fda020c7f084c = $(`<div id="html_ccaa4006106cdedc8a3fda020c7f084c" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-dolenci')">Dolenci</a></div>`)[0];
+                popup_1104c081ef63f989bb3311109f8e901f.setContent(html_ccaa4006106cdedc8a3fda020c7f084c);
+            
+        
+
+        marker_e208534e7729ca3bff68c867a5b98977.bindPopup(popup_1104c081ef63f989bb3311109f8e901f)
+        ;
+
+        
+    
+    
+                marker_e208534e7729ca3bff68c867a5b98977.setIcon(beautify_icon_c3b875b0ad5d6567b8bb1bc31a52b62b);
+            
+    
+            var marker_ea86215d2718bc24dd533486b88620a2 = L.marker(
+                [45.3359861, 15.1212537],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_5b67e7488e791d8187cec4c5d12c5e81 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_ea86215d2718bc24dd533486b88620a2.setIcon(beautify_icon_5b67e7488e791d8187cec4c5d12c5e81);
+        
+    
+        var popup_a625b367814f87944738f54cdba1b4bb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ef58d4ea3d7dbf6728fcf254f376dbb5 = $(`<div id="html_ef58d4ea3d7dbf6728fcf254f376dbb5" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-gomirje')">Gomirje</a></div>`)[0];
+                popup_a625b367814f87944738f54cdba1b4bb.setContent(html_ef58d4ea3d7dbf6728fcf254f376dbb5);
+            
+        
+
+        marker_ea86215d2718bc24dd533486b88620a2.bindPopup(popup_a625b367814f87944738f54cdba1b4bb)
+        ;
+
+        
+    
+    
+                marker_ea86215d2718bc24dd533486b88620a2.setIcon(beautify_icon_5b67e7488e791d8187cec4c5d12c5e81);
+            
+    
+            var marker_570e84203d6e2928952bb496da0bb810 = L.marker(
+                [45.3935304, 15.0817254],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_1879092d93e836b11863c6ee453e2ac5 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_570e84203d6e2928952bb496da0bb810.setIcon(beautify_icon_1879092d93e836b11863c6ee453e2ac5);
+        
+    
+        var popup_8fbbf606001952d2e73cf0b8a3703659 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4c83a9a2e83261ab827d3528aec7223e = $(`<div id="html_4c83a9a2e83261ab827d3528aec7223e" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-hajdine')">Hajdine</a></div>`)[0];
+                popup_8fbbf606001952d2e73cf0b8a3703659.setContent(html_4c83a9a2e83261ab827d3528aec7223e);
+            
+        
+
+        marker_570e84203d6e2928952bb496da0bb810.bindPopup(popup_8fbbf606001952d2e73cf0b8a3703659)
+        ;
+
+        
+    
+    
+                marker_570e84203d6e2928952bb496da0bb810.setIcon(beautify_icon_1879092d93e836b11863c6ee453e2ac5);
+            
+    
+            var marker_26b2f09939be1822cce74b0c1da6339c = L.marker(
+                [45.3653594, 15.091009],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_1a83e2f36701631b9df863988aed52f5 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_26b2f09939be1822cce74b0c1da6339c.setIcon(beautify_icon_1a83e2f36701631b9df863988aed52f5);
+        
+    
+        var popup_26c148533f5d4c0a6e0d6c944cb631d0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_07b9fe1f5822b4d9be84bcbcfa019084 = $(`<div id="html_07b9fe1f5822b4d9be84bcbcfa019084" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-hambariste')">Hambarište</a></div>`)[0];
+                popup_26c148533f5d4c0a6e0d6c944cb631d0.setContent(html_07b9fe1f5822b4d9be84bcbcfa019084);
+            
+        
+
+        marker_26b2f09939be1822cce74b0c1da6339c.bindPopup(popup_26c148533f5d4c0a6e0d6c944cb631d0)
+        ;
+
+        
+    
+    
+                marker_26b2f09939be1822cce74b0c1da6339c.setIcon(beautify_icon_1a83e2f36701631b9df863988aed52f5);
+            
+    
+            var marker_2c8ffff3e1f4a2b9decaf406755239da = L.marker(
+                [45.3781956, 15.030126],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_1db8102820ecd5d0c56bb4673efdd7ed = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_2c8ffff3e1f4a2b9decaf406755239da.setIcon(beautify_icon_1db8102820ecd5d0c56bb4673efdd7ed);
+        
+    
+        var popup_219ce61e4a4bf4141841799784612bc7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0e621e7e8c60bab24628698a667da998 = $(`<div id="html_0e621e7e8c60bab24628698a667da998" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-jablan')">Jablan</a></div>`)[0];
+                popup_219ce61e4a4bf4141841799784612bc7.setContent(html_0e621e7e8c60bab24628698a667da998);
+            
+        
+
+        marker_2c8ffff3e1f4a2b9decaf406755239da.bindPopup(popup_219ce61e4a4bf4141841799784612bc7)
+        ;
+
+        
+    
+    
+                marker_2c8ffff3e1f4a2b9decaf406755239da.setIcon(beautify_icon_1db8102820ecd5d0c56bb4673efdd7ed);
+            
+    
+            var marker_aef6f5605fff002c5d426179405286f9 = L.marker(
+                [43.6165358, 16.9532558],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_822668806135bd94f59bd16ed1750d75 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_aef6f5605fff002c5d426179405286f9.setIcon(beautify_icon_822668806135bd94f59bd16ed1750d75);
+        
+    
+        var popup_6badb86372eece212c0920336dd85785 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6e3853a8a8bebc33577b548a6ba01efc = $(`<div id="html_6e3853a8a8bebc33577b548a6ba01efc" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-kamensko')">Kamensko</a></div>`)[0];
+                popup_6badb86372eece212c0920336dd85785.setContent(html_6e3853a8a8bebc33577b548a6ba01efc);
+            
+        
+
+        marker_aef6f5605fff002c5d426179405286f9.bindPopup(popup_6badb86372eece212c0920336dd85785)
+        ;
+
+        
+    
+    
+                marker_aef6f5605fff002c5d426179405286f9.setIcon(beautify_icon_822668806135bd94f59bd16ed1750d75);
+            
+    
+            var marker_de497cc2ebd192addf4b350504e53fb7 = L.marker(
+                [45.4235862, 15.1919229],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_e8176eadd22a47c8b423c7395f0612fb = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_de497cc2ebd192addf4b350504e53fb7.setIcon(beautify_icon_e8176eadd22a47c8b423c7395f0612fb);
+        
+    
+        var popup_6fd9f6219a5cf37a7353bc588e5eb1ea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f6f228d421f4ead797155e0a301ea670 = $(`<div id="html_f6f228d421f4ead797155e0a301ea670" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-klanac')">Klanac</a></div>`)[0];
+                popup_6fd9f6219a5cf37a7353bc588e5eb1ea.setContent(html_f6f228d421f4ead797155e0a301ea670);
+            
+        
+
+        marker_de497cc2ebd192addf4b350504e53fb7.bindPopup(popup_6fd9f6219a5cf37a7353bc588e5eb1ea)
+        ;
+
+        
+    
+    
+                marker_de497cc2ebd192addf4b350504e53fb7.setIcon(beautify_icon_e8176eadd22a47c8b423c7395f0612fb);
+            
+    
+            var marker_01ec2c70560373ab074155f5a57fe7e0 = L.marker(
+                [45.3996986, 15.0355781],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_34b1e5c376efb30c2da42a9b3aaaec28 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_01ec2c70560373ab074155f5a57fe7e0.setIcon(beautify_icon_34b1e5c376efb30c2da42a9b3aaaec28);
+        
+    
+        var popup_c5eaeba9627622374c928d476d58f1b6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b8545d44e5822ca79da6955dc7e00b88 = $(`<div id="html_b8545d44e5822ca79da6955dc7e00b88" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-komlenici')">Komlenići</a></div>`)[0];
+                popup_c5eaeba9627622374c928d476d58f1b6.setContent(html_b8545d44e5822ca79da6955dc7e00b88);
+            
+        
+
+        marker_01ec2c70560373ab074155f5a57fe7e0.bindPopup(popup_c5eaeba9627622374c928d476d58f1b6)
+        ;
+
+        
+    
+    
+                marker_01ec2c70560373ab074155f5a57fe7e0.setIcon(beautify_icon_34b1e5c376efb30c2da42a9b3aaaec28);
+            
+    
+            var marker_22aba39444b7b8bc0d81ed7ce43b3963 = L.marker(
+                [45.4284912, 15.1252418],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_4a3b3dadf444267c2396c2fc9f9dddd7 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_22aba39444b7b8bc0d81ed7ce43b3963.setIcon(beautify_icon_4a3b3dadf444267c2396c2fc9f9dddd7);
+        
+    
+        var popup_a8028a67b57174d9583ab12d70c83503 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3587480d45d5143fe5c8aebf4a01ef19 = $(`<div id="html_3587480d45d5143fe5c8aebf4a01ef19" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-lukovdol')">Lukovdol</a></div>`)[0];
+                popup_a8028a67b57174d9583ab12d70c83503.setContent(html_3587480d45d5143fe5c8aebf4a01ef19);
+            
+        
+
+        marker_22aba39444b7b8bc0d81ed7ce43b3963.bindPopup(popup_a8028a67b57174d9583ab12d70c83503)
+        ;
+
+        
+    
+    
+                marker_22aba39444b7b8bc0d81ed7ce43b3963.setIcon(beautify_icon_4a3b3dadf444267c2396c2fc9f9dddd7);
+            
+    
+            var marker_e408432e5f4a22c1ff696b86297f53d8 = L.marker(
+                [45.399921, 15.185415],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_2f0148b9bc699b709c3f1c715515c016 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_e408432e5f4a22c1ff696b86297f53d8.setIcon(beautify_icon_2f0148b9bc699b709c3f1c715515c016);
+        
+    
+        var popup_47b8157c3fc7616fc3d663e56f0127fd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ff245fb699cdc9044a0946490cf66d73 = $(`<div id="html_ff245fb699cdc9044a0946490cf66d73" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-mali-jadrc')">Mali Jadrč</a></div>`)[0];
+                popup_47b8157c3fc7616fc3d663e56f0127fd.setContent(html_ff245fb699cdc9044a0946490cf66d73);
+            
+        
+
+        marker_e408432e5f4a22c1ff696b86297f53d8.bindPopup(popup_47b8157c3fc7616fc3d663e56f0127fd)
+        ;
+
+        
+    
+    
+                marker_e408432e5f4a22c1ff696b86297f53d8.setIcon(beautify_icon_2f0148b9bc699b709c3f1c715515c016);
+            
+    
+            var marker_3ce2bde7a6f4cd516f0c8f12803bee2c = L.marker(
+                [45.414021, 15.1608013],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_b744a25e8c6a688863bec19e40d0e2ae = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_3ce2bde7a6f4cd516f0c8f12803bee2c.setIcon(beautify_icon_b744a25e8c6a688863bec19e40d0e2ae);
+        
+    
+        var popup_821bbeed5806b6eb0485a7f8a6b899c2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_be18023fa0c0e090b92239dce59185c2 = $(`<div id="html_be18023fa0c0e090b92239dce59185c2" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-mocile')">Močile</a></div>`)[0];
+                popup_821bbeed5806b6eb0485a7f8a6b899c2.setContent(html_be18023fa0c0e090b92239dce59185c2);
+            
+        
+
+        marker_3ce2bde7a6f4cd516f0c8f12803bee2c.bindPopup(popup_821bbeed5806b6eb0485a7f8a6b899c2)
+        ;
+
+        
+    
+    
+                marker_3ce2bde7a6f4cd516f0c8f12803bee2c.setIcon(beautify_icon_b744a25e8c6a688863bec19e40d0e2ae);
+            
+    
+            var marker_3e3e4471cf0962fc09a121c335a915c9 = L.marker(
+                [49.8577899, 17.7203897],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_7ca0085f4d039b876557ba5265a8dc36 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_3e3e4471cf0962fc09a121c335a915c9.setIcon(beautify_icon_7ca0085f4d039b876557ba5265a8dc36);
+        
+    
+        var popup_2b0976b566bb068d8d6cab6c16567d3c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3f302705136589fdb7666363923cace1 = $(`<div id="html_3f302705136589fdb7666363923cace1" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-moravice')">Moravice</a></div>`)[0];
+                popup_2b0976b566bb068d8d6cab6c16567d3c.setContent(html_3f302705136589fdb7666363923cace1);
+            
+        
+
+        marker_3e3e4471cf0962fc09a121c335a915c9.bindPopup(popup_2b0976b566bb068d8d6cab6c16567d3c)
+        ;
+
+        
+    
+    
+                marker_3e3e4471cf0962fc09a121c335a915c9.setIcon(beautify_icon_7ca0085f4d039b876557ba5265a8dc36);
+            
+    
+            var marker_54fd97d1a9f8cc308acd80e267fbe7b4 = L.marker(
+                [45.4219213, 14.9932966],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_a5e19b4308d98391642f9f99dd15547a = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_54fd97d1a9f8cc308acd80e267fbe7b4.setIcon(beautify_icon_a5e19b4308d98391642f9f99dd15547a);
+        
+    
+        var popup_1b1a6fd1486b2f40c9e52a11685f3f31 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_de0c0af8861b7c937419bfb7c8857d95 = $(`<div id="html_de0c0af8861b7c937419bfb7c8857d95" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-petrovici')">Petrovići</a></div>`)[0];
+                popup_1b1a6fd1486b2f40c9e52a11685f3f31.setContent(html_de0c0af8861b7c937419bfb7c8857d95);
+            
+        
+
+        marker_54fd97d1a9f8cc308acd80e267fbe7b4.bindPopup(popup_1b1a6fd1486b2f40c9e52a11685f3f31)
+        ;
+
+        
+    
+    
+                marker_54fd97d1a9f8cc308acd80e267fbe7b4.setIcon(beautify_icon_a5e19b4308d98391642f9f99dd15547a);
+            
+    
+            var marker_49c3cd3beb4e81edba6fa481add7e863 = L.marker(
+                [45.0837632, 14.1194945],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_b30751196776638e913d578bb290dc43 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_49c3cd3beb4e81edba6fa481add7e863.setIcon(beautify_icon_b30751196776638e913d578bb290dc43);
+        
+    
+        var popup_31136970be916660169d302a497289a6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9d8cea84880ad33218cdeb3e9558febf = $(`<div id="html_9d8cea84880ad33218cdeb3e9558febf" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-presika')">Presika</a></div>`)[0];
+                popup_31136970be916660169d302a497289a6.setContent(html_9d8cea84880ad33218cdeb3e9558febf);
+            
+        
+
+        marker_49c3cd3beb4e81edba6fa481add7e863.bindPopup(popup_31136970be916660169d302a497289a6)
+        ;
+
+        
+    
+    
+                marker_49c3cd3beb4e81edba6fa481add7e863.setIcon(beautify_icon_b30751196776638e913d578bb290dc43);
+            
+    
+            var marker_20142db9769a996a76ebd6cca6967c6b = L.marker(
+                [45.4500319, 15.0017804],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_7eb365365b284f6cac5d3a82a7e662e3 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_20142db9769a996a76ebd6cca6967c6b.setIcon(beautify_icon_7eb365365b284f6cac5d3a82a7e662e3);
+        
+    
+        var popup_5a5996368b871f0aad30c02bcfb8ad60 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8de98924bdbe5c16220584809ddc058d = $(`<div id="html_8de98924bdbe5c16220584809ddc058d" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-radigojna')">Radigojna</a></div>`)[0];
+                popup_5a5996368b871f0aad30c02bcfb8ad60.setContent(html_8de98924bdbe5c16220584809ddc058d);
+            
+        
+
+        marker_20142db9769a996a76ebd6cca6967c6b.bindPopup(popup_5a5996368b871f0aad30c02bcfb8ad60)
+        ;
+
+        
+    
+    
+                marker_20142db9769a996a76ebd6cca6967c6b.setIcon(beautify_icon_7eb365365b284f6cac5d3a82a7e662e3);
+            
+    
+            var marker_4492f62da6f507fe9af1df31f28f55b2 = L.marker(
+                [45.4058727, 15.0291436],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_83023492a358b4865a48e68f1bd3aa81 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_4492f62da6f507fe9af1df31f28f55b2.setIcon(beautify_icon_83023492a358b4865a48e68f1bd3aa81);
+        
+    
+        var popup_6732595a37aaece6924ed88b86563eb0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ade05df07c0a3c30c1e14c35863f4488 = $(`<div id="html_ade05df07c0a3c30c1e14c35863f4488" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-radosevici')">Radoševići</a></div>`)[0];
+                popup_6732595a37aaece6924ed88b86563eb0.setContent(html_ade05df07c0a3c30c1e14c35863f4488);
+            
+        
+
+        marker_4492f62da6f507fe9af1df31f28f55b2.bindPopup(popup_6732595a37aaece6924ed88b86563eb0)
+        ;
+
+        
+    
+    
+                marker_4492f62da6f507fe9af1df31f28f55b2.setIcon(beautify_icon_83023492a358b4865a48e68f1bd3aa81);
+            
+    
+            var marker_a7f132704cfb0d8b53b1e98771f5c308 = L.marker(
+                [41.8933203, 12.4829321],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_5deb2775b56fa695a608ee56fcdd3fb4 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_a7f132704cfb0d8b53b1e98771f5c308.setIcon(beautify_icon_5deb2775b56fa695a608ee56fcdd3fb4);
+        
+    
+        var popup_6686bf83ee467674bc3f50d88bc01e5d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_85bbfc97909c63f5fdd5bf2469e60d46 = $(`<div id="html_85bbfc97909c63f5fdd5bf2469e60d46" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-rim')">Rim</a></div>`)[0];
+                popup_6686bf83ee467674bc3f50d88bc01e5d.setContent(html_85bbfc97909c63f5fdd5bf2469e60d46);
+            
+        
+
+        marker_a7f132704cfb0d8b53b1e98771f5c308.bindPopup(popup_6686bf83ee467674bc3f50d88bc01e5d)
+        ;
+
+        
+    
+    
+                marker_a7f132704cfb0d8b53b1e98771f5c308.setIcon(beautify_icon_5deb2775b56fa695a608ee56fcdd3fb4);
+            
+    
+            var marker_dbe3f85a42dc162da492e31d6d848105 = L.marker(
+                [45.4200864, 15.1721742],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_dda0fe3731e163f5eb704e0cafd80103 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_dbe3f85a42dc162da492e31d6d848105.setIcon(beautify_icon_dda0fe3731e163f5eb704e0cafd80103);
+        
+    
+        var popup_081ec1920b76d89a72d23477eb27e903 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_105332452ba8feb1830446add1d03f09 = $(`<div id="html_105332452ba8feb1830446add1d03f09" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-severin-kupi')">Severin na Kupi</a></div>`)[0];
+                popup_081ec1920b76d89a72d23477eb27e903.setContent(html_105332452ba8feb1830446add1d03f09);
+            
+        
+
+        marker_dbe3f85a42dc162da492e31d6d848105.bindPopup(popup_081ec1920b76d89a72d23477eb27e903)
+        ;
+
+        
+    
+    
+                marker_dbe3f85a42dc162da492e31d6d848105.setIcon(beautify_icon_dda0fe3731e163f5eb704e0cafd80103);
+            
+    
+            var marker_828207d1c2af8b26dbf5544a78772778 = L.marker(
+                [45.3854647, 15.1023887],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_785125ea58410011aa8db65ee98dc017 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_828207d1c2af8b26dbf5544a78772778.setIcon(beautify_icon_785125ea58410011aa8db65ee98dc017);
+        
+    
+        var popup_29018510eae342d8137e50b9d242a263 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3877c5bd4c2140f18fa80e0ef5438b03 = $(`<div id="html_3877c5bd4c2140f18fa80e0ef5438b03" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-stubica')">Stubica</a></div>`)[0];
+                popup_29018510eae342d8137e50b9d242a263.setContent(html_3877c5bd4c2140f18fa80e0ef5438b03);
+            
+        
+
+        marker_828207d1c2af8b26dbf5544a78772778.bindPopup(popup_29018510eae342d8137e50b9d242a263)
+        ;
+
+        
+    
+    
+                marker_828207d1c2af8b26dbf5544a78772778.setIcon(beautify_icon_785125ea58410011aa8db65ee98dc017);
+            
+    
+            var marker_90d0ac14f7c88432b66b8c6e0da66000 = L.marker(
+                [45.4115902, 15.0231425],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_ca7cf7c9182b4fda954fcaf452bca326 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_90d0ac14f7c88432b66b8c6e0da66000.setIcon(beautify_icon_ca7cf7c9182b4fda954fcaf452bca326);
+        
+    
+        var popup_4b6c158715c11e3d52359f6bb7d5497f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a8844505263ae87d4b19d28b7b819536 = $(`<div id="html_a8844505263ae87d4b19d28b7b819536" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-tici')">Tići</a></div>`)[0];
+                popup_4b6c158715c11e3d52359f6bb7d5497f.setContent(html_a8844505263ae87d4b19d28b7b819536);
+            
+        
+
+        marker_90d0ac14f7c88432b66b8c6e0da66000.bindPopup(popup_4b6c158715c11e3d52359f6bb7d5497f)
+        ;
+
+        
+    
+    
+                marker_90d0ac14f7c88432b66b8c6e0da66000.setIcon(beautify_icon_ca7cf7c9182b4fda954fcaf452bca326);
+            
+    
+            var marker_71846440ee2c469fe70c71beaebeeb45 = L.marker(
+                [45.4442373, 15.0014916],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_6ddafce1033a6a4856f745c038fd84c4 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_71846440ee2c469fe70c71beaebeeb45.setIcon(beautify_icon_6ddafce1033a6a4856f745c038fd84c4);
+        
+    
+        var popup_91dd8f1624708ba79d2fbf811c095c4b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_810c17e0da50ddce143fe55f62ccbf80 = $(`<div id="html_810c17e0da50ddce143fe55f62ccbf80" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-tomici')">Tomići</a></div>`)[0];
+                popup_91dd8f1624708ba79d2fbf811c095c4b.setContent(html_810c17e0da50ddce143fe55f62ccbf80);
+            
+        
+
+        marker_71846440ee2c469fe70c71beaebeeb45.bindPopup(popup_91dd8f1624708ba79d2fbf811c095c4b)
+        ;
+
+        
+    
+    
+                marker_71846440ee2c469fe70c71beaebeeb45.setIcon(beautify_icon_6ddafce1033a6a4856f745c038fd84c4);
+            
+    
+            var marker_53be366b1b4fc090dfb522c880c379fa = L.marker(
+                [52.7966976, 6.0951866],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_6c48c1561658dcdf5293d866d1af22b8 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_53be366b1b4fc090dfb522c880c379fa.setIcon(beautify_icon_6c48c1561658dcdf5293d866d1af22b8);
+        
+    
+        var popup_0402b59c5762d0904853598df76aef2e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_039d9542607a7c04e975e133c8eb5a9e = $(`<div id="html_039d9542607a7c04e975e133c8eb5a9e" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-tuk')">Tuk</a></div>`)[0];
+                popup_0402b59c5762d0904853598df76aef2e.setContent(html_039d9542607a7c04e975e133c8eb5a9e);
+            
+        
+
+        marker_53be366b1b4fc090dfb522c880c379fa.bindPopup(popup_0402b59c5762d0904853598df76aef2e)
+        ;
+
+        
+    
+    
+                marker_53be366b1b4fc090dfb522c880c379fa.setIcon(beautify_icon_6c48c1561658dcdf5293d866d1af22b8);
+            
+    
+            var marker_97f91c2874aa0ce473501e693d656a22 = L.marker(
+                [45.3973708, 15.1936966],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_9cdc01dbaf176250e61a5fdc03ca7182 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_97f91c2874aa0ce473501e693d656a22.setIcon(beautify_icon_9cdc01dbaf176250e61a5fdc03ca7182);
+        
+    
+        var popup_6eb5ecc737e218903803a8991a849168 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ec1cfbed7f230c197aabdcab0864ebd7 = $(`<div id="html_ec1cfbed7f230c197aabdcab0864ebd7" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-veliki-jadrc')">Veliki Jadrč</a></div>`)[0];
+                popup_6eb5ecc737e218903803a8991a849168.setContent(html_ec1cfbed7f230c197aabdcab0864ebd7);
+            
+        
+
+        marker_97f91c2874aa0ce473501e693d656a22.bindPopup(popup_6eb5ecc737e218903803a8991a849168)
+        ;
+
+        
+    
+    
+                marker_97f91c2874aa0ce473501e693d656a22.setIcon(beautify_icon_9cdc01dbaf176250e61a5fdc03ca7182);
+            
+    
+            var marker_749d83da206c8d13d819c8b2d481c711 = L.marker(
+                [45.3740037, 15.0781121],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_8f30a57d755c9f1299c503604fbea971 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_749d83da206c8d13d819c8b2d481c711.setIcon(beautify_icon_8f30a57d755c9f1299c503604fbea971);
+        
+    
+        var popup_1dadc90959154fc7532ec7d4af4e6864 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5b7676ce9ef4ad600f83837e7e302052 = $(`<div id="html_5b7676ce9ef4ad600f83837e7e302052" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-vrbovsko')">Vrbovsko</a></div>`)[0];
+                popup_1dadc90959154fc7532ec7d4af4e6864.setContent(html_5b7676ce9ef4ad600f83837e7e302052);
+            
+        
+
+        marker_749d83da206c8d13d819c8b2d481c711.bindPopup(popup_1dadc90959154fc7532ec7d4af4e6864)
+        ;
+
+        
+    
+    
+                marker_749d83da206c8d13d819c8b2d481c711.setIcon(beautify_icon_8f30a57d755c9f1299c503604fbea971);
+            
+    
+            var marker_20c885391ec95e68e42f016a761a37ce = L.marker(
+                [45.4179038, 15.0370941],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_0fd641f4b285af20fbff8ee4df2e8e2b = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_20c885391ec95e68e42f016a761a37ce.setIcon(beautify_icon_0fd641f4b285af20fbff8ee4df2e8e2b);
+        
+    
+        var popup_5e6a25f9f0e89e6a50f8e72ee64aba26 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f4606816134ff0d4fc6f75db08eb2913 = $(`<div id="html_f4606816134ff0d4fc6f75db08eb2913" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-vucinici')">Vučinići</a></div>`)[0];
+                popup_5e6a25f9f0e89e6a50f8e72ee64aba26.setContent(html_f4606816134ff0d4fc6f75db08eb2913);
+            
+        
+
+        marker_20c885391ec95e68e42f016a761a37ce.bindPopup(popup_5e6a25f9f0e89e6a50f8e72ee64aba26)
+        ;
+
+        
+    
+    
+                marker_20c885391ec95e68e42f016a761a37ce.setIcon(beautify_icon_0fd641f4b285af20fbff8ee4df2e8e2b);
+            
+    
+            var marker_bfd67555211d3d51d9f426db15fb1bc4 = L.marker(
+                [45.3708631, 15.0627601],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_c0415fbf6b7270d4cfd63ddf4569884d = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_bfd67555211d3d51d9f426db15fb1bc4.setIcon(beautify_icon_c0415fbf6b7270d4cfd63ddf4569884d);
+        
+    
+        var popup_b07312813b8881a9d5c1c14bf44504e1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b7d77b9a8f14a451233b64403769d559 = $(`<div id="html_b7d77b9a8f14a451233b64403769d559" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-vujnovici')">Vujnovići</a></div>`)[0];
+                popup_b07312813b8881a9d5c1c14bf44504e1.setContent(html_b7d77b9a8f14a451233b64403769d559);
+            
+        
+
+        marker_bfd67555211d3d51d9f426db15fb1bc4.bindPopup(popup_b07312813b8881a9d5c1c14bf44504e1)
+        ;
+
+        
+    
+    
+                marker_bfd67555211d3d51d9f426db15fb1bc4.setIcon(beautify_icon_c0415fbf6b7270d4cfd63ddf4569884d);
+            
+    
+            var marker_1b3215d1a607d99d8108857174040ab2 = L.marker(
+                [45.4805827, 15.0816693],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_f51fa67b373a3d45694e068ed5e501dd = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_1b3215d1a607d99d8108857174040ab2.setIcon(beautify_icon_f51fa67b373a3d45694e068ed5e501dd);
+        
+    
+        var popup_92370f435c0cc172e747f5a470b4168b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_74b7f767d58429e94f91a5e78d4d153f = $(`<div id="html_74b7f767d58429e94f91a5e78d4d153f" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('vrbovsko-zapec')">Zapeć</a></div>`)[0];
+                popup_92370f435c0cc172e747f5a470b4168b.setContent(html_74b7f767d58429e94f91a5e78d4d153f);
+            
+        
+
+        marker_1b3215d1a607d99d8108857174040ab2.bindPopup(popup_92370f435c0cc172e747f5a470b4168b)
+        ;
+
+        
+    
+    
+                marker_1b3215d1a607d99d8108857174040ab2.setIcon(beautify_icon_f51fa67b373a3d45694e068ed5e501dd);
+            
+    
+            var marker_8a632a2cf6be239637487718e3b68ba8 = L.marker(
+                [45.303804, 15.3686364],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_ac385b8d850febe48a0d9f23463c4473 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_8a632a2cf6be239637487718e3b68ba8.setIcon(beautify_icon_ac385b8d850febe48a0d9f23463c4473);
+        
+    
+        var popup_1c79cac36a46c305559f7339d4369f56 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_54ba3ae564bbe7d8005728630f0b2afd = $(`<div id="html_54ba3ae564bbe7d8005728630f0b2afd" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-donje-dubrave')">Donje Dubrave</a></div>`)[0];
+                popup_1c79cac36a46c305559f7339d4369f56.setContent(html_54ba3ae564bbe7d8005728630f0b2afd);
+            
+        
+
+        marker_8a632a2cf6be239637487718e3b68ba8.bindPopup(popup_1c79cac36a46c305559f7339d4369f56)
+        ;
+
+        
+    
+    
+                marker_8a632a2cf6be239637487718e3b68ba8.setIcon(beautify_icon_ac385b8d850febe48a0d9f23463c4473);
+            
+    
+            var marker_9e15b5ad67874bebb5fa85165adf4061 = L.marker(
+                [45.1366933, 15.0913227],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_3f45319a3d2a7f522a3893ad19a26816 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_9e15b5ad67874bebb5fa85165adf4061.setIcon(beautify_icon_3f45319a3d2a7f522a3893ad19a26816);
+        
+    
+        var popup_e09a31005b83cb145179c117be5d10d0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e627333590629834f72817f40f2737e2 = $(`<div id="html_e627333590629834f72817f40f2737e2" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-dreznica')">Drežnica</a></div>`)[0];
+                popup_e09a31005b83cb145179c117be5d10d0.setContent(html_e627333590629834f72817f40f2737e2);
+            
+        
+
+        marker_9e15b5ad67874bebb5fa85165adf4061.bindPopup(popup_e09a31005b83cb145179c117be5d10d0)
+        ;
+
+        
+    
+    
+                marker_9e15b5ad67874bebb5fa85165adf4061.setIcon(beautify_icon_3f45319a3d2a7f522a3893ad19a26816);
+            
+    
+            var marker_128363c8ed16fba7c194826b0b06b8db = L.marker(
+                [45.2274747, 15.2218192],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_024c60acb6e90b818fbabfcf1afee706 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_128363c8ed16fba7c194826b0b06b8db.setIcon(beautify_icon_024c60acb6e90b818fbabfcf1afee706);
+        
+    
+        var popup_29dbc30467a5ac9cbcee0be099df4709 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8ec9944e5cb3fcb656db4b493906f304 = $(`<div id="html_8ec9944e5cb3fcb656db4b493906f304" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-dujmic-selo')">Dujmić Selo</a></div>`)[0];
+                popup_29dbc30467a5ac9cbcee0be099df4709.setContent(html_8ec9944e5cb3fcb656db4b493906f304);
+            
+        
+
+        marker_128363c8ed16fba7c194826b0b06b8db.bindPopup(popup_29dbc30467a5ac9cbcee0be099df4709)
+        ;
+
+        
+    
+    
+                marker_128363c8ed16fba7c194826b0b06b8db.setIcon(beautify_icon_024c60acb6e90b818fbabfcf1afee706);
+            
+    
+            var marker_c853b761ae1f83a953d3fd46d87bc5ca = L.marker(
+                [45.308476, 15.3032601],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_a685d3a2f2be105eca592a23870d2591 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_c853b761ae1f83a953d3fd46d87bc5ca.setIcon(beautify_icon_a685d3a2f2be105eca592a23870d2591);
+        
+    
+        var popup_6f41e7c4ba4eacedbdfd9e72b197ba0d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ad0a987bc563d920b6dd66d9f8766ddd = $(`<div id="html_ad0a987bc563d920b6dd66d9f8766ddd" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-gornje-dubrave')">Gornje Dubrave</a></div>`)[0];
+                popup_6f41e7c4ba4eacedbdfd9e72b197ba0d.setContent(html_ad0a987bc563d920b6dd66d9f8766ddd);
+            
+        
+
+        marker_c853b761ae1f83a953d3fd46d87bc5ca.bindPopup(popup_6f41e7c4ba4eacedbdfd9e72b197ba0d)
+        ;
+
+        
+    
+    
+                marker_c853b761ae1f83a953d3fd46d87bc5ca.setIcon(beautify_icon_a685d3a2f2be105eca592a23870d2591);
+            
+    
+            var marker_43a8ed1808093d9a0f710fdfd5c7134e = L.marker(
+                [45.1835523, 15.2371824],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_486e4c9f2dca6619a0083436fdb147f7 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_43a8ed1808093d9a0f710fdfd5c7134e.setIcon(beautify_icon_486e4c9f2dca6619a0083436fdb147f7);
+        
+    
+        var popup_f1b45ecad8d0725ef3504be493db98db = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d4227ad8729be75ae0036a470a8674a4 = $(`<div id="html_d4227ad8729be75ae0036a470a8674a4" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-gornje-zagorje')">Gornje Zagorje</a></div>`)[0];
+                popup_f1b45ecad8d0725ef3504be493db98db.setContent(html_d4227ad8729be75ae0036a470a8674a4);
+            
+        
+
+        marker_43a8ed1808093d9a0f710fdfd5c7134e.bindPopup(popup_f1b45ecad8d0725ef3504be493db98db)
+        ;
+
+        
+    
+    
+                marker_43a8ed1808093d9a0f710fdfd5c7134e.setIcon(beautify_icon_486e4c9f2dca6619a0083436fdb147f7);
+            
+    
+            var marker_73e1328a933da0650b2ee894d3d4091c = L.marker(
+                [45.2937442, 15.1808961],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_7e2a1571391ca879cc52f881142eaee8 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_73e1328a933da0650b2ee894d3d4091c.setIcon(beautify_icon_7e2a1571391ca879cc52f881142eaee8);
+        
+    
+        var popup_a865e12a53d1d4c08e0ac217df959528 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cfa2663c8762504856ee1ec6ae399051 = $(`<div id="html_cfa2663c8762504856ee1ec6ae399051" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-hreljin-ogulinski')">Hreljin Ogulinski</a></div>`)[0];
+                popup_a865e12a53d1d4c08e0ac217df959528.setContent(html_cfa2663c8762504856ee1ec6ae399051);
+            
+        
+
+        marker_73e1328a933da0650b2ee894d3d4091c.bindPopup(popup_a865e12a53d1d4c08e0ac217df959528)
+        ;
+
+        
+    
+    
+                marker_73e1328a933da0650b2ee894d3d4091c.setIcon(beautify_icon_7e2a1571391ca879cc52f881142eaee8);
+            
+    
+            var marker_3a1717264551c0449b694915adf7a201 = L.marker(
+                [45.2301733, 15.0386831],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_9b3e291823f9df1506fbb338f58965dc = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_3a1717264551c0449b694915adf7a201.setIcon(beautify_icon_9b3e291823f9df1506fbb338f58965dc);
+        
+    
+        var popup_ac36e736eec1922c9949cc7662bbb319 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d2a30514453897b2d27be64543fb0684 = $(`<div id="html_d2a30514453897b2d27be64543fb0684" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-jasenak')">Jasenak</a></div>`)[0];
+                popup_ac36e736eec1922c9949cc7662bbb319.setContent(html_d2a30514453897b2d27be64543fb0684);
+            
+        
+
+        marker_3a1717264551c0449b694915adf7a201.bindPopup(popup_ac36e736eec1922c9949cc7662bbb319)
+        ;
+
+        
+    
+    
+                marker_3a1717264551c0449b694915adf7a201.setIcon(beautify_icon_9b3e291823f9df1506fbb338f58965dc);
+            
+    
+            var marker_e4b84d1800362bcad46b8b4b3337b312 = L.marker(
+                [45.2658579, 15.2255172],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_92253239c1c0705a172b288768803063 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_e4b84d1800362bcad46b8b4b3337b312.setIcon(beautify_icon_92253239c1c0705a172b288768803063);
+        
+    
+        var popup_8ad7c55051553b7b0b32a13e70bcc2d5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1a00b3b5a7866ef9accdec7fce287d40 = $(`<div id="html_1a00b3b5a7866ef9accdec7fce287d40" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-ogulin')">Ogulin</a></div>`)[0];
+                popup_8ad7c55051553b7b0b32a13e70bcc2d5.setContent(html_1a00b3b5a7866ef9accdec7fce287d40);
+            
+        
+
+        marker_e4b84d1800362bcad46b8b4b3337b312.bindPopup(popup_8ad7c55051553b7b0b32a13e70bcc2d5)
+        ;
+
+        
+    
+    
+                marker_e4b84d1800362bcad46b8b4b3337b312.setIcon(beautify_icon_92253239c1c0705a172b288768803063);
+            
+    
+            var marker_0cfc66ae3db26984a366bd399d95be15 = L.marker(
+                [45.315367, 15.2541507],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_5f035f2386b3a5ac94e6334371b06b36 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_0cfc66ae3db26984a366bd399d95be15.setIcon(beautify_icon_5f035f2386b3a5ac94e6334371b06b36);
+        
+    
+        var popup_29c4bdf584f8d44187362e764ae3717c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_99630b45dabf02fdbf2763266d4cff4e = $(`<div id="html_99630b45dabf02fdbf2763266d4cff4e" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-popovo-selo')">Popovo Selo</a></div>`)[0];
+                popup_29c4bdf584f8d44187362e764ae3717c.setContent(html_99630b45dabf02fdbf2763266d4cff4e);
+            
+        
+
+        marker_0cfc66ae3db26984a366bd399d95be15.bindPopup(popup_29c4bdf584f8d44187362e764ae3717c)
+        ;
+
+        
+    
+    
+                marker_0cfc66ae3db26984a366bd399d95be15.setIcon(beautify_icon_5f035f2386b3a5ac94e6334371b06b36);
+            
+    
+            var marker_fca5c3c63993232bbfbc4a712dd0a195 = L.marker(
+                [45.2475925, 15.1302524],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_16e9d7636f70a8c3063d0c1037ec85b2 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_fca5c3c63993232bbfbc4a712dd0a195.setIcon(beautify_icon_16e9d7636f70a8c3063d0c1037ec85b2);
+        
+    
+        var popup_4914d359230b52adc9f8fa8f2b506769 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6839c4f82a3a567a8e57417af3fdbce4 = $(`<div id="html_6839c4f82a3a567a8e57417af3fdbce4" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-potok-musulinski')">Potok Musulinski</a></div>`)[0];
+                popup_4914d359230b52adc9f8fa8f2b506769.setContent(html_6839c4f82a3a567a8e57417af3fdbce4);
+            
+        
+
+        marker_fca5c3c63993232bbfbc4a712dd0a195.bindPopup(popup_4914d359230b52adc9f8fa8f2b506769)
+        ;
+
+        
+    
+    
+                marker_fca5c3c63993232bbfbc4a712dd0a195.setIcon(beautify_icon_16e9d7636f70a8c3063d0c1037ec85b2);
+            
+    
+            var marker_b70bac65f83c47dcba69bd23a9542fad = L.marker(
+                [45.2114037, 15.2309819],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_85b553eee03c6b6177f19b060a41176e = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_b70bac65f83c47dcba69bd23a9542fad.setIcon(beautify_icon_85b553eee03c6b6177f19b060a41176e);
+        
+    
+        var popup_fa3c06d60bcda6d1aefa60afa7f999b5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_26a0aa126f4acb05f11302245af6c595 = $(`<div id="html_26a0aa126f4acb05f11302245af6c595" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-ribarici')">Ribarići</a></div>`)[0];
+                popup_fa3c06d60bcda6d1aefa60afa7f999b5.setContent(html_26a0aa126f4acb05f11302245af6c595);
+            
+        
+
+        marker_b70bac65f83c47dcba69bd23a9542fad.bindPopup(popup_fa3c06d60bcda6d1aefa60afa7f999b5)
+        ;
+
+        
+    
+    
+                marker_b70bac65f83c47dcba69bd23a9542fad.setIcon(beautify_icon_85b553eee03c6b6177f19b060a41176e);
+            
+    
+            var marker_d3d5d55010bbb31874e6ed8ab4e0eb09 = L.marker(
+                [45.2362579, 15.2204786],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_9d00df6b72a21f2d422bfb94dd48397e = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_d3d5d55010bbb31874e6ed8ab4e0eb09.setIcon(beautify_icon_9d00df6b72a21f2d422bfb94dd48397e);
+        
+    
+        var popup_cde87327562fd7fa181bb793298298a7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_30d2fa4f87df9aed4bb65aa2f1dc985b = $(`<div id="html_30d2fa4f87df9aed4bb65aa2f1dc985b" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-salopek-selo')">Salopek Selo</a></div>`)[0];
+                popup_cde87327562fd7fa181bb793298298a7.setContent(html_30d2fa4f87df9aed4bb65aa2f1dc985b);
+            
+        
+
+        marker_d3d5d55010bbb31874e6ed8ab4e0eb09.bindPopup(popup_cde87327562fd7fa181bb793298298a7)
+        ;
+
+        
+    
+    
+                marker_d3d5d55010bbb31874e6ed8ab4e0eb09.setIcon(beautify_icon_9d00df6b72a21f2d422bfb94dd48397e);
+            
+    
+            var marker_0423ec38acb0b7b6cb105447b51b3ea6 = L.marker(
+                [45.3254372, 15.2744572],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_f23f98711bed0e5f5fa1f0adc17ab4c6 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_0423ec38acb0b7b6cb105447b51b3ea6.setIcon(beautify_icon_f23f98711bed0e5f5fa1f0adc17ab4c6);
+        
+    
+        var popup_cc292e409879b104ed57572fe0cd114b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_56b22446b911f2054a08f460f23c1452 = $(`<div id="html_56b22446b911f2054a08f460f23c1452" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-trosmarija')">Trošmarija</a></div>`)[0];
+                popup_cc292e409879b104ed57572fe0cd114b.setContent(html_56b22446b911f2054a08f460f23c1452);
+            
+        
+
+        marker_0423ec38acb0b7b6cb105447b51b3ea6.bindPopup(popup_cc292e409879b104ed57572fe0cd114b)
+        ;
+
+        
+    
+    
+                marker_0423ec38acb0b7b6cb105447b51b3ea6.setIcon(beautify_icon_f23f98711bed0e5f5fa1f0adc17ab4c6);
+            
+    
+            var marker_776e23266ca837413a17a916102adff8 = L.marker(
+                [45.2890377, 15.1440701],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_2362c94777da5efb19350a293c0ee9fd = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_776e23266ca837413a17a916102adff8.setIcon(beautify_icon_2362c94777da5efb19350a293c0ee9fd);
+        
+    
+        var popup_675bdb9099eee93db1f2c034e5a7dec0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ba9e17325b8cad83c8bbc1fcdb053842 = $(`<div id="html_ba9e17325b8cad83c8bbc1fcdb053842" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-vitunj')">Vitunj</a></div>`)[0];
+                popup_675bdb9099eee93db1f2c034e5a7dec0.setContent(html_ba9e17325b8cad83c8bbc1fcdb053842);
+            
+        
+
+        marker_776e23266ca837413a17a916102adff8.bindPopup(popup_675bdb9099eee93db1f2c034e5a7dec0)
+        ;
+
+        
+    
+    
+                marker_776e23266ca837413a17a916102adff8.setIcon(beautify_icon_2362c94777da5efb19350a293c0ee9fd);
+            
+    
+            var marker_fecd02c1369726ab0d16f61c3ed52bb2 = L.marker(
+                [45.1280743, 14.2050615],
+                {
+}
+            ).addTo(map_80892fbc61cc3041045f49d3ffa8a390);
+        
+    
+            var beautify_icon_1bad139dc718eefc13a4079aea3b6733 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_fecd02c1369726ab0d16f61c3ed52bb2.setIcon(beautify_icon_1bad139dc718eefc13a4079aea3b6733);
+        
+    
+        var popup_3bf2e4e6a0a80d90fbbbf2a725256535 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ff0f56242987cad2bed29edeecbd18ee = $(`<div id="html_ff0f56242987cad2bed29edeecbd18ee" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('ogulin-zagorje')">Zagorje</a></div>`)[0];
+                popup_3bf2e4e6a0a80d90fbbbf2a725256535.setContent(html_ff0f56242987cad2bed29edeecbd18ee);
+            
+        
+
+        marker_fecd02c1369726ab0d16f61c3ed52bb2.bindPopup(popup_3bf2e4e6a0a80d90fbbbf2a725256535)
+        ;
+
+        
+    
+    
+                marker_fecd02c1369726ab0d16f61c3ed52bb2.setIcon(beautify_icon_1bad139dc718eefc13a4079aea3b6733);
+            
+</script>
+</html>

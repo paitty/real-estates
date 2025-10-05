@@ -1,26 +1,57 @@
-<style type="text/css">
-body {
-   margin: 0;
-   overflow: hidden;
-}
-.container{
-    width:50%;
-}
-#iframe1 {
-    position:absolute;
-    left: 0px;
-    min-width: 100%;
-    top: 0px;
-    overflow: auto;
-    min-height: 100%;
-}
-</style>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    label, select, input {
+      margin-right: 10px;
+      padding: 6px;
+    }
+    .places a {
+      display: inline-block;
+      margin: 5px;
+      padding: 8px 14px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .places a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    function handleIframeClick(linkId) {
+      const location = linkId;
+        const maxPrice = document.getElementById("maxPrice").value;
+        const type = document.getElementById("type").value;
+        const baseUrl = "https://www.njuskalo.hr";
+        // Build the URL with all parameters
+        const url = `${baseUrl}/${encodeURIComponent(type)}/${encodeURIComponent(location)}?price[max]=${encodeURIComponent(maxPrice)}`;
+        console.log("Open:", url);
+        // Open in new tab
+        window.open(url, "_blank");
+    }
+  </script>
 </head>
 <body>
+  <label for="maxPrice">Max Price:</label>
+  <input value="100000" type="number" id="maxPrice" placeholder="Enter max price" />
+
+  <label for="type">Type:</label>
+  <select id="type">
+    <option value="prodaja-kuca">Buy house</option>
+    <option value="prodaja-zemljista">Buy land</option>
+  </select>
+  <br>
+  <br>
     <div class="container">
-<iframe id="iframe1" name="iframe1" frameborder="0"  
-     src="detail_footprint.html"></iframe>
+        <iframe height=800 width="1200" id="iframe1" name="iframe1" frameborder="0" src="detail_footprint_GKotar.html"></iframe>
      </div>  
 </body>
