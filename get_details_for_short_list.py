@@ -17,8 +17,8 @@ SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 # The ID and range of a sample spreadsheet.
 SAMPLE_SPREADSHEET_ID = "1SPmb90afxgQ2kDXYqLIUzyOd0LwbeOFvsd0WeD3bklc"
-SAMPLE_RANGE_NAME = "Sheet1!A2:A"
-SAMPLE_RANGE_NAME2 = "Sheet1!C2:F"
+SAMPLE_RANGE_NAME = "mrkopalj!A2:A"
+SAMPLE_RANGE_NAME2 = "mrkopalj!D2:G"
 
 def get_numbers_from_njuskalo(just_link):
     output = []
