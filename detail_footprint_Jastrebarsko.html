@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e1c027ab9f7b21192823ea349ebc0e6f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e1c027ab9f7b21192823ea349ebc0e6f" ></div>
+        
+</body>
+<script>
+    
+    
+    function notifyParent(linkId) {
+      window.parent.handleIframeClick(linkId);
+    }
+    
+    
+            var map_e1c027ab9f7b21192823ea349ebc0e6f = L.map(
+                "map_e1c027ab9f7b21192823ea349ebc0e6f",
+                {
+                    center: [45.6992462, 15.5669341],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b61d5f611372189d32e3f973388455d4 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_b61d5f611372189d32e3f973388455d4.addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var marker_dedf2f17221b83fabc5d62c384248ef3 = L.marker(
+                [45.6862685, 15.5796994],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_14b06b85cfaf4a652bce1f059f5cede7 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_dedf2f17221b83fabc5d62c384248ef3.setIcon(beautify_icon_14b06b85cfaf4a652bce1f059f5cede7);
+        
+    
+        var popup_3c044e8cca901535ae53f57ddb0422b3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_24dec7b0d73df35e9acb25de09b62280 = $(`<div id="html_24dec7b0d73df35e9acb25de09b62280" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-brezari')">Brezari</a></div>`)[0];
+                popup_3c044e8cca901535ae53f57ddb0422b3.setContent(html_24dec7b0d73df35e9acb25de09b62280);
+            
+        
+
+        marker_dedf2f17221b83fabc5d62c384248ef3.bindPopup(popup_3c044e8cca901535ae53f57ddb0422b3)
+        ;
+
+        
+    
+    
+                marker_dedf2f17221b83fabc5d62c384248ef3.setIcon(beautify_icon_14b06b85cfaf4a652bce1f059f5cede7);
+            
+    
+            var marker_6edbe0a8c4e4a55afab81c9fa8de5c88 = L.marker(
+                [45.6507558, 15.6470067],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_c84d89a59d418c788c4e357a6a245c8a = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_6edbe0a8c4e4a55afab81c9fa8de5c88.setIcon(beautify_icon_c84d89a59d418c788c4e357a6a245c8a);
+        
+    
+        var popup_b1ab8d26bf12101726ae470d0ec040c7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1bd5bc46e65901e0180079463288006d = $(`<div id="html_1bd5bc46e65901e0180079463288006d" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-cvetkovic')">Cvetković</a></div>`)[0];
+                popup_b1ab8d26bf12101726ae470d0ec040c7.setContent(html_1bd5bc46e65901e0180079463288006d);
+            
+        
+
+        marker_6edbe0a8c4e4a55afab81c9fa8de5c88.bindPopup(popup_b1ab8d26bf12101726ae470d0ec040c7)
+        ;
+
+        
+    
+    
+                marker_6edbe0a8c4e4a55afab81c9fa8de5c88.setIcon(beautify_icon_c84d89a59d418c788c4e357a6a245c8a);
+            
+    
+            var marker_7705571159c8b8caea3da5bdbc641789 = L.marker(
+                [45.6287181, 15.6380048],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_001f09d5d4b036e7d5a1657e707cf5b1 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_7705571159c8b8caea3da5bdbc641789.setIcon(beautify_icon_001f09d5d4b036e7d5a1657e707cf5b1);
+        
+    
+        var popup_6ebd2aa48f3e41b5811e655bfc2fd541 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4c453a3c01f4633ccfef7dc04b3b8518 = $(`<div id="html_4c453a3c01f4633ccfef7dc04b3b8518" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-domagovic')">Domagović</a></div>`)[0];
+                popup_6ebd2aa48f3e41b5811e655bfc2fd541.setContent(html_4c453a3c01f4633ccfef7dc04b3b8518);
+            
+        
+
+        marker_7705571159c8b8caea3da5bdbc641789.bindPopup(popup_6ebd2aa48f3e41b5811e655bfc2fd541)
+        ;
+
+        
+    
+    
+                marker_7705571159c8b8caea3da5bdbc641789.setIcon(beautify_icon_001f09d5d4b036e7d5a1657e707cf5b1);
+            
+    
+            var marker_3ffed2cc1dcbf043835960f9cc15a630 = L.marker(
+                [45.6919783, 15.6491168],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_028ececf6bad131f99f9e882f34496e1 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_3ffed2cc1dcbf043835960f9cc15a630.setIcon(beautify_icon_028ececf6bad131f99f9e882f34496e1);
+        
+    
+        var popup_533da57b2c0d7c393e1ee8b4aae18304 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d1eeb861f691a52a96b959274bc62a55 = $(`<div id="html_d1eeb861f691a52a96b959274bc62a55" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-donja-reka')">Donja Reka</a></div>`)[0];
+                popup_533da57b2c0d7c393e1ee8b4aae18304.setContent(html_d1eeb861f691a52a96b959274bc62a55);
+            
+        
+
+        marker_3ffed2cc1dcbf043835960f9cc15a630.bindPopup(popup_533da57b2c0d7c393e1ee8b4aae18304)
+        ;
+
+        
+    
+    
+                marker_3ffed2cc1dcbf043835960f9cc15a630.setIcon(beautify_icon_028ececf6bad131f99f9e882f34496e1);
+            
+    
+            var marker_41ba7f2c76dc2529ecf74624d62c11ab = L.marker(
+                [45.6816964, 15.7040182],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_9718ebd5217333546f17cea73279b441 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_41ba7f2c76dc2529ecf74624d62c11ab.setIcon(beautify_icon_9718ebd5217333546f17cea73279b441);
+        
+    
+        var popup_3ca7884cd0cf64f3cdb672ac717a8685 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9446490d9223d601478621fb7d5eafce = $(`<div id="html_9446490d9223d601478621fb7d5eafce" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-donji-desinec')">Donji Desinec</a></div>`)[0];
+                popup_3ca7884cd0cf64f3cdb672ac717a8685.setContent(html_9446490d9223d601478621fb7d5eafce);
+            
+        
+
+        marker_41ba7f2c76dc2529ecf74624d62c11ab.bindPopup(popup_3ca7884cd0cf64f3cdb672ac717a8685)
+        ;
+
+        
+    
+    
+                marker_41ba7f2c76dc2529ecf74624d62c11ab.setIcon(beautify_icon_9718ebd5217333546f17cea73279b441);
+            
+    
+            var marker_c48f16db71b2641aaba65cf772de8c0a = L.marker(
+                [45.7067709, 15.6385071],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_0f2bbe853f03cff4ca0fffdd7b121c76 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_c48f16db71b2641aaba65cf772de8c0a.setIcon(beautify_icon_0f2bbe853f03cff4ca0fffdd7b121c76);
+        
+    
+        var popup_8d35effc3c720118e92e8609d113701c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_20d1207d93bbbad9901d791b0fffdeeb = $(`<div id="html_20d1207d93bbbad9901d791b0fffdeeb" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-gornja-reka')">Gornja Reka</a></div>`)[0];
+                popup_8d35effc3c720118e92e8609d113701c.setContent(html_20d1207d93bbbad9901d791b0fffdeeb);
+            
+        
+
+        marker_c48f16db71b2641aaba65cf772de8c0a.bindPopup(popup_8d35effc3c720118e92e8609d113701c)
+        ;
+
+        
+    
+    
+                marker_c48f16db71b2641aaba65cf772de8c0a.setIcon(beautify_icon_0f2bbe853f03cff4ca0fffdd7b121c76);
+            
+    
+            var marker_9fc24d0bb9209bc5f50190eba9f08fc4 = L.marker(
+                [45.6926841, 15.6908643],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_4dee049cbcfdd155081b1f35a5e8c33d = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_9fc24d0bb9209bc5f50190eba9f08fc4.setIcon(beautify_icon_4dee049cbcfdd155081b1f35a5e8c33d);
+        
+    
+        var popup_9b9d1f701bb57cc0f0b63cf54fbf8d61 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b4bff74300cba6940209b29e3de7127f = $(`<div id="html_b4bff74300cba6940209b29e3de7127f" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-gornji-desinec')">Gornji Desinec</a></div>`)[0];
+                popup_9b9d1f701bb57cc0f0b63cf54fbf8d61.setContent(html_b4bff74300cba6940209b29e3de7127f);
+            
+        
+
+        marker_9fc24d0bb9209bc5f50190eba9f08fc4.bindPopup(popup_9b9d1f701bb57cc0f0b63cf54fbf8d61)
+        ;
+
+        
+    
+    
+                marker_9fc24d0bb9209bc5f50190eba9f08fc4.setIcon(beautify_icon_4dee049cbcfdd155081b1f35a5e8c33d);
+            
+    
+            var marker_ab525e3c5c3dec6360d362f3918a547d = L.marker(
+                [45.6913591, 15.6262795],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_43ab55f0e9c34c216fd119b75104210f = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_ab525e3c5c3dec6360d362f3918a547d.setIcon(beautify_icon_43ab55f0e9c34c216fd119b75104210f);
+        
+    
+        var popup_3844bc23d03c6086e0a1c1759a27fd3c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b2fdf13cfd19c301682e2bc43b3880e8 = $(`<div id="html_b2fdf13cfd19c301682e2bc43b3880e8" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-malunje')">Malunje</a></div>`)[0];
+                popup_3844bc23d03c6086e0a1c1759a27fd3c.setContent(html_b2fdf13cfd19c301682e2bc43b3880e8);
+            
+        
+
+        marker_ab525e3c5c3dec6360d362f3918a547d.bindPopup(popup_3844bc23d03c6086e0a1c1759a27fd3c)
+        ;
+
+        
+    
+    
+                marker_ab525e3c5c3dec6360d362f3918a547d.setIcon(beautify_icon_43ab55f0e9c34c216fd119b75104210f);
+            
+    
+            var marker_ee2d0af9c2629930a00d14f6fed417c1 = L.marker(
+                [45.72689, 15.6534362],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_7c0809c9414bbb2097728854f6a98f0f = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_ee2d0af9c2629930a00d14f6fed417c1.setIcon(beautify_icon_7c0809c9414bbb2097728854f6a98f0f);
+        
+    
+        var popup_b8cd88ecdd3d3ef8c9b28f6e3238ee66 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2de50b07e45d1479bb1917e91f5e8227 = $(`<div id="html_2de50b07e45d1479bb1917e91f5e8227" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-plesivica')">Plešivica</a></div>`)[0];
+                popup_b8cd88ecdd3d3ef8c9b28f6e3238ee66.setContent(html_2de50b07e45d1479bb1917e91f5e8227);
+            
+        
+
+        marker_ee2d0af9c2629930a00d14f6fed417c1.bindPopup(popup_b8cd88ecdd3d3ef8c9b28f6e3238ee66)
+        ;
+
+        
+    
+    
+                marker_ee2d0af9c2629930a00d14f6fed417c1.setIcon(beautify_icon_7c0809c9414bbb2097728854f6a98f0f);
+            
+    
+            var marker_f61114f3dd8994a19ee4c96a8ca43e07 = L.marker(
+                [45.7066059, 15.6892126],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_7385e4bbea58e219a8c2cb658e66ceae = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_f61114f3dd8994a19ee4c96a8ca43e07.setIcon(beautify_icon_7385e4bbea58e219a8c2cb658e66ceae);
+        
+    
+        var popup_f698a347e86d4110ba05237823b48783 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2e6bce7710b6877455e5ea8ec79aabb8 = $(`<div id="html_2e6bce7710b6877455e5ea8ec79aabb8" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-prhoc')">Prhoć</a></div>`)[0];
+                popup_f698a347e86d4110ba05237823b48783.setContent(html_2e6bce7710b6877455e5ea8ec79aabb8);
+            
+        
+
+        marker_f61114f3dd8994a19ee4c96a8ca43e07.bindPopup(popup_f698a347e86d4110ba05237823b48783)
+        ;
+
+        
+    
+    
+                marker_f61114f3dd8994a19ee4c96a8ca43e07.setIcon(beautify_icon_7385e4bbea58e219a8c2cb658e66ceae);
+            
+    
+            var marker_6f091015cf3f1b8731fb3e31ffc0b0a2 = L.marker(
+                [45.7017725, 15.5398413],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_a4bcf12633c9e7fc1f8cc2b8cd202ea0 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_6f091015cf3f1b8731fb3e31ffc0b0a2.setIcon(beautify_icon_a4bcf12633c9e7fc1f8cc2b8cd202ea0);
+        
+    
+        var popup_edbe7c3cc389b30f479dc6c67c5a9527 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_600887a7220a389108c3aec7baed0077 = $(`<div id="html_600887a7220a389108c3aec7baed0077" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-slavetic')">Slavetić</a></div>`)[0];
+                popup_edbe7c3cc389b30f479dc6c67c5a9527.setContent(html_600887a7220a389108c3aec7baed0077);
+            
+        
+
+        marker_6f091015cf3f1b8731fb3e31ffc0b0a2.bindPopup(popup_edbe7c3cc389b30f479dc6c67c5a9527)
+        ;
+
+        
+    
+    
+                marker_6f091015cf3f1b8731fb3e31ffc0b0a2.setIcon(beautify_icon_a4bcf12633c9e7fc1f8cc2b8cd202ea0);
+            
+    
+            var marker_1e92ff4a131a5e0794d104fc432d19d4 = L.marker(
+                [45.7156824, 15.5928427],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_f64ccf4fe1e827934ed04f7a9008d870 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_1e92ff4a131a5e0794d104fc432d19d4.setIcon(beautify_icon_f64ccf4fe1e827934ed04f7a9008d870);
+        
+    
+        var popup_363879655717f5366af31d4828868fae = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d00b31f8beaa9c2e8b824a5f9772316e = $(`<div id="html_d00b31f8beaa9c2e8b824a5f9772316e" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-sveta-jana')">Sveta Jana</a></div>`)[0];
+                popup_363879655717f5366af31d4828868fae.setContent(html_d00b31f8beaa9c2e8b824a5f9772316e);
+            
+        
+
+        marker_1e92ff4a131a5e0794d104fc432d19d4.bindPopup(popup_363879655717f5366af31d4828868fae)
+        ;
+
+        
+    
+    
+                marker_1e92ff4a131a5e0794d104fc432d19d4.setIcon(beautify_icon_f64ccf4fe1e827934ed04f7a9008d870);
+            
+    
+            var marker_2437942cfa87e4fcbfb386adcc1166a4 = L.marker(
+                [45.7253596, 15.6701579],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_e965b18bf539ba9d8a0f250742550665 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_2437942cfa87e4fcbfb386adcc1166a4.setIcon(beautify_icon_e965b18bf539ba9d8a0f250742550665);
+        
+    
+        var popup_820201573419b2e89d34a1975c4a02c1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_06155fe97f0173393d048f677d46b32f = $(`<div id="html_06155fe97f0173393d048f677d46b32f" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-vlaskovec')">Vlaškovec</a></div>`)[0];
+                popup_820201573419b2e89d34a1975c4a02c1.setContent(html_06155fe97f0173393d048f677d46b32f);
+            
+        
+
+        marker_2437942cfa87e4fcbfb386adcc1166a4.bindPopup(popup_820201573419b2e89d34a1975c4a02c1)
+        ;
+
+        
+    
+    
+                marker_2437942cfa87e4fcbfb386adcc1166a4.setIcon(beautify_icon_e965b18bf539ba9d8a0f250742550665);
+            
+    
+            var marker_fba728b004e85239a4964a0224838cc4 = L.marker(
+                [45.6550577, 15.6058087],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_6ab97b42f9f98062d190877735dba8c9 = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_fba728b004e85239a4964a0224838cc4.setIcon(beautify_icon_6ab97b42f9f98062d190877735dba8c9);
+        
+    
+        var popup_388998ff6091e8f3ebc1406f9ec7b744 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5d5f40c0093c56a94a6a74db71f4a024 = $(`<div id="html_5d5f40c0093c56a94a6a74db71f4a024" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-volavje')">Volavje</a></div>`)[0];
+                popup_388998ff6091e8f3ebc1406f9ec7b744.setContent(html_5d5f40c0093c56a94a6a74db71f4a024);
+            
+        
+
+        marker_fba728b004e85239a4964a0224838cc4.bindPopup(popup_388998ff6091e8f3ebc1406f9ec7b744)
+        ;
+
+        
+    
+    
+                marker_fba728b004e85239a4964a0224838cc4.setIcon(beautify_icon_6ab97b42f9f98062d190877735dba8c9);
+            
+    
+            var marker_e285e7b40e010bbc93be3b4526a056d6 = L.marker(
+                [45.6192462, 15.5669341],
+                {
+}
+            ).addTo(map_e1c027ab9f7b21192823ea349ebc0e6f);
+        
+    
+            var beautify_icon_59048512b6c971f25bdae1877c59753f = new L.BeautifyIcon.icon(
+                {
+  "icon": "arrow-down",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#004506",
+  "textColor": "#004506",
+  "backgroundColor": "#FFF",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_e285e7b40e010bbc93be3b4526a056d6.setIcon(beautify_icon_59048512b6c971f25bdae1877c59753f);
+        
+    
+        var popup_44b9018a0eb58b45bb94ce0a63896340 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_96e1e6f4a6411e8bb386787617b52588 = $(`<div id="html_96e1e6f4a6411e8bb386787617b52588" style="width: 100.0%; height: 100.0%;"><a href='#' onclick="notifyParent('jastrebarsko-okolica-vuksin-sipak')">Vukšin Šipak</a></div>`)[0];
+                popup_44b9018a0eb58b45bb94ce0a63896340.setContent(html_96e1e6f4a6411e8bb386787617b52588);
+            
+        
+
+        marker_e285e7b40e010bbc93be3b4526a056d6.bindPopup(popup_44b9018a0eb58b45bb94ce0a63896340)
+        ;
+
+        
+    
+    
+                marker_e285e7b40e010bbc93be3b4526a056d6.setIcon(beautify_icon_59048512b6c971f25bdae1877c59753f);
+            
+</script>
+</html>

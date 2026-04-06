@@ -65,7 +65,7 @@ all_cities = [
     ]
 
 headers = {'Accept':	'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-    'Accept-Encoding':	'gzip, deflate, br, zstd',
+    'Accept-Encoding':	'gzip, deflate',
     'Accept-Language':	'en-US,fr;q=0.8,hr;q=0.5,en;q=0.3',
     'Connection':	'keep-alive',
     'DNT':	'1',
@@ -93,31 +93,33 @@ def get_cities_from_Njuskalo(topic):
             for item in all_items:
                 if item.get_attribute("class")=='CategoryListing-topCategoryItem':
                     item_element = item.locator("a")
-                    city = item_element.inner_html().strip()
-                    if city in selection:
+                    city = item_element.inner_html().strip()[8:-8]
+                    if True: #city in selection:
                         list_of_cities.append(city)
                         just_link.append(item_element.get_attribute("href"))
                         njuskalo_link.append('<a href=\''+item_element.get_attribute("href")+'\'>'+item_element.inner_html().strip()+'</a>')
 
-        city = "Ogulin"
-        list_of_cities.append(city)
-        just_link.append("https://www.njuskalo.hr/prodaja-kuca/Ogulin")
-        njuskalo_link.append("<a href='https://www.njuskalo.hr/prodaja-kuca/Ogulin'>Ogulin</a>")
+        #city = "Ogulin"
+        #list_of_cities.append(city)
+        #just_link.append("https://www.njuskalo.hr/prodaja-kuca/Ogulin")
+        #njuskalo_link.append("<a href='https://www.njuskalo.hr/prodaja-kuca/Ogulin'>Ogulin</a>")
  
+        if False:
+            for link in just_link:
+                time.sleep(1+random.choice(list1))
+                page.goto(link)
 
-        for link in just_link:
-            time.sleep(1+random.choice(list1))
-            page.goto(link)
+                all_items = page.locator("li").all()
 
-            all_items = page.locator("li").all()
-
-            for item in all_items:
-                if item.get_attribute("class")=='CategoryListing-topCategoryItem':
-                    item_element = item.locator("a")
-                    detail_list_of_cities.append(item_element.inner_html().strip())
-                    detail_just_link.append(item_element.get_attribute("href"))
-                    detail_njuskalo_link.append('<a href=\''+item_element.get_attribute("href")+'\'>'+item_element.inner_html().strip()+'</a>')
-                
+                for item in all_items:
+                    if item.get_attribute("class")=='CategoryListing-topCategoryItem':
+                        item_element = item.locator("a")
+                        detail_list_of_cities.append(item_element.inner_html().strip())
+                        detail_just_link.append(item_element.get_attribute("href"))
+                        detail_njuskalo_link.append('<a href=\''+item_element.get_attribute("href")+'\'>'+item_element.inner_html().strip()+'</a>')
+        detail_list_of_cities = list_of_cities
+        detail_just_link = just_link
+        detail_njuskalo_link = njuskalo_link
         browser.close()
 
 def save_cities_to_json(filename):
@@ -149,7 +151,7 @@ def add_price_in_listings(link_list,max_price):
 
 def display_cities_on_map(region, list_of_cities, just_link, numbers_in_city, html_filename):
 
-    #headers={'User-Agent': 'Mozilla/5.0'}
+    #headers={'User-Agent': 'Mozilla/5.0', "Referer": "https://yourwebsite.com"}
     
     with open("latitude_"+region+".json", 'r') as outfile:
         latitudes = json.load(outfile)
@@ -169,7 +171,8 @@ def display_cities_on_map(region, list_of_cities, just_link, numbers_in_city, ht
                         'Durations':durations})
 
     #center = [45.1816824,13.86411] #Istra
-    center = [45.31155, 14.84928] #GKotar
+    #center = [45.31155, 14.84928] #GKotar
+    center = [45.6992462, 15.5669341] #Jastrebarsko
     m = folium.Map(location=center, tiles="OpenStreetMap", zoom_start=10)
 
     for i in range(0,len(df)):
@@ -231,13 +234,16 @@ def get_lat_lon(name,list_of_cities):
             city = 'MONTE sERPO'
         #city=city + ', istra'
         print(city)
-        url='https://nominatim.openstreetmap.org/search?q='+city+'&format=jsonv2'
+        url='https://nominatim.openstreetmap.org/search?city='+city+'&format=jsonv2&county=Jastrebarsko'
         r= requests.get(url, headers=headers)
         if r.json() == []:
-            url='https://nominatim.openstreetmap.org/search?q='+city.split()[0]+'&format=jsonv2'
+            url='https://nominatim.openstreetmap.org/search?city='+city.split()[0]+'&format=jsonv2'
             r= requests.get(url, headers=headers)
         if r.json() == []:
             url='https://nominatim.openstreetmap.org/search?q=zagreb&format=jsonv2'
+            r= requests.get(url, headers=headers)
+        if city == 'Sveta Jana':
+            url='https://nominatim.openstreetmap.org/search?q=Gorica+Svetojanska&format=jsonv2'
             r= requests.get(url, headers=headers)
         latitudes.append(r.json()[0]['lat'])
         longitudes.append(r.json()[0]['lon'])
@@ -359,7 +365,7 @@ def get_duration(location):
     duration = r.json()['durations'][0][1]/60
     return duration
 
-region = "GKotar"
+region = "Jastrebarsko"
 detail = "detail_"
 
 list_of_cities=[]
@@ -379,11 +385,14 @@ if False:
         get_cities_from_Njuskalo("prodaja-kuca/licko-senjska")   
     elif region == "karlovac":
         get_cities_from_Njuskalo("prodaja-kuca/karlovacka")   
+    elif region == "Jastrebarsko":
+        get_cities_from_Njuskalo("prodaja-kuca/jastrebarsko-okolica")   
     else:
         exit
     save_cities_to_json("city_save_"+region+".json")
-
+pass
 list_of_cities, just_link = open_from_json(detail+'list_of_cities',detail+'just_link','city_save_'+region+'.json')
+list_of_cities, just_link = open_from_json('list_of_cities', 'just_link', 'city_save_'+region+'.json')
 
 #list_of_cities = detail_list_of_cities
 #just_link = detail_just_link
@@ -413,6 +422,6 @@ numbers_in_city = [''] * len(just_link)
 pass
 #numbers_in_city = [''] * len(just_link)
 
-#get_lat_lon(region,list_of_cities)
+get_lat_lon(region,list_of_cities)
 
 display_cities_on_map(region, list_of_cities, just_link, numbers_in_city, detail+'footprint_'+region+'.html')
